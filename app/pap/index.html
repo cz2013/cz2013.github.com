@@ -1,0 +1,119 @@
+<html>
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<title>ping a ping</title>
+<script type="text/javascript" src="/media/js/common/jquery-1.7.1.min.js"></script>
+<style>
+body{background:#888;font-family: "Microsoft YaHei"; font-size: 14px; color: #ffffff;margin:0px;padding: 0px;}
+.container{position:relative;width:1000px;margin:0 auto;padding:15px;box-shadow: 1px 2px 2px #000;background-color:#404040;}
+h3{font-size: 20px;}
+.mainDiv{position: relative;width:100%;height:500px;}
+.compareImg{position:absolute;top:3px; left:0px;width:450px;height:450px;background:url(/media/images/app/compareImg.jpg) no-repeat;box-shadow: 1px 1px 1px #222;}
+.gameBox{position:absolute;top:0px; left:460px;width:456px;height:456px;background-color: #686868;}
+#moveBox{position: relative;width:456;height:456px;overflow: hidden;}
+#moveBox div{display:inline-block;width:150px;height:150px;}
+#moveBox .moveDiv{cursor:pointer;margin:1px;}
+#moveBox .moveDiv:hover{margin:0px 0px 2px 2px;}
+#moveDiv_0{background: url(/media/images/app/img0.jpg) no-repeat;}
+#moveDiv_1{background: url(/media/images/app/img1.jpg) no-repeat;}
+#moveDiv_2{background: url(/media/images/app/img2.jpg) no-repeat;}
+#moveDiv_3{background: url(/media/images/app/img3.jpg) no-repeat;}
+#moveDiv_4{background: url(/media/images/app/img4.jpg) no-repeat;}
+#moveDiv_5{background: url(/media/images/app/img5.jpg) no-repeat;}
+#moveDiv_6{background: url(/media/images/app/img6.jpg) no-repeat;}
+#moveDiv_7{background: url(/media/images/app/img7.jpg) no-repeat;}
+</style>
+</head>
+<body>
+<div class="container">
+    <h3>ping a ping</h3>
+    <p>我们来比比看，谁先拼完正确的图形！</p>
+    <div class="mainDiv">
+        <div class="compareImg"></div>
+        <div class="gameBox">
+            <div id="moveBox"></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+/*
+jigsaw: 一款js开发的拼图游戏
+auther: 陈贞
+data: 2014/8/14
+逻辑设计：
+    主体分为3*3的方块区域，1个空格区域（可挪动到的位置）
+    其上有8个随机分布的方块，名称1-9，但是位置随机。每挪动一次判断方块是否按照1-9顺序排列，是即success
+
+代码设计：
+    .spaceDiv 空格模块Dom
+    .moveDiv 随机方块Dom
+    moveObjs 8个随机方块数组
+    1-8随机排序在moveObjs中，并按照对应顺序生成div
+    挪动div，相应的影响moveObjs排序
+
+
+*/
+
+(function($) {
+    var moveArr = [],//待移动的排序数据
+        inOrderArr = [0,1,2,3,4,5,6,7,8],//正确的排序数组
+        step = 0;//移动步数
+
+    start();
+
+    function start(){
+        createMoveArr();
+        renderMoveBox()
+    }
+    function createMoveArr(){
+        var copyArr = inOrderArr.slice(0,inOrderArr.length-1),
+            len = copyArr.length;
+        moveArr = [];
+        step = 0;
+        for(var i=0; i<len; i++){
+            var random =  Math.floor(Math.random()*copyArr.length);
+            moveArr.push(copyArr[random]);
+            copyArr.splice(random, 1);
+        }
+        moveArr.push(inOrderArr[inOrderArr.length-1]);
+    }
+    function renderMoveBox(){
+        var html = '',
+            len = moveArr.length;
+        for(var i=0; i<len; i++){
+            html += '<div id="moveDiv_' + moveArr[i];
+            if(i<len-1){
+                html += '" class="moveDiv"></div>'
+            }else{
+                html += '" class="spaceDiv"></div>';
+            }
+        }
+        $("#moveBox").html(html);
+        $("#moveBox").delegate(".moveDiv", 'click', function(){
+            var thisIndex = $(this).index();
+            var spaceIndex = $('.spaceDiv').index();
+
+            if(thisIndex == spaceIndex-3 || thisIndex == spaceIndex+3 || thisIndex == spaceIndex-1 || thisIndex == spaceIndex+1){
+                //上下左右
+                var thisCopy = $(this).clone(), spaceCopy = $('.spaceDiv').clone();
+                $('.spaceDiv').replaceWith(thisCopy);
+                $(this).replaceWith(spaceCopy);
+
+                var thisVal = moveArr[thisIndex], spaceVal = moveArr[spaceIndex];
+                moveArr.splice(thisIndex, 1, spaceVal);
+                moveArr.splice(spaceIndex, 1, thisVal);
+                if(moveArr.toString() == inOrderArr.toString()){
+                    if(confirm('恭喜你<span style="color:red">'+step+'</span>步顺利通关！</br>要重新开始么？')){
+                        start();
+                    }
+                }
+                step++;
+            }
+        });
+    }
+
+})(jQuery);
+</script>
+</body>
+</html>

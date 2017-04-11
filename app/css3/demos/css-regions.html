@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CSS REGIONS DEMO</title>
+<style>
+html{
+  font-family: helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.cover{
+  padding: 0;
+  overflow: hidden;
+  width:100%;
+  height: 300px;
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(/media/images/demos/6.jpg);
+  background-color: black;
+}
+.page{
+  position:relative;
+  height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+.region {
+
+  height: 90vh;
+  width: 35rem;
+  padding-left: 10rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  -moz-flow-into: myFlow;
+  -ms-flow-into: myFlow;
+  -o-flow-into: myFlow;
+  -webkit-flow-into: myFlow;
+  flow-into: myFlow;
+}
+p{text-indent: 2em;}
+aside {
+  position: absolute;
+  top: 1rem;
+  margin-left: 50rem;
+  padding-top: 2rem;
+  font-size: .8rem;
+  width: 15rem;
+  text-align: left;
+
+}
+#content{
+  -moz-flow-from: myFlow;
+  -ms-flow-from: myFlow;
+  -o-flow-from: myFlow;
+  -webkit-flow-from: myFlow;
+  flow-from: myFlow;
+}
+</style>
+</head>
+<body>
+<div class="cover page"></div>
+<div class="page">
+  <div class="region">
+    <p>自从倦于追索以来，你就学会了沉思；自从一个风向与你作对，你就乘一切风远航。</p>
+    <p>风以一个猎手的姿态瞄准了你。你被风猎取，而且永不交还。母亲比喻你为蒲公英，把你交给风，她想象你在风中翱翔、飞舞，直冲霄汉；她为你的升华脱俗而骄傲，当你不在泥土上匍匐，她在丛中笑。</p>
+    <p>她并没有把你设定为狂飙飓风，不，她只规定你为清风柔风缓缓流动的风。我行我素。不动声色。自我吹拂。波澜不惊。好比坚韧的流水磨砺棱角分明的鹅卵石，柔韧的风同样可以让坚固的外壳腐败、剥落、褪脱。它们按照它们的走向把我吹拂，我宛如风儿，与一切擦肩而过，机缘、美好、快乐以及死亡。</p>
+    <p>我是风，风把我吹拂到我不知晓的角落，没有经过我同意，把我掳掠，而且，永不交还。--------摘自《在路上》</p>
+  </div>
+  <aside>
+    <img src="/media/images/demos/4.jpg" width="500px">
+  </aside>
+</div>
+<div class="cover page"></div>
+<div class="page">
+  <div class="region">
+    <p>自从倦于追索以来，你就学会了沉思；自从一个风向与你作对，你就乘一切风远航。</p>
+    <p>风以一个猎手的姿态瞄准了你。你被风猎取，而且永不交还。母亲比喻你为蒲公英，把你交给风，她想象你在风中翱翔、飞舞，直冲霄汉；她为你的升华脱俗而骄傲，当你不在泥土上匍匐，她在丛中笑。</p>
+    <p>她并没有把你设定为狂飙飓风，不，她只规定你为清风柔风缓缓流动的风。我行我素。不动声色。自我吹拂。波澜不惊。好比坚韧的流水磨砺棱角分明的鹅卵石，柔韧的风同样可以让坚固的外壳腐败、剥落、褪脱。它们按照它们的走向把我吹拂，我宛如风儿，与一切擦肩而过，机缘、美好、快乐以及死亡。</p>
+    <p>我是风，风把我吹拂到我不知晓的角落，没有经过我同意，把我掳掠，而且，永不交还。--------摘自《在路上》</p>
+  </div>
+  <aside>
+    <img src="/media/images/demos/4.jpg" width="500px">
+  </aside>
+</div>
+<div id="content"></div>
+</body>
+</html>

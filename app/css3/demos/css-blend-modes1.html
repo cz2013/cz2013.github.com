@@ -1,0 +1,53 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CSS BLENDS DEMO</title>
+<style>
+#demo{
+    width:900px;
+    height: 600px;
+    margin: auto;
+}
+#demo div{
+    float: left;
+    width:300px;
+    height: 600px;
+}
+#demo .just-color{
+    background-color:#FFB7DD;
+}
+#demo .normal-image{
+    background-image: url(/media/images/demos/3.jpg);
+}
+#demo .bg-blend{
+  background-image: url(/media/images/demos/3.jpg);
+  background-color: #FFB7DD;
+  background-blend-mode: multiply;
+}
+#demo span{
+    font-size: 180px;
+    font-family: "Source Sans Pro";
+    color: #E8CCFF;
+    line-height: 600px;
+}
+#demo .bg-blend span{
+    mix-blend-mode: difference;
+}
+#demo .clear{clear:both;}
+</style>
+</head>
+<body>
+<div id="demo">
+  <div class="just-color">
+    <span>CSS</span>
+  </div>
+  <div class="normal-image">
+    <span>CSS</span>
+  </div>
+  <div class="bg-blend">
+    <span>CSS</span>
+  </div>
+  <div class="clear"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!--
+    Powered By nodePPT - This is probably the best web presentation tool so far!
+    version: 0.9.8-5
+    site: https://github.com/ksky521/nodePPT
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Material Design - By chenzhen</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    <link rel="stylesheet" media="print" href="./css/pdf.css">
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>有趣的CSS3新技术</h1>
+<p><small>陈贞</small></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<p><img src="./img/1.jpg"></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>Responsive Web Design</h2>
+
+</hgroup><article>
+
+<div>
+    <img src="./img/2.jpg">
+    <p><a href="http://aneventapart.com/speakers/ethan-marcotte?/speakers/ethanmarcotte/" target="_blank">Ethan Marcotte</a></p>
+    <p>2010年5月</p>
+    <p><strong style="color:yellow;">1</strong>个网站能够兼容
+    <strong style="color:yellow;">n</strong>(多)个终端</p>
+    </br>
+    <p>这个概念是为解决<strong>移动互联网浏览</strong>而诞生的。</p>
+
+</div>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>SHAPES</h2>
+
+</hgroup><article>
+
+<embed src="./img/3.svg" width ="500" type ="image/svg+xml" />
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<p><img style="float:left;" src="./img/4.jpg"></p>
+<ul style="float:right;width:450px;text-align:left;font-size:24px;">
+    <li>2012年中旬，Adobe提出CSS Shape规范</li>
+    <li>目标：提供一种新的方式，改变任意复杂形状周围或者内部内容布局。</li>
+    <li>目前只有Webkit Nightly和Chrome Canary支持CSS Shape，但是它的Model Level 1已经是Candidate Recommendation（候选推荐）了，因此在规范中定义的属性和语法已经很稳定。</li>
+</ul>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<ul>
+<li>shape-outside：限制形状周围的内容</li>
+<li>shape-inside：限制形状内部的内容</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<ul>
+<li><a href="http://cz2013.github.io/myApp/css3/demos/shaps-circle.html" target="_blank">circle()</a></li>
+<li>ellipse()</li>
+<li>inset()</li>
+<li>polygon()</li>
+<li><a href="http://cz2013.github.io/myApp/css3/demos/shaps-url.html" target="_blank">url(...)</a></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<ul>
+<li><strong>元素必须是浮动的。</strong>新版的CSS Shape可以允许我们定义一个非浮动元素的形状，但是现在还不行；</li>
+<li><strong>元素必须有确定的尺寸。</strong>元素的宽度和高度被用来建立这个元素上的坐标系统。</li>
+<li>shape-outside可以满足响应式布局，shape-inside还不是，它被推迟到了Module Level 2中。</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>浏览器支持</h2>
+
+</hgroup><article>
+
+<p><img src="./img/4-1.jpg" ></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>参考资料</h2>
+
+</hgroup><article>
+
+<ul>
+<li><a href="http://webplatform.adobe.com/shapes" target="_blank">SHAPES</a></li>
+<li><a href="http://www.w3.org/TR/css-shapes/" target="_blank">CSS Shapes Module Level 1</a></li>
+<li><a href="http://zhuanlan.zhihu.com/FrontendMagazine/19774074" target="_blank">深入浅出 CSS Shape</a></li>
+<li><a href="http://www.w3cplus.com/css3/css-shapes-breaking-rectangular-design.html" target="_blank">CSS Shapes：打破矩形设计的限制</a></li>
+<li><a href="http://webplatform.adobe.com/enable/" target="_blank">配置浏览器支持新特性</a></li>
+<li><a href="http://betravis.github.io/shape-tools/" target="_blank">Shape工具</a></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>BLEND MODES</h2>
+
+</hgroup><article>
+
+<embed src="./img/5.svg" width ="500" type ="image/svg+xml" />
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<p><img src="./img/6.png" width="500"></p>
+<p>
+    混合模式是指将上层的图像融入下层图像时采用的各种模式。根据您所选择的模式，你会看到不同的融合后的效果。
+</p>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+
+<ul>
+<li>background-blend-mode的值可以设置为：<span style="color:yellow">Multiply, screen, overlay, darken, lighten, color-dodge, color-burn, hard-light, soft-light, difference, exclusion, hue, saturation, color, luminosity 和 normal</span>。</li>
+<li><a href="http://cz2013.github.io/myApp/css3/demos/css-blend-modes1.html" target="_blank">测试用例1</a></li>
+<li><a href="http://codepen.io/adobe/pen/FeiCp" target="_blank">测试用例2</a></li>
+<li><a href="http://cz2013.github.io/myApp/css3/demos/css-blend-modes2.html" target="_blank">测试用例3</a></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>浏览器支持</h2>
+
+</hgroup><article>
+
+<p><img src="./img/7.jpg" ></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>参考资料</h2>
+
+</hgroup><article>
+
+<ul>
+<li><a href="http://webplatform.adobe.com/blend-modes/" target="_blank">BLEND MODES</a></li>
+<li><a href="http://www.w3cplus.com/css3/basics-css-blend-modes.html" target="_blank">CSS混合模式</a></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>SVG</h2>
+
+</hgroup><article>
+
+<embed src="./img/8.svg" width ="500" type ="image/svg+xml" />
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<style>
+#cat {
+  max-width: 300px;
+  margin: 0 auto;
+}
+</style><div id="cat">
+    <embed src="./img/9.svg" type ="image/svg+xml"  />
+</div><ul>
+<li>SVG(Scalable Vector Graphics，可缩放矢量图形)，XML语言的一种,用于描述二维矢量图形的一种图形格式。</li>
+<li>2003年1月，SVG 1.1 被确立为 W3C 标准。</li>
+<li>SVG 与其他标准（比如 XSL 和 DOM）相兼容。</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>SVG ICON</h2>
+
+</hgroup><article>
+
+<p><img src="./img/9-1.jpg" width="260" /></p>
+<ul>
+<li><a href="http://codepen.io/pukhalski/pen/hFLDG" target="_blank">测试用例</a></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>浏览器支持</h2>
+
+</hgroup><article>
+
+<p><img src="./img/10.jpg" ></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>参考资料</h2>
+
+</hgroup><article>
+
+<ul>
+<li><a href="http://webplatform.adobe.com/svg/" target="_blank">SVG</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank">SVG Tutorial</a></li>
+<li><a href="http://www.html5rocks.com/en/tutorials/svg/mobile_fundamentals/" target="_blank">Splash Vector Graphics on your Responsive Site</a></li>
+<li><a href="http://www.smashingmagazine.com/2014/03/05/rethinking-responsive-svg/" target="_blank">Rethinking Responsive SVG</a></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>CSS Regions</h2>
+
+</hgroup><article>
+
+<embed src="./img/11.svg" width ="500" type ="image/svg+xml" />
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>CSS Regions</h2>
+
+</hgroup><article>
+
+<p><img src="./img/12.gif" ></p>
+<ul>
+<li>该模块提供了一个先进的内容流机制，允许页面中的内容指向任意区域，即页面文档流可以不连续。</li>
+<li>涉及到的属性：flow-into | flow-from</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>HTML</h2>
+
+</hgroup><article>
+
+<pre><code class="html">
+&lt;div class="myRegion"&gt;&lt;/div&gt;
+&lt;div class="myRegion"&gt;&lt;/div&gt;
+&lt;div class="myRegion"&gt;&lt;/div&gt;
+
+&lt;div id="myContent"&gt;...&lt;/div&gt;
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>CSS</h2>
+
+</hgroup><article>
+
+<pre><code class="html">
+#myContent {
+    flow-into: myNamedFlow;
+}
+
+.myRegion {
+    flow-from: myNamedFlow;
+}
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>浏览器支持</h2>
+
+</hgroup><article>
+
+<p><img src="./img/13.jpg" ></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>参考资料</h2>
+
+</hgroup><article>
+
+<ul>
+<li><a href="http://webplatform.adobe.com/regions/" target="_blank">REGIONS</a></li>
+<li><a href="http://sarasoueidan.com/blog/css-regions-with-shapes-for-readability/" target="_blank">Using CSS Regions With CSS Shapes For A Better Reading Experience</a></li>
+<li><a href="http://www.smashingmagazine.com/2013/11/05/killer-responsive-layouts-with-css-regions/" target="_blank">Killer Responsive Layouts With CSS Regions</a></li>
+<li><a href="http://sarasoueidan.com/blog/css-regions-matter/" target="_blank">CSS Regions Matter</a></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>THANKS！</h1>
+</article></section></slide>
+        <!--slide class="slide thank-you-slide segue nobackground">
+            <article class="flexbox vleft auto-fadein">
+                <h2>Q &amp; A</h2>
+                <h3>&lt;Thank You!&gt;</h3>
+            </article>
+        </slide-->
+        <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+              <h2 style="color: white;">Powered By nodePPT v0.9.8-5</h2>
+            </article>
+          </slide>
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = location.pathname.split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'card',
+    width: 1100,
+    dir: './',
+
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/hljs-0.8.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+
+</body>
+</html>

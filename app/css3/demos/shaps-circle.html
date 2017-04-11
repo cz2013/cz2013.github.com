@@ -1,0 +1,119 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CSS SHAPS DEMO</title>
+<style>
+body{
+  background: #FFF2B5;
+  font-family: calibri;
+}
+.container {
+  width: 60%;
+  margin: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 620px;
+  max-width: 1766px;
+}
+
+#circleDiv{
+  display: block;
+  float: left;
+  width: 200px;
+  height: 200px;
+  border-radius:50%;
+  shape-outside: circle();
+  margin: 10px;
+}
+#ellipseDiv{
+  display: block;
+  float: left;
+  width: 200px;
+  border-radius:50%;
+  shape-outside: ellipse();
+  margin: 10px;
+}
+#insetDiv{
+  display: block;
+  float: left;
+  width: 200px;
+  border-radius:50px;
+  shape-outside: inset(0px round 50px) border-box;
+  shape-margin: 10px;
+  margin: 10px;
+}
+#polygonDiv{
+  display: block;
+  float: left;
+  width: 820px;
+  shape-outside: polygon(0px 543.00px,320px 543px,400px 410px,330px 220px,360px 108px,355px 0px,0px 0px);
+}
+.polygonContainer{
+  width: 820px;
+}
+.polygonContainer p{
+  color: #d1d1d1;
+  padding-top: 7%;
+}
+p {
+  padding-right: 7%;
+  line-height: 24px;
+  font-size: 14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>circle方法</h2>
+    <img id="circleDiv" src="/media/images/demos/1.jpg"/>
+    <p>
+      CSS Shapes lets CSS layout go on beyond rectangles.
+    </p>
+    <p>
+      Everything in traditional CSS layout is a rectangular box. Some properties like border-radius can change the display of that box. But the border display does not affect how content is laid out in and around the box. CSS Shapes are starting to let layout use these and other non-rectangular shapes.
+    </p>
+    <p>
+      In the first step, CSS Shapes allows you to add a shape to a float. You use the new shape-outside property for this. Content next to the float will flow around the shape. This can be the standard float rectangle. Or it can be the actual shape of a rounded-corner border. Or it can be the alpha contours of an image. Or it can be a polygon you draw yourself.
+    </p>
+</div>
+<div class="container">
+    <h2>ellipse方法</h2>
+    <img id="ellipseDiv" src="/media/images/demos/1.jpg"/>
+   <p>
+      CSS Shapes lets CSS layout go on beyond rectangles.
+    </p>
+    <p>
+      Everything in traditional CSS layout is a rectangular box. Some properties like border-radius can change the display of that box. But the border display does not affect how content is laid out in and around the box. CSS Shapes are starting to let layout use these and other non-rectangular shapes.
+    </p>
+    <p>
+      In the first step, CSS Shapes allows you to add a shape to a float. You use the new shape-outside property for this. Content next to the float will flow around the shape. This can be the standard float rectangle. Or it can be the actual shape of a rounded-corner border. Or it can be the alpha contours of an image. Or it can be a polygon you draw yourself.
+    </p>
+</div>
+<div class="container">
+    <h2>inset方法</h2>
+    <img id="insetDiv" src="/media/images/demos/1.jpg"/>
+   <p>
+      CSS Shapes lets CSS layout go on beyond rectangles.
+    </p>
+    <p>
+      Everything in traditional CSS layout is a rectangular box. Some properties like border-radius can change the display of that box. But the border display does not affect how content is laid out in and around the box. CSS Shapes are starting to let layout use these and other non-rectangular shapes.
+    </p>
+    <p>
+      In the first step, CSS Shapes allows you to add a shape to a float. You use the new shape-outside property for this. Content next to the float will flow around the shape. This can be the standard float rectangle. Or it can be the actual shape of a rounded-corner border. Or it can be the alpha contours of an image. Or it can be a polygon you draw yourself.
+    </p>
+</div>
+<div class="container polygonContainer">
+    <h2>polygon方法</h2>
+    <img id="polygonDiv" src="/media/images/demos/1.jpg"/>
+   <p>
+      CSS Shapes lets CSS layout go on beyond rectangles.
+    </p>
+    <p>
+      Everything in traditional CSS layout is a rectangular box. Some properties like border-radius can change the display of that box. But the border display does not affect how content is laid out in and around the box. CSS Shapes are starting to let layout use these and other non-rectangular shapes.
+    </p>
+    <p>
+      In the first step, CSS Shapes allows you to add a shape to a float. You use the new shape-outside property for this. Content next to the float will flow around the shape. This can be the standard float rectangle. Or it can be the actual shape of a rounded-corner border. Or it can be the alpha contours of an image. Or it can be a polygon you draw yourself.
+    </p>
+</div>
+</body>
+</html>
