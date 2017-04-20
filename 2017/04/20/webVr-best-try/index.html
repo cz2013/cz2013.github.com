@@ -6,14 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cz2013.github.io">
-  <title>Category: 前端技术 | cz2013</title>
+  <title>WebVR最佳实践探索 | cz2013</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="cz2013">
-<meta property="og:url" content="http://cz2013.github.io/categories/前端技术/index.html">
+  <meta name="description" content="前段时间研究了一下webVR，对使用a-frame开发webVR做了一个简要介绍和入门级的实例分享（《WebVR之A-Frame开发分享》）。这个分享是针对现有的a-frame API和对外的示例Demo开发的，但是在实际的开发过程中，遇到了很多新的需求和API Demo上都介绍不明确的地方。加上a-frame中文文档的缺失，现有相关中文分享也比较匮乏，在后面对外系统的webVR页面开发时遇到了很">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WebVR最佳实践探索">
+<meta property="og:url" content="http://cz2013.github.io/2017/04/20/webVr-best-try/index.html">
 <meta property="og:site_name" content="cz2013">
+<meta property="og:description" content="前段时间研究了一下webVR，对使用a-frame开发webVR做了一个简要介绍和入门级的实例分享（《WebVR之A-Frame开发分享》）。这个分享是针对现有的a-frame API和对外的示例Demo开发的，但是在实际的开发过程中，遇到了很多新的需求和API Demo上都介绍不明确的地方。加上a-frame中文文档的缺失，现有相关中文分享也比较匮乏，在后面对外系统的webVR页面开发时遇到了很">
+<meta property="og:image" content="http://cz2013.github.io/asset/images/magic.jpg">
+<meta property="og:updated_time" content="2017-04-20T07:37:26.613Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cz2013">
+<meta name="twitter:title" content="WebVR最佳实践探索">
+<meta name="twitter:description" content="前段时间研究了一下webVR，对使用a-frame开发webVR做了一个简要介绍和入门级的实例分享（《WebVR之A-Frame开发分享》）。这个分享是针对现有的a-frame API和对外的示例Demo开发的，但是在实际的开发过程中，遇到了很多新的需求和API Demo上都介绍不明确的地方。加上a-frame中文文档的缺失，现有相关中文分享也比较匮乏，在后面对外系统的webVR页面开发时遇到了很">
+<meta name="twitter:image" content="http://cz2013.github.io/asset/images/magic.jpg">
   
     <link rel="alternative" href="/atom.xml" title="cz2013" type="application/atom+xml">
   
@@ -154,209 +160,95 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-webVr-best-try" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      WebVR最佳实践探索
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/20/webVr-best-try/" class="archive-article-date">
+
+        
+        <a href="/2017/04/20/webVr-best-try/" class="archive-article-date">
   	<time datetime="2017-04-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-20</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/20/webVr-best-try/">WebVR最佳实践探索</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+        
+      </header>
     
-    
+    <div class="article-entry" itemprop="articleBody">
       
-        </div></section>
+        <p>前段时间研究了一下webVR，对使用a-frame开发webVR做了一个简要介绍和入门级的实例分享（《WebVR之A-Frame开发分享》）。这个分享是针对现有的a-frame API和对外的示例Demo开发的，但是在实际的开发过程中，遇到了很多新的需求和API Demo上都介绍不明确的地方。加上a-frame中文文档的缺失，现有相关中文分享也比较匮乏，在后面对外系统的webVR页面开发时遇到了很多问题，这里想和大家一起分享。也为a-frame和webVr的开发做点自己的微末贡献。</p>
+<p>题目叫webVr最佳实践探索，不见得是最佳实践，所以加上探索二字。如果有更好的方法欢迎大家给予建议。<br><a id="more"></a></p>
+<h3 id="引入a-frame-js文件"><a href="#引入a-frame-js文件" class="headerlink" title="引入a-frame js文件"></a>引入a-frame js文件</h3><p>发现官网上提供的js文件，demo引入的js文件五花八门。而且a-frame官网提供的js版本更新快，api文档也在经常更新。那到底引入哪个js文件呢？他们之间的区别在哪里？</p>
+<p>下面整理了下遇到的几款js：</p>
+<blockquote>
+<p>aframe-vx.x.x.min.js：可通过<a href="https://aframe.io/releases/x.x.x/" target="_blank" rel="external">https://aframe.io/releases/x.x.x/</a><filename>来引用，x.x.x表示最新稳定版本号，推荐使用。项目中我是下载放入本地引用的最新版aframe-v0.5.0.min.js。<br>aframe-master.min.js：master版本不稳定的包含新功能的a-frame版本，我的开发中一度用的是这个版本。尝鲜用~<br>aframe-animation-component.min.js：aframe-xxx-component.min.js是aframe的一些模块扩展js，例如常用的动画效果模块js。实际中未用到，但是可以参照下面网址：<a href="https://github.com/ngokevin/kframe/tree/master/components/animation" target="_blank" rel="external">https://github.com/ngokevin/kframe/tree/master/components/animation</a><br>aframe-extras.xxx.min.js：A-Frame VR的附加组件和助手。常用到aframe-extras.loaders.min.js，来加载3d模型文件obj等。具体可参考网址：<a href="https://github.com/donmccurdy/aframe-extras" target="_blank" rel="external">https://github.com/donmccurdy/aframe-extras</a></filename></p>
+</blockquote>
+<p><em>这里不讨论min和非min，大家都知道，是否压缩处理的区别</em></p>
+<h3 id="AFRAME-registerComponent的引入位置"><a href="#AFRAME-registerComponent的引入位置" class="headerlink" title="AFRAME.registerComponent的引入位置"></a>AFRAME.registerComponent的引入位置</h3><p>按照一般的开发逻辑思维，会将对元素的事件监听绑定行为放在底部，在dom元素加载完进行绑定。但是在实际开发中遇到了问题。我的写法是这样：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">......</div><div class="line">&lt;script src=<span class="string">"/src/aframe-v0.5.0.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;a-scene&gt;</div><div class="line">......</div><div class="line">&lt;/a-scene&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">......</div><div class="line">AFRAME.registerComponent(<span class="string">'cursor-listener'</span>, &#123;</div><div class="line">           ......</div><div class="line">&#125;);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>然后运行后发现部分cursor-listener元素并没有绑定事件成功。后来研究发现，script引入的位置放在前面能避免这个问题。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">......</div><div class="line">&lt;script src=<span class="string">"/src/aframe-v0.5.0.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">......</div><div class="line">AFRAME.registerComponent(<span class="string">'cursor-listener'</span>, &#123;</div><div class="line">           ......</div><div class="line">&#125;);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;a-scene&gt;</div><div class="line">......</div><div class="line">&lt;/a-scene&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>我理解是a-frame是对<a-scene>内元素进行了语法解析，最后生成的canvas插入dom元素中。把事件监听绑定放在前面，按照从前往后解析的顺序，才会在解析时同时进行事件绑定。而放在后面的话，canvas生成正在进行中，事件绑定出现遗漏。</a-scene></p>
+<h3 id="中文字体"><a href="#中文字体" class="headerlink" title="中文字体"></a>中文字体</h3><p>在展示文字的过程中，发现不支持中文直接作为<a-text>的value值直接展示。现有的aframe文字demo也全部用的英文。怎么解决？问吧：<br><a href="http://stackoverflow.com/questions/42688290/aframehow-show-chinese-characters-in-aframe" target="_blank" rel="external">http://stackoverflow.com/questions/42688290/aframehow-show-chinese-characters-in-aframe</a></a-text></p>
+<p>直接上解决方法：</p>
+<p>通过sdf font的方式，用herio制作中文字体，注意，只能制作成一张png，否则报错。具体步骤如下：</p>
+<blockquote>
+<p>1、下载Hiero：nightlies/runnables/runnable-hiero.jar<br>2、运行herio：在hiero下载文件夹路径下运行<br>java -jar runnable-hiero.jar<br>3、编辑字体：可以看到Hiero里有下面一些操作项。在1中选择字体，如微软雅黑；选择渲染方式java；在3中添加需要用该字体展现的所有文字和符号，记住，遗漏的话这个字最后也无法展现在页面上哦；4里面是效果选择，双击内容会在5处生成相关项；在6处编辑字体的边距等格式；在7处注意保证pages是1，即最后只生成一张.png；最后在8处保存生成字体。</p>
+</blockquote>
+<p><a href="https://github.com/libgdx/libgdx/wiki/Distance-field-fonts" target="_blank" rel="external">https://github.com/libgdx/libgdx/wiki/Distance-field-fonts</a></p>
+<blockquote>
+<p>4、调用字体：字体生成后就是调用了，在<a-assets>中添加字体类，后面直接调用：</a-assets></p>
+</blockquote>
+<p><a-assets><br>……<br><a-mixin id="text" text="align: left;width: 20; wrapCount:40;color: white;font: /asset/font/yahei.fnt;"></a-mixin><br>……<br></a-assets><br>……<br><a-text mixin="text" text="wrap-count:60;value: 测试"></a-text><br>……</p>
+<p>4、加载优化<br>当这个demo里充斥了大量的图片时，加载优化就变得十分需要了。<br>4.1、图片处理：图片需要处理成web格式。这个大家都知道就不说了。<br>4.2、异步请求：在demo里有很多事件触发后才需要加载的图片。而我们如果直接写入<a-scene>中，不管是在<a-assets>内加载图片后面调用，还是在具体元素里写入路径引入图片，a-frame在加载时都会去下载这个图片，处理完后最后才会生成界面，造成不必要的等待和页面空白。这里我们使用js异步加载，即触发事件后再对src进行编辑写入。我们demo里有个照片墙，点击进入后才会展示十几张照片。这种优化能很大的提高用户体验。<br>4.3、为了代码简洁美观，推荐使用<a-assets>存放静态资源信息、<a-mixin>等。</a-mixin></a-assets></a-assets></a-scene></p>
+<p>5、奇葩的video<br>现在a-frame官方提供的video demo和我找到的video demo就是简单的电影播放功能，甚至连play、pause控制方法都没有明确的示例。想要一个电影屏幕的点击播放和暂停的控制，按照官网的api来开发，发现报错或者不管用。<br>首先先介绍下需求：<br>展示墙上两个video的静态图片，这个直接用jpg就可以搞定。</p>
+<p>绑定事件，点击后进入播放状态：</p>
+<p>点击返回就回到上一界面。下次点开继续播放。</p>
+<p>然后问题就出现了。如果把video的资源放入<a-assets>中，那么及时实际的dom元素里没引入，也会自动下载播放这个视频。如果将video放到触发事件后再加入，第一次播放正常了，点击返回后video还是没控制关闭，继续在播放。哭~</a-assets></p>
+<p>最后发现，video非常奇葩的把控制权放到了静态资源中。什么意思呢？就是需要在<a-assets>中引入video静态资源，实际<a-videosphere>中引入src为这个静态资源，但是js中事件触发控制的不是<a-videosphere>进行play()或者pause()，而是获取到这个静态资源进行play()或者pause()。这个和一般的使用方法有区别，导致出现前面控制不了的情况。</a-videosphere></a-videosphere></a-assets></p>
+<p><a-assets><br>        <img id="magic-i" src="/asset/images/magic.jpg"><br>        <video id="magic-v" src="/asset/video/magic.mp4"></video><br>……<br></a-assets><br>……<br><a-videosphere mixin="video" autoplay="false"></a-videosphere><br>……</p>
+<p>js代码：<br>……<br>var videoSphere = document.querySelector(‘a-videosphere’);<br>……<br>videoSphere.setAttribute(‘src’, ‘#’+id+’-v’);<br>document.querySelector(‘#’+id+’-v’).play();<br>……</p>
+<p>6、visible<br>我们的这个示例demo涉及到很多场景的切换，这里我使用的是对元素visible的设置。一个场景用一个大的<a-entity>包裹，通过控制这些父元素的隐藏展现来实现场景的切换。但是会遇到这么个问题：父元素隐藏，但是实际上鼠标在移动的过程中，隐藏的物体还是会触发事件，会遮挡实际应该展现的元素的事件触发。</a-entity></p>
+<p>有人认为尽量不使用visible，而是使用opacity来控制展现隐藏。但是在涉及父元素控制整个场景的隐藏时opacity不能控制里面的元素。所以我还是用的visible。同时为了避免前面说到的问题，隐藏元素会整个的挪动位置，展现时再把位置挪动回来。</p>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢打赏<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/11/25/webvr/" class="archive-article-date">
-  	<time datetime="2016-11-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/25/webvr/">WebVR之A-Frame开发分享</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/12/react-native-android/" class="archive-article-date">
-  	<time datetime="2016-05-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/12/react-native-android/">在win7上搭建react native android环境</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/07/webpack/" class="archive-article-date">
-  	<time datetime="2016-03-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/07/webpack/">webpack分享</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/23/cache/" class="archive-article-date">
-  	<time datetime="2015-09-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/23/cache/">Cache</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -369,211 +261,86 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://cz2013.github.io/2017/04/20/webVr-best-try/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/18/cookie/" class="archive-article-date">
-  	<time datetime="2015-09-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/18/cookie/">Cookie</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/04/11/hexoBlog/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo搭建博客</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/31/amcharts/" class="archive-article-date">
-  	<time datetime="2015-08-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/31/amcharts/">amcharts v.3开发小结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/27/promise/" class="archive-article-date">
-  	<time datetime="2015-08-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/27/promise/">Javascript Promise技术</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/04/3dCanvas/" class="archive-article-date">
-  	<time datetime="2015-08-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/04/3dCanvas/">3D Canvas技术</a>
-    </h1>
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/03/31/Canvas-Clock/" class="archive-article-date">
-  	<time datetime="2015-03-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-03-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/03/31/Canvas-Clock/">使用canvas绘制时钟</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/categories/前端技术/page/2/">2</a><a class="page-number" href="/categories/前端技术/page/3/">3</a><a class="extend next" rel="next" href="/categories/前端技术/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -596,10 +363,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		root: "/",
 		innerArchive: true,

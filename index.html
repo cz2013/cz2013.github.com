@@ -156,6 +156,71 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-webVr-best-try" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/20/webVr-best-try/">WebVR最佳实践探索</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/20/webVr-best-try/" class="archive-article-date">
+  	<time datetime="2017-04-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前段时间研究了一下webVR，对使用a-frame开发webVR做了一个简要介绍和入门级的实例分享（《WebVR之A-Frame开发分享》）。这个分享是针对现有的a-frame API和对外的示例Demo开发的，但是在实际的开发过程中，遇到了很多新的需求和API Demo上都介绍不明确的地方。加上a-frame中文文档的缺失，现有相关中文分享也比较匮乏，在后面对外系统的webVR页面开发时遇到了很多问题，这里想和大家一起分享。也为a-frame和webVr的开发做点自己的微末贡献。</p>
+<p>题目叫webVr最佳实践探索，不见得是最佳实践，所以加上探索二字。如果有更好的方法欢迎大家给予建议。<br>
+        
+          <a class="article-more-a" href="/2017/04/20/webVr-best-try/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/20/webVr-best-try/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-hexoBlog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -705,153 +770,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2015/08/04/3dCanvas/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Canvas-Clock" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/31/Canvas-Clock/">使用canvas绘制时钟</a>
-    </h1>
-  
-
-        
-        <a href="/2015/03/31/Canvas-Clock/" class="archive-article-date">
-  	<time datetime="2015-03-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-03-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><div style="margin:0 auto"><br>    <canvas width="240" height="240" id="clock"><br>    该浏览器不支持canvas,换一个吧~亲<br>    </canvas><br></div></p>
-<script type="text/javascript">
-    var clock = document.getElementById('clock');
-    //建立绘图环境
-    var cxt = clock.getContext('2d');
-    //时钟绘制函数
-    function drawClock(x, y, radius){
-        cxt.clearRect(0, 0, x*2, y*2);
-        //画表盘
-        cxt.beginPath();
-        cxt.strokeStyle = "#40bca3";
-        cxt.lineWidth = 10;
-        cxt.arc(x, y, radius, 0, 360, false);
-        cxt.stroke();
-        cxt.closePath();
-        //画刻度
-        for(var i=0; i<12; i++){
-            cxt.save();
-            cxt.translate(x, y);//设置原点
-            cxt.strokeStyle = "#e84849";//颜色
-            cxt.lineWidth = 7;//粗细
-            //弧度
-            cxt.rotate(i*30*Math.PI/180);
-            cxt.beginPath();
-            cxt.moveTo(0, radius - 20);
-            cxt.lineTo(0, radius - 10);
-            cxt.stroke();
-            cxt.closePath();
-            cxt.restore();
-        }
-        //获取当前时间
-        var date = new Date();
-        var hour = date.getHours();
-        var min = date.getMinutes();
-        var sec = date.getSeconds();
-        hour = hour + min/60;
-        hour?hour>12:hour-12;
-        //画时针
-        cxt.save();
-        cxt.strokeStyle = "#000";
-        cxt.lineWidth = 8;
-        cxt.translate(x, y);
-        cxt.rotate(hour*30*Math.PI/180);
-        cxt.beginPath();
-        cxt.moveTo(0,-radius+60);
-        cxt.lineTo(0,10);
-        cxt.stroke();
-        cxt.closePath();
-        cxt.restore();
-        //画分针
-        cxt.save();
-        cxt.strokeStyle = "#000";
-        cxt.lineWidth = 5;
-        cxt.translate(x, y);
-        cxt.rotate(min*6*Math.PI/180);
-        cxt.beginPath();
-        cxt.moveTo(0,-radius+40);
-        cxt.lineTo(0,10);
-        cxt.stroke();
-        cxt.closePath();
-        cxt.restore();
-        //画秒针
-        cxt.save();
-        cxt.strokeStyle="#e84849";
-        cxt.lineWidth = 2;
-        cxt.translate(x, y);
-        cxt.rotate(6*sec*Math.PI/180);
-        cxt.beginPath();
-        cxt.moveTo(0,-radius+30);
-        cxt.lineTo(0,15);
-        cxt.closePath();
-        cxt.stroke();
-        //画表中间的圆点
-        cxt.beginPath();
-        cxt.arc(0,0,5,0,360,false);
-        cxt.closePath();
-        cxt.fillStyle = "#fff";
-        cxt.fill();
-        cxt.stroke();
-        cxt.closePath();
-        cxt.restore();
-    }
-    setInterval("drawClock(120, 120, 100)",1000);
-</script>
-        
-          <a class="article-more-a" href="/2015/03/31/Canvas-Clock/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/03/31/Canvas-Clock/">展开全文 >></a>
         </p>
       
 
