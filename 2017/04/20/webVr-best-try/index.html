@@ -14,12 +14,14 @@
 <meta property="og:url" content="http://cz2013.github.io/2017/04/20/webVr-best-try/index.html">
 <meta property="og:site_name" content="cz2013">
 <meta property="og:description" content="前段时间研究了一下webVR，对使用a-frame开发webVR做了一个简要介绍和入门级的实例分享（《WebVR之A-Frame开发分享》）。这个分享是针对现有的a-frame API和对外的示例Demo开发的，但是在实际的开发过程中，遇到了很多新的需求和API Demo上都介绍不明确的地方。加上a-frame中文文档的缺失，现有相关中文分享也比较匮乏，在后面对外系统的webVR页面开发时遇到了很">
-<meta property="og:image" content="http://cz2013.github.io/asset/images/magic.jpg">
-<meta property="og:updated_time" content="2017-04-20T07:37:26.613Z">
+<meta property="og:image" content="http://cz2013.github.io/img/webvr-1.png">
+<meta property="og:image" content="http://cz2013.github.io/img/webvr-2.png">
+<meta property="og:image" content="http://cz2013.github.io/img/webvr-3.png">
+<meta property="og:updated_time" content="2017-04-20T07:43:29.435Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WebVR最佳实践探索">
 <meta name="twitter:description" content="前段时间研究了一下webVR，对使用a-frame开发webVR做了一个简要介绍和入门级的实例分享（《WebVR之A-Frame开发分享》）。这个分享是针对现有的a-frame API和对外的示例Demo开发的，但是在实际的开发过程中，遇到了很多新的需求和API Demo上都介绍不明确的地方。加上a-frame中文文档的缺失，现有相关中文分享也比较匮乏，在后面对外系统的webVR页面开发时遇到了很">
-<meta name="twitter:image" content="http://cz2013.github.io/asset/images/magic.jpg">
+<meta name="twitter:image" content="http://cz2013.github.io/img/webvr-1.png">
   
     <link rel="alternative" href="/atom.xml" title="cz2013" type="application/atom+xml">
   
@@ -199,20 +201,28 @@
 <blockquote>
 <p>1、下载Hiero：nightlies/runnables/runnable-hiero.jar<br>2、运行herio：在hiero下载文件夹路径下运行<br>java -jar runnable-hiero.jar<br>3、编辑字体：可以看到Hiero里有下面一些操作项。在1中选择字体，如微软雅黑；选择渲染方式java；在3中添加需要用该字体展现的所有文字和符号，记住，遗漏的话这个字最后也无法展现在页面上哦；4里面是效果选择，双击内容会在5处生成相关项；在6处编辑字体的边距等格式；在7处注意保证pages是1，即最后只生成一张.png；最后在8处保存生成字体。</p>
 </blockquote>
-<p><a href="https://github.com/libgdx/libgdx/wiki/Distance-field-fonts" target="_blank" rel="external">https://github.com/libgdx/libgdx/wiki/Distance-field-fonts</a></p>
+<p><img src="/img/webvr-1.png" style="margin:10px auto;"><br><a href="https://github.com/libgdx/libgdx/wiki/Distance-field-fonts" target="_blank" rel="external">https://github.com/libgdx/libgdx/wiki/Distance-field-fonts</a></p>
 <blockquote>
 <p>4、调用字体：字体生成后就是调用了，在<a-assets>中添加字体类，后面直接调用：</a-assets></p>
 </blockquote>
-<p><a-assets><br>……<br><a-mixin id="text" text="align: left;width: 20; wrapCount:40;color: white;font: /asset/font/yahei.fnt;"></a-mixin><br>……<br></a-assets><br>……<br><a-text mixin="text" text="wrap-count:60;value: 测试"></a-text><br>……</p>
-<p>4、加载优化<br>当这个demo里充斥了大量的图片时，加载优化就变得十分需要了。<br>4.1、图片处理：图片需要处理成web格式。这个大家都知道就不说了。<br>4.2、异步请求：在demo里有很多事件触发后才需要加载的图片。而我们如果直接写入<a-scene>中，不管是在<a-assets>内加载图片后面调用，还是在具体元素里写入路径引入图片，a-frame在加载时都会去下载这个图片，处理完后最后才会生成界面，造成不必要的等待和页面空白。这里我们使用js异步加载，即触发事件后再对src进行编辑写入。我们demo里有个照片墙，点击进入后才会展示十几张照片。这种优化能很大的提高用户体验。<br>4.3、为了代码简洁美观，推荐使用<a-assets>存放静态资源信息、<a-mixin>等。</a-mixin></a-assets></a-assets></a-scene></p>
-<p>5、奇葩的video<br>现在a-frame官方提供的video demo和我找到的video demo就是简单的电影播放功能，甚至连play、pause控制方法都没有明确的示例。想要一个电影屏幕的点击播放和暂停的控制，按照官网的api来开发，发现报错或者不管用。<br>首先先介绍下需求：<br>展示墙上两个video的静态图片，这个直接用jpg就可以搞定。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;a-assets&gt;</div><div class="line">......</div><div class="line">&lt;a-mixin id=<span class="string">"text"</span> text=<span class="string">"align: left;width: 20; wrapCount:40;color: white;font: /asset/font/yahei.fnt;"</span> &gt;&lt;/a-mixin&gt;</div><div class="line">......</div><div class="line">&lt;/a-assets&gt;</div><div class="line">......</div><div class="line">&lt;a-text mixin=<span class="string">"text"</span> text=<span class="string">"wrap-count:60;value: 测试"</span>&gt;&lt;/a-text&gt;</div><div class="line">......</div></pre></td></tr></table></figure>
+<h3 id="加载优化"><a href="#加载优化" class="headerlink" title="加载优化"></a>加载优化</h3><p>当这个demo里充斥了大量的图片时，加载优化就变得十分需要了。</p>
+<blockquote>
+<p>1、图片处理：图片需要处理成web格式。这个大家都知道就不说了。<br>2、异步请求：在demo里有很多事件触发后才需要加载的图片。而我们如果直接写入<a-scene>中，不管是在<a-assets>内加载图片后面调用，还是在具体元素里写入路径引入图片，a-frame在加载时都会去下载这个图片，处理完后最后才会生成界面，造成不必要的等待和页面空白。这里我们使用js异步加载，即触发事件后再对src进行编辑写入。我们demo里有个照片墙，点击进入后才会展示十几张照片。这种优化能很大的提高用户体验。<br>3、为了代码简洁美观，推荐使用<a-assets>存放静态资源信息、<a-mixin>等。</a-mixin></a-assets></a-assets></a-scene></p>
+</blockquote>
+<h3 id="奇葩的video"><a href="#奇葩的video" class="headerlink" title="奇葩的video"></a>奇葩的video</h3><p>现在a-frame官方提供的video demo和我找到的video demo就是简单的电影播放功能，甚至连play、pause控制方法都没有明确的示例。想要一个电影屏幕的点击播放和暂停的控制，按照官网的api来开发，发现报错或者不管用。</p>
+<p>首先先介绍下需求：</p>
+<p>展示墙上两个video的静态图片，这个直接用jpg就可以搞定。</p>
+<p><img src="/img/webvr-2.png" style="margin:10px auto;"></p>
 <p>绑定事件，点击后进入播放状态：</p>
+<p><img src="/img/webvr-3.png" style="margin:10px auto;"></p>
 <p>点击返回就回到上一界面。下次点开继续播放。</p>
 <p>然后问题就出现了。如果把video的资源放入<a-assets>中，那么及时实际的dom元素里没引入，也会自动下载播放这个视频。如果将video放到触发事件后再加入，第一次播放正常了，点击返回后video还是没控制关闭，继续在播放。哭~</a-assets></p>
 <p>最后发现，video非常奇葩的把控制权放到了静态资源中。什么意思呢？就是需要在<a-assets>中引入video静态资源，实际<a-videosphere>中引入src为这个静态资源，但是js中事件触发控制的不是<a-videosphere>进行play()或者pause()，而是获取到这个静态资源进行play()或者pause()。这个和一般的使用方法有区别，导致出现前面控制不了的情况。</a-videosphere></a-videosphere></a-assets></p>
-<p><a-assets><br>        <img id="magic-i" src="/asset/images/magic.jpg"><br>        <video id="magic-v" src="/asset/video/magic.mp4"></video><br>……<br></a-assets><br>……<br><a-videosphere mixin="video" autoplay="false"></a-videosphere><br>……</p>
-<p>js代码：<br>……<br>var videoSphere = document.querySelector(‘a-videosphere’);<br>……<br>videoSphere.setAttribute(‘src’, ‘#’+id+’-v’);<br>document.querySelector(‘#’+id+’-v’).play();<br>……</p>
-<p>6、visible<br>我们的这个示例demo涉及到很多场景的切换，这里我使用的是对元素visible的设置。一个场景用一个大的<a-entity>包裹，通过控制这些父元素的隐藏展现来实现场景的切换。但是会遇到这么个问题：父元素隐藏，但是实际上鼠标在移动的过程中，隐藏的物体还是会触发事件，会遮挡实际应该展现的元素的事件触发。</a-entity></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;a-assets&gt;</div><div class="line">    	&lt;img id=<span class="string">"magic-i"</span> src=<span class="string">"/asset/images/magic.jpg"</span>&gt;</div><div class="line">        &lt;video id=<span class="string">"magic-v"</span> src=<span class="string">"/asset/video/magic.mp4"</span>&gt;&lt;/video&gt;</div><div class="line">......</div><div class="line">&lt;/a-assets&gt;</div><div class="line">......</div><div class="line">&lt;a-videosphere mixin=<span class="string">"video"</span> autoplay=<span class="string">"false"</span>&gt;&lt;/a-videosphere&gt;</div><div class="line">......</div></pre></td></tr></table></figure>
+<p>js代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">......</div><div class="line">var videoSphere = document.querySelector(<span class="string">'a-videosphere'</span>);</div><div class="line">......</div><div class="line">videoSphere.setAttribute(<span class="string">'src'</span>, <span class="string">'#'</span>+id+<span class="string">'-v'</span>);</div><div class="line">document.querySelector(<span class="string">'#'</span>+id+<span class="string">'-v'</span>).play();</div><div class="line">......</div></pre></td></tr></table></figure>
+<h3 id="visible"><a href="#visible" class="headerlink" title="visible"></a>visible</h3><p>我们的这个示例demo涉及到很多场景的切换，这里我使用的是对元素visible的设置。一个场景用一个大的<a-entity>包裹，通过控制这些父元素的隐藏展现来实现场景的切换。但是会遇到这么个问题：父元素隐藏，但是实际上鼠标在移动的过程中，隐藏的物体还是会触发事件，会遮挡实际应该展现的元素的事件触发。</a-entity></p>
 <p>有人认为尽量不使用visible，而是使用opacity来控制展现隐藏。但是在涉及父元素控制整个场景的隐藏时opacity不能控制里面的元素。所以我还是用的visible。同时为了避免前面说到的问题，隐藏元素会整个的挪动位置，展现时再把位置挪动回来。</p>
 
       
