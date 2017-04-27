@@ -156,19 +156,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-MooTools-search-report3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-MooTools-search-report2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/01/27/MooTools-search-report3/">Mootools调研(3)</a>
+      <a class="article-title" href="/2014/01/27/MooTools-search-report2/">Mootools调研(2)</a>
     </h1>
   
 
         
-        <a href="/2014/01/27/MooTools-search-report3/" class="archive-article-date">
+        <a href="/2014/01/27/MooTools-search-report2/" class="archive-article-date">
   	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
 </a>
         
@@ -176,9 +176,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="3-功能"><a href="#3-功能" class="headerlink" title="3 功能"></a>3 功能</h2><h3 id="3-1-OOP继承"><a href="#3-1-OOP继承" class="headerlink" title="3.1 OOP继承"></a>3.1 OOP继承</h3><h4 id="类的实现和扩展"><a href="#类的实现和扩展" class="headerlink" title="类的实现和扩展"></a>类的实现和扩展</h4><p>MooTools框架的core中定义了class方法：<br>
+        <h2 id="2-规范"><a href="#2-规范" class="headerlink" title="2 规范"></a>2 规范</h2><h3 id="2-1-组件命名规范"><a href="#2-1-组件命名规范" class="headerlink" title="2.1 组件命名规范"></a>2.1 组件命名规范</h3><p>MooTools的方法命名属于传统对称命名的方式(prop为property属性缩写)，且语义明显，这种设计可以有效避免与原生dom方法的冲突。<br>在core中为全局window对象定义MooTools对象，并且全局定义了其他常用组件的集合。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    this.MooTools = &#123;</div><div class="line">        version: <span class="string">'1.4.5'</span>,</div><div class="line">        build: <span class="string">'74e34796f5f76640cdb98853004650aea1499d69'</span></div><div class="line">    &#125;;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
         
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report3/#more">more >></a>
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report2/#more">more >></a>
         
       
 
@@ -202,7 +202,71 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report3/">展开全文 >></a>
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-MooTools-search-report4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/01/27/MooTools-search-report4/">Mootools调研(4)</a>
+    </h1>
+  
+
+        
+        <a href="/2014/01/27/MooTools-search-report4/" class="archive-article-date">
+  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="3-2-事件管理"><a href="#3-2-事件管理" class="headerlink" title="3.2 事件管理"></a>3.2 事件管理</h3><p>Element.Event，提供事件的包装，元素绑定事件机制；Element.Delegation，提供事件委托机制, 即把一个(动态)子元素上的事件处理绑定委托到父容器上。都可在core文件中查看源码。<br>下面介绍几个常用的事件管理方法：<br>MooTools已经提供了window对象的自定义事件: ‘domready’。 MooTools就是用window.addEvent(‘domready’, function() {})方式来代替传统JavaScript的window.onload 方法的。<br>
+        
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report4/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report4/">展开全文 >></a>
         </p>
       
 
@@ -350,19 +414,19 @@
 
 
   
-    <article id="post-MooTools-search-report5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-MooTools-search-report3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/01/27/MooTools-search-report5/">Mootools调研(5)</a>
+      <a class="article-title" href="/2014/01/27/MooTools-search-report3/">Mootools调研(3)</a>
     </h1>
   
 
         
-        <a href="/2014/01/27/MooTools-search-report5/" class="archive-article-date">
+        <a href="/2014/01/27/MooTools-search-report3/" class="archive-article-date">
   	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
 </a>
         
@@ -370,9 +434,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="3-4-调用方式"><a href="#3-4-调用方式" class="headerlink" title="3.4 调用方式"></a>3.4 调用方式</h3><p>Core 包含着mootools里面使用的公用方法:<br><b>方法名: typeOf </b><br>返回对象的类别<br>语法: typeOf(obj);<br>参数:<br>obj - (object) 要检查类别的对象。<br>返回值:<br>‘element’ - (string) 当对象是DOM Element时。<br>‘elements’ - (string) 当对象是Element的集合时。<br>‘textnode’ - (string) 当对象是文本节点时。<br>‘whitespace’ - (string) 当对象是空白节点时，注意不是空字符串。<br>
+        <h2 id="3-功能"><a href="#3-功能" class="headerlink" title="3 功能"></a>3 功能</h2><h3 id="3-1-OOP继承"><a href="#3-1-OOP继承" class="headerlink" title="3.1 OOP继承"></a>3.1 OOP继承</h3><h4 id="类的实现和扩展"><a href="#类的实现和扩展" class="headerlink" title="类的实现和扩展"></a>类的实现和扩展</h4><p>MooTools框架的core中定义了class方法：<br>
         
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report5/#more">more >></a>
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report3/#more">more >></a>
         
       
 
@@ -396,71 +460,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-MooTools-search-report2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/01/27/MooTools-search-report2/">Mootools调研(2)</a>
-    </h1>
-  
-
-        
-        <a href="/2014/01/27/MooTools-search-report2/" class="archive-article-date">
-  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="2-规范"><a href="#2-规范" class="headerlink" title="2 规范"></a>2 规范</h2><h3 id="2-1-组件命名规范"><a href="#2-1-组件命名规范" class="headerlink" title="2.1 组件命名规范"></a>2.1 组件命名规范</h3><p>MooTools的方法命名属于传统对称命名的方式(prop为property属性缩写)，且语义明显，这种设计可以有效避免与原生dom方法的冲突。<br>在core中为全局window对象定义MooTools对象，并且全局定义了其他常用组件的集合。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    this.MooTools = &#123;</div><div class="line">        version: <span class="string">'1.4.5'</span>,</div><div class="line">        build: <span class="string">'74e34796f5f76640cdb98853004650aea1499d69'</span></div><div class="line">    &#125;;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report2/">展开全文 >></a>
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report3/">展开全文 >></a>
         </p>
       
 
