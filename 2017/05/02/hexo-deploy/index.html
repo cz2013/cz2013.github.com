@@ -6,14 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cz2013.github.io">
-  <title>Archives: 2016/3 | cz2013</title>
+  <title>hexo deploy无法生成贡献值的解决方案 | cz2013</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="cz2013">
-<meta property="og:url" content="http://cz2013.github.io/archives/2016/03/index.html">
+  <meta name="description" content="博客改成用hexo后写了一段时间，发现github上contributions竟然没有生成。小绿点去哪里了呢？经过我反复调研最后终于解决了问题，并且原来没生成的部分也恢复到正确的贡献值了。
+官方解释从官网上可以得知，翻译如下：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo deploy无法生成贡献值的解决方案">
+<meta property="og:url" content="http://cz2013.github.io/2017/05/02/hexo-deploy/index.html">
 <meta property="og:site_name" content="cz2013">
+<meta property="og:description" content="博客改成用hexo后写了一段时间，发现github上contributions竟然没有生成。小绿点去哪里了呢？经过我反复调研最后终于解决了问题，并且原来没生成的部分也恢复到正确的贡献值了。
+官方解释从官网上可以得知，翻译如下：">
+<meta property="og:image" content="http://cz2013.github.io/img/hexodeploy-1.png">
+<meta property="og:image" content="http://cz2013.github.io/img/hexodeploy-2.png">
+<meta property="og:image" content="http://cz2013.github.io/img/hexodeploy-3.png">
+<meta property="og:image" content="http://cz2013.github.io/img/hexodeploy-4.png">
+<meta property="og:updated_time" content="2017-05-02T01:56:05.942Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cz2013">
+<meta name="twitter:title" content="hexo deploy无法生成贡献值的解决方案">
+<meta name="twitter:description" content="博客改成用hexo后写了一段时间，发现github上contributions竟然没有生成。小绿点去哪里了呢？经过我反复调研最后终于解决了问题，并且原来没生成的部分也恢复到正确的贡献值了。
+官方解释从官网上可以得知，翻译如下：">
+<meta name="twitter:image" content="http://cz2013.github.io/img/hexodeploy-1.png">
   
     <link rel="alternative" href="/atom.xml" title="cz2013" type="application/atom+xml">
   
@@ -154,37 +166,91 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-hexo-deploy" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/07/webpack/" class="archive-article-date">
-  	<time datetime="2016-03-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-07</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/07/webpack/">webpack分享</a>
+    <h1 class="article-title" itemprop="name">
+      hexo deploy无法生成贡献值的解决方案
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2017/05/02/hexo-deploy/" class="archive-article-date">
+  	<time datetime="2017-05-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>博客改成用hexo后写了一段时间，发现github上contributions竟然没有生成。小绿点去哪里了呢？经过我反复调研最后终于解决了问题，并且原来没生成的部分也恢复到正确的贡献值了。</p>
+<h3 id="官方解释"><a href="#官方解释" class="headerlink" title="官方解释"></a>官方解释</h3><p>从<a href="https://help.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile/" target="_blank" rel="external">官网</a>上可以得知，翻译如下：<br><a id="more"></a></p>
+<p>Issues 和 pull requests：</p>
+<blockquote>
+<p>这个操作是在一年之内<br>这个操作是针对一个独立的仓库，不能是fork</p>
+</blockquote>
+<p>Commits：<br>当你的commits满足以下条件时，它才会被展示出来：</p>
+<blockquote>
+<p>1、一年之内提交的commits<br>2、commits使用的email地址是与你的Github账号相关联的<br>3、这些commits是在一个独立的仓库而不是fork仓库<br>4、这些commits是在：<br>在默认分支上（通常是master）<br>在gh-pages分支(包含 Project Pages sites 的仓库)</p>
+</blockquote>
+<p>此外，至少满足下面条件中的一个（主要针对你Commit的仓库不是你创建的）：</p>
+<blockquote>
+<p>1、你是这个仓库的协作者，或者是这个版本库的拥有组织中的一员<br>2、你fork过这个仓库<br>3、你对这个仓库发起过pull request或者issue<br>4、你对这个仓库标记了Star</p>
+</blockquote>
+<p><em>注意：私有库的贡献仅仅对私有库成员显示</em></p>
+<h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><p>我的情况是，自己拉的hexo私人博客，master默认分支。按照上面的条件过滤下来，应该是第2点“commits使用的email地址是与你的Github账号相关联的”可能有问题。</p>
+<h4 id="尝试1："><a href="#尝试1：" class="headerlink" title="尝试1："></a>尝试1：</h4><p>输入命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name <span class="string">"用户名"</span></div><div class="line">git config --global user.email <span class="string">"邮箱地址"</span></div></pre></td></tr></table></figure></p>
+<p>结果：失败</p>
+<h4 id="尝试2："><a href="#尝试2：" class="headerlink" title="尝试2："></a>尝试2：</h4><p>修改.deploy_git.git中的config的内容，在最后增加：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[user]</div><div class="line">	name = 用户名</div><div class="line">	email = 邮箱地址</div></pre></td></tr></table></figure></p>
+<p>结果：失败</p>
+<h4 id="排查解决"><a href="#排查解决" class="headerlink" title="排查解决"></a>排查解决</h4><p>为什么呢？用户名邮箱应该都配置了呀？<br>于是，找到了正确的排查方法：</p>
+<blockquote>
+<p>1、进入github中博客所在界面</p>
+</blockquote>
+<p><img src="/img/hexodeploy-1.png" style="margin:10px auto;"></p>
+<blockquote>
+<p>2、点击红框处进入最近的commit信息<br>3、在浏览器url地址后面加上.patch，回车进入下面界面，就能看到最新的提交信息了：</p>
+</blockquote>
+<p><img src="/img/hexodeploy-2.png" style="margin:10px auto;"></p>
+<p>对比一看，用户名和邮箱是正确的。也就是说之前的尝试1和2都是成功的。那问题就是这个用户名和邮箱到底对不对呢？<br>用户名和邮箱从下面红框处可以看到：<br><img src="/img/hexodeploy-3.png" style="margin:10px auto;"><br>但是，邮箱并不是这里的邮箱，而是下面的：<br><img src="/img/hexodeploy-4.png" style="margin:10px auto;"><br>我发现自己的这两个邮箱不一样……自己作的结果……<br>于是，最后的解决方案是：<br>将这个Email改成了之前设置的一致的邮箱。激活后发现贡献值恢复正确了。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢打赏<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -197,17 +263,86 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://cz2013.github.io/2017/05/02/hexo-deploy/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/04/27/LAMP1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">LAMP环境搭建</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -230,8 +365,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

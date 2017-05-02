@@ -25,7 +25,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#fa9a94,#ed6e67);
     }
   </style>
   
@@ -39,7 +39,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #18c6b1"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -89,14 +89,14 @@
 		        
 			</div>
 		</nav>
-	</header>		
+	</header>
 </div>
 
     </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #18c6b1"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -118,7 +118,7 @@
 				
 			
 			
-			
+
 			<nav class="header-nav">
 				<div class="social">
 					
@@ -143,7 +143,7 @@
 		        
 				</ul>
 			</nav>
-		</header>				
+		</header>
 	</div>
 	<div class="mobile-mask" style="display:none" q-show="isShow"></div>
 </nav>
@@ -155,6 +155,71 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-promise" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/27/promise/">Javascript Promise技术</a>
+    </h1>
+  
+
+        
+        <a href="/2015/08/27/promise/" class="archive-article-date">
+  	<time datetime="2015-08-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Promise是什么"><a href="#Promise是什么" class="headerlink" title="Promise是什么"></a>Promise是什么</h4><p>Promise是抽象异步处理对象以及对其进行各种操作的组件。听起来很晦涩？没关系，我们慢慢分析。从字义层面解释，Promise对应未来的含义，正如音译普罗米修斯，含义为“先知”的希腊神话故事中的英雄。那“未来”和js有什么关系呢？Js开发者都知道，前端开发中有个非常重要的概念和技术：Ajax请求——Js中的异步操作。而Promise就是对类似的异步处理对象和处理规则进行规范化，并要求采用统一接口进行开发，否则就会报错。</p>
+<p>Promise并不是从JavaScript中发祥的概念。它最初被提出是在E语言中， 是基于并列/并行处理设计的一种编程语言。ES6提出了很多新的Js规范，其中Promise就是一个非常引人注目的技术。下面我们简单的探讨和学习Javascript Promise技术。<br>
+        
+          <a class="article-more-a" href="/2015/08/27/promise/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/08/27/promise/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-3dCanvas" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -556,19 +621,19 @@
 
 
   
-    <article id="post-form-submit4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-form-submit1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/04/01/form-submit4/">Form表单提交详解(4)</a>
+      <a class="article-title" href="/2014/04/01/form-submit1/">Form表单提交详解(1)</a>
     </h1>
   
 
         
-        <a href="/2014/04/01/form-submit4/" class="archive-article-date">
+        <a href="/2014/04/01/form-submit1/" class="archive-article-date">
   	<time datetime="2014-03-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-04-01</time>
 </a>
         
@@ -576,10 +641,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="以Ajax方式提交部分表单"><a href="#以Ajax方式提交部分表单" class="headerlink" title="以Ajax方式提交部分表单"></a>以Ajax方式提交部分表单</h4><p>在前面的示例中，我们看到以Ajax方式提交一个表单是非常容易的，它完全模拟了浏览器的行为。不过，有时我们可能需要只提交表单的一部分，为的是更好的局部更新，那么又该如何做呢？<br>假如我有以下表单的一部分，我只希望在用户某个按钮时将它提交到服务端：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">&lt;div id=<span class="string">"divCustomerInfo"</span>&gt;</div><div class="line"></div><div class="line">    &lt;p&gt;客户名称: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"CustomerName"</span> style=<span class="string">"width: 300px"</span> /&gt;&lt;/p&gt;</div><div class="line">    </div><div class="line">    &lt;p&gt;客户电话: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"CustomerTel"</span> style=<span class="string">"width: 300px"</span> /&gt;&lt;/p&gt;</div><div class="line">    </div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+        <p>愚人节快乐！作为一个接触前端时间不长的人来说，jQuery等框架已经封装好了很多dom操作、ajax方法，大大简化了初学者的学习和开发成本。所以在接触一些旧的开发代码时，往往会觉得十分不明觉厉。例如，Form表单提交。<br>Form表单提交，在jQuey中完全可以被模仿和取代，利用ajax方法传参给后端，简洁大方，清晰易懂（此处省略一万字）。但是，尤其是在面对旧系统，或者后端开发为主的系统（内部系统，无专业前端开发）时，你会发现Form表单方式来提交信息时非常普遍的。这个时候，我们要了解它的运行过程。下面，是我调研的Form表单内容，看完对这个知识点有了新的认识。希望能对大家有用。<br>
         
-          <a class="article-more-a" href="/2014/04/01/form-submit4/#more">more >></a>
+          <a class="article-more-a" href="/2014/04/01/form-submit1/#more">more >></a>
         
       
 
@@ -603,7 +667,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2014/04/01/form-submit4/">展开全文 >></a>
+          <a class="article-more-a" href="/2014/04/01/form-submit1/">展开全文 >></a>
         </p>
       
 
@@ -685,70 +749,6 @@
 
 
   
-    <article id="post-form-submit1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/04/01/form-submit1/">Form表单提交详解(1)</a>
-    </h1>
-  
-
-        
-        <a href="/2014/04/01/form-submit1/" class="archive-article-date">
-  	<time datetime="2014-03-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-04-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>愚人节快乐！作为一个接触前端时间不长的人来说，jQuery等框架已经封装好了很多dom操作、ajax方法，大大简化了初学者的学习和开发成本。所以在接触一些旧的开发代码时，往往会觉得十分不明觉厉。例如，Form表单提交。<br>Form表单提交，在jQuey中完全可以被模仿和取代，利用ajax方法传参给后端，简洁大方，清晰易懂（此处省略一万字）。但是，尤其是在面对旧系统，或者后端开发为主的系统（内部系统，无专业前端开发）时，你会发现Form表单方式来提交信息时非常普遍的。这个时候，我们要了解它的运行过程。下面，是我调研的Form表单内容，看完对这个知识点有了新的认识。希望能对大家有用。<br>
-        
-          <a class="article-more-a" href="/2014/04/01/form-submit1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/04/01/form-submit1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
     <article id="post-form-submit3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -813,30 +813,30 @@
 
 
   
-    <article id="post-MooTools-search-report6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-form-submit4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/01/27/MooTools-search-report6/">Mootools调研(6)</a>
+      <a class="article-title" href="/2014/04/01/form-submit4/">Form表单提交详解(4)</a>
     </h1>
   
 
         
-        <a href="/2014/01/27/MooTools-search-report6/" class="archive-article-date">
-  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
+        <a href="/2014/04/01/form-submit4/" class="archive-article-date">
+  	<time datetime="2014-03-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-04-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="3-5-组件的组织结构"><a href="#3-5-组件的组织结构" class="headerlink" title="3.5 组件的组织结构"></a>3.5 组件的组织结构</h3><p>MooTools框架主要有mootools-core以及mootools-more这两大部分组成。mootools-core是MooTools框架的核心模块，mootools-more是针对mootools-core的功能扩展部分，可根据需求动态引入。<br>无论是mootools-core还是mootools-more都可针对具体需求，选择需要的模块，根据模块以来关系组装出最小的js包使得尽量小的框架代码实现所需功能。</p></p>
-<p><p>如下图所示，是详细的MooTools框架体系结构：<br><img src="/img/mootools1.jpg" style="margin:10px auto;"/><br>
+        <h4 id="以Ajax方式提交部分表单"><a href="#以Ajax方式提交部分表单" class="headerlink" title="以Ajax方式提交部分表单"></a>以Ajax方式提交部分表单</h4><p>在前面的示例中，我们看到以Ajax方式提交一个表单是非常容易的，它完全模拟了浏览器的行为。不过，有时我们可能需要只提交表单的一部分，为的是更好的局部更新，那么又该如何做呢？<br>假如我有以下表单的一部分，我只希望在用户某个按钮时将它提交到服务端：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">&lt;div id=<span class="string">"divCustomerInfo"</span>&gt;</div><div class="line"></div><div class="line">    &lt;p&gt;客户名称: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"CustomerName"</span> style=<span class="string">"width: 300px"</span> /&gt;&lt;/p&gt;</div><div class="line">    </div><div class="line">    &lt;p&gt;客户电话: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"CustomerTel"</span> style=<span class="string">"width: 300px"</span> /&gt;&lt;/p&gt;</div><div class="line">    </div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report6/#more">more >></a>
+          <a class="article-more-a" href="/2014/04/01/form-submit4/#more">more >></a>
         
       
 
@@ -860,7 +860,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report6/">展开全文 >></a>
+          <a class="article-more-a" href="/2014/04/01/form-submit4/">展开全文 >></a>
         </p>
       
 

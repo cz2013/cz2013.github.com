@@ -25,7 +25,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#fa9a94,#ed6e67);
     }
   </style>
   
@@ -39,7 +39,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #18c6b1"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -89,14 +89,14 @@
 		        
 			</div>
 		</nav>
-	</header>		
+	</header>
 </div>
 
     </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #18c6b1"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -118,7 +118,7 @@
 				
 			
 			
-			
+
 			<nav class="header-nav">
 				<div class="social">
 					
@@ -143,7 +143,7 @@
 		        
 				</ul>
 			</nav>
-		</header>				
+		</header>
 	</div>
 	<div class="mobile-mask" style="display:none" q-show="isShow"></div>
 </nav>
@@ -155,6 +155,135 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-MooTools-search-report3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/01/27/MooTools-search-report3/">Mootools调研(3)</a>
+    </h1>
+  
+
+        
+        <a href="/2014/01/27/MooTools-search-report3/" class="archive-article-date">
+  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="3-功能"><a href="#3-功能" class="headerlink" title="3 功能"></a>3 功能</h2><h3 id="3-1-OOP继承"><a href="#3-1-OOP继承" class="headerlink" title="3.1 OOP继承"></a>3.1 OOP继承</h3><h4 id="类的实现和扩展"><a href="#类的实现和扩展" class="headerlink" title="类的实现和扩展"></a>类的实现和扩展</h4><p>MooTools框架的core中定义了class方法：<br>
+        
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report3/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-MooTools-search-report1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/01/27/MooTools-search-report1/">Mootools调研(1)</a>
+    </h1>
+  
+
+        
+        <a href="/2014/01/27/MooTools-search-report1/" class="archive-article-date">
+  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h2><h3 id="1-1-框架名称"><a href="#1-1-框架名称" class="headerlink" title="1.1 框架名称"></a>1.1 框架名称</h3><p>MooTools是个精简、模块化同时也对象导向的JavaScript框架，设计给中等与进阶的JavaScript开发员使用。透过其优美、详细而条理分明的API，可以让您写出强大、富有弹性且跨浏览器的程序。——MooTools官网</p>
+<h3 id="1-2-背景"><a href="#1-2-背景" class="headerlink" title="1.2 背景"></a>1.2 背景</h3><p>MooTools是Valerio Proietti首先提出，他以Prototype和Dean Edward的BASE2为灵感，并在2006年9月发布。MooTools起源于Moo.fx —— 一个流行的插件，由Proietti在2005年10月为Prototype开发，现在仍在维护和使用中。<br>针对原型扩展——提供了许多JavaScript的原生字符串，数组，和拥有附加方法的函数对象，当时的Proietti想要一个框架，从而进一步扩展原生Element对象，以提供更强的文档对象模型（DOM）控制。<br>
+        
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report1/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-MooTools-search-report5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -203,6 +332,71 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2014/01/27/MooTools-search-report5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-MooTools-search-report6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/01/27/MooTools-search-report6/">Mootools调研(6)</a>
+    </h1>
+  
+
+        
+        <a href="/2014/01/27/MooTools-search-report6/" class="archive-article-date">
+  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="3-5-组件的组织结构"><a href="#3-5-组件的组织结构" class="headerlink" title="3.5 组件的组织结构"></a>3.5 组件的组织结构</h3><p>MooTools框架主要有mootools-core以及mootools-more这两大部分组成。mootools-core是MooTools框架的核心模块，mootools-more是针对mootools-core的功能扩展部分，可根据需求动态引入。<br>无论是mootools-core还是mootools-more都可针对具体需求，选择需要的模块，根据模块以来关系组装出最小的js包使得尽量小的框架代码实现所需功能。</p></p>
+<p><p>如下图所示，是详细的MooTools框架体系结构：<br><img src="/img/mootools1.jpg" style="margin:10px auto;"/><br>
+        
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report6/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report6/">展开全文 >></a>
         </p>
       
 
@@ -331,135 +525,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2014/01/27/MooTools-search-report2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-MooTools-search-report1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/01/27/MooTools-search-report1/">Mootools调研(1)</a>
-    </h1>
-  
-
-        
-        <a href="/2014/01/27/MooTools-search-report1/" class="archive-article-date">
-  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h2><h3 id="1-1-框架名称"><a href="#1-1-框架名称" class="headerlink" title="1.1 框架名称"></a>1.1 框架名称</h3><p>MooTools是个精简、模块化同时也对象导向的JavaScript框架，设计给中等与进阶的JavaScript开发员使用。透过其优美、详细而条理分明的API，可以让您写出强大、富有弹性且跨浏览器的程序。——MooTools官网</p>
-<h3 id="1-2-背景"><a href="#1-2-背景" class="headerlink" title="1.2 背景"></a>1.2 背景</h3><p>MooTools是Valerio Proietti首先提出，他以Prototype和Dean Edward的BASE2为灵感，并在2006年9月发布。MooTools起源于Moo.fx —— 一个流行的插件，由Proietti在2005年10月为Prototype开发，现在仍在维护和使用中。<br>针对原型扩展——提供了许多JavaScript的原生字符串，数组，和拥有附加方法的函数对象，当时的Proietti想要一个框架，从而进一步扩展原生Element对象，以提供更强的文档对象模型（DOM）控制。<br>
-        
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-MooTools-search-report3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/01/27/MooTools-search-report3/">Mootools调研(3)</a>
-    </h1>
-  
-
-        
-        <a href="/2014/01/27/MooTools-search-report3/" class="archive-article-date">
-  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="3-功能"><a href="#3-功能" class="headerlink" title="3 功能"></a>3 功能</h2><h3 id="3-1-OOP继承"><a href="#3-1-OOP继承" class="headerlink" title="3.1 OOP继承"></a>3.1 OOP继承</h3><h4 id="类的实现和扩展"><a href="#类的实现和扩展" class="headerlink" title="类的实现和扩展"></a>类的实现和扩展</h4><p>MooTools框架的core中定义了class方法：<br>
-        
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report3/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report3/">展开全文 >></a>
         </p>
       
 

@@ -24,7 +24,7 @@ LAMP（Linux + Apache + Mysql/MariaDB + Perl/PHP/Python），一组常用来搭�
 <meta property="og:image" content="http://cz2013.github.io/img/lampp6.png">
 <meta property="og:image" content="http://cz2013.github.io/img/lampp7.png">
 <meta property="og:image" content="http://cz2013.github.io/img/lampp8.png">
-<meta property="og:updated_time" content="2017-04-27T04:06:30.299Z">
+<meta property="og:updated_time" content="2017-04-27T04:08:13.461Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LAMP环境搭建">
 <meta name="twitter:description" content="要搭建一个前端技术博客，经过调研决定使用 Wordpress + LAMP 的web框架。这里先介绍下LAMP环境搭建。
@@ -41,7 +41,7 @@ LAMP（Linux + Apache + Mysql/MariaDB + Perl/PHP/Python），一组常用来搭�
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#fa9a94,#ed6e67);
     }
   </style>
   
@@ -55,7 +55,7 @@ LAMP（Linux + Apache + Mysql/MariaDB + Perl/PHP/Python），一组常用来搭�
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #18c6b1"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -105,14 +105,14 @@ LAMP（Linux + Apache + Mysql/MariaDB + Perl/PHP/Python），一组常用来搭�
 		        
 			</div>
 		</nav>
-	</header>		
+	</header>
 </div>
 
     </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #18c6b1"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -134,7 +134,7 @@ LAMP（Linux + Apache + Mysql/MariaDB + Perl/PHP/Python），一组常用来搭�
 				
 			
 			
-			
+
 			<nav class="header-nav">
 				<div class="social">
 					
@@ -159,7 +159,7 @@ LAMP（Linux + Apache + Mysql/MariaDB + Perl/PHP/Python），一组常用来搭�
 		        
 				</ul>
 			</nav>
-		</header>				
+		</header>
 	</div>
 	<div class="mobile-mask" style="display:none" q-show="isShow"></div>
 </nav>
@@ -192,8 +192,9 @@ LAMP（Linux + Apache + Mysql/MariaDB + Perl/PHP/Python），一组常用来搭�
       
         <p>要搭建一个前端技术博客，经过调研决定使用 Wordpress + LAMP 的web框架。这里先介绍下LAMP环境搭建。</p>
 <p><em>LAMP（Linux + Apache + Mysql/MariaDB + Perl/PHP/Python），一组常用来搭建动态网站或者服务器的开源软件，本身都是各自独立的程序，但是因为常被放在一起使用，拥有了越来越高的兼容度，共同组成了一个强大的Web应用程序平台。从网站的流量上来说，70%以上的访问流量是LAMP来提供的，LAMP是最强大的网站解决方案。（——摘自百度百科）</em></p>
-<p>这里我们使用的是 Linux + Apache + Mysql + PHP 方案。经过调研，分别安装很麻烦，只需要装一个XAMPP即可。<br><a id="more"></a></p>
+<p>这里我们使用的是 Linux + Apache + Mysql + PHP 方案。经过调研，分别安装很麻烦，只需要装一个XAMPP即可。</p>
 <p><em>XAMPP（Apache+MySQL+PHP+PERL）是一个功能强大的建站集成软件包。这个软件包原来的名字是 LAMPP，但是为了避免误解，最新的几个版本就改名为 XAMPP 了。它可以在Windows、Linux、Solaris、Mac OS X 等多种操作系统下安装使用，支持多语言：英文、简体中文、繁体中文、韩文、俄文、日文等。XAMPP 是一个易于安装且包含 MySQL、PHP 和 Perl 的 Apache 发行版。XAMPP 的确非常容易安装和使用：只需下载，解压缩，启动即可。（——摘自百度百科）</em></p>
+ <a id="more"></a>
 <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>首先，下载<a href="https://www.apachefriends.org/zh_cn/index.html" target="_blank" rel="external">XAMPP</a>。选择安装环境对应的版本，这里我选择XAMPP for Linux v5.6.30 (PHP 5.6.30)。使用winSCP将软件发送到待部署的linux虚机上。但是安装双击就卡死了，这个需要用linux命令来安装。</p>
 <p>通过SecureCRT登录虚机，cd到安装包路径，运行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">chmod 755 xampp-linux-*-installer.run</div></pre></td></tr></table></figure></p>
 <p>这句话的意思是开通安装权限。chmod 755 设置用户的权限为：</p>
@@ -338,6 +339,15 @@ LAMP（Linux + Apache + Mysql/MariaDB + Perl/PHP/Python），一组常用来搭�
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/05/02/hexo-deploy/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          hexo deploy无法生成贡献值的解决方案
+        
+      </div>
+    </a>
   
   
     <a href="/2017/04/20/webVr-best-try/" id="article-nav-older" class="article-nav-link-wrap">
