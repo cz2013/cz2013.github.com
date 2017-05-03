@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://cz2013.github.io/2014/04/01/form-submit3/index.html">
 <meta property="og:site_name" content="cz2013">
 <meta property="og:description" content="MVC Controller中多个自定义类型的传入参数前面的所有示例代码中都有一个规律：在服务端读取浏览器提交的数据时，都会使用控件的name属性，基本上在Asp.net中就是这样处理。但是在MVC中，MS为了简化读取表单数据的代码，可以让我们直接在Controller的方法中直接以传入参数的形式指定，此时框架会自动根据方法的参数名查找对应的输入数据（当然也不止表单数据了）。下面举个简单的例子：">
-<meta property="og:updated_time" content="2017-04-11T02:13:38.398Z">
+<meta property="og:updated_time" content="2017-05-03T07:13:46.207Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Form表单提交详解(3)">
 <meta name="twitter:description" content="MVC Controller中多个自定义类型的传入参数前面的所有示例代码中都有一个规律：在服务端读取浏览器提交的数据时，都会使用控件的name属性，基本上在Asp.net中就是这样处理。但是在MVC中，MS为了简化读取表单数据的代码，可以让我们直接在Controller的方法中直接以传入参数的形式指定，此时框架会自动根据方法的参数名查找对应的输入数据（当然也不止表单数据了）。下面举个简单的例子：">
@@ -172,7 +172,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="MVC-Controller中多个自定义类型的传入参数"><a href="#MVC-Controller中多个自定义类型的传入参数" class="headerlink" title="MVC Controller中多个自定义类型的传入参数"></a>MVC Controller中多个自定义类型的传入参数</h4><p>前面的所有示例代码中都有一个规律：在服务端读取浏览器提交的数据时，都会使用控件的name属性，基本上在Asp.net中就是这样处理。但是在MVC中，MS为了简化读取表单数据的代码，可以让我们直接在Controller的方法中直接以传入参数的形式指定，此时框架会自动根据方法的参数名查找对应的输入数据（当然也不止表单数据了）。下面举个简单的例子：<br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">&lt;form action=<span class="string">"/Home/Submit"</span> method=<span class="string">"post"</span>&gt;</div><div class="line"></div><div class="line">    &lt;p&gt;客户名称: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"Name"</span> style=<span class="string">"width: 300px"</span> /&gt;&lt;/p&gt;</div><div class="line">    </div><div class="line">    &lt;p&gt;客户电话: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"Tel"</span> style=<span class="string">"width: 300px"</span> /&gt;&lt;/p&gt;</div><div class="line">    </div><div class="line">    &lt;p&gt;&lt;input <span class="built_in">type</span>=<span class="string">"submit"</span> value=<span class="string">"提交"</span> /&gt;&lt;/p&gt;</div><div class="line">    </div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure></p>
+        <h4 id="MVC-Controller中多个自定义类型的传入参数"><a href="#MVC-Controller中多个自定义类型的传入参数" class="headerlink" title="MVC Controller中多个自定义类型的传入参数"></a>MVC Controller中多个自定义类型的传入参数</h4><p>前面的所有示例代码中都有一个规律：在服务端读取浏览器提交的数据时，都会使用控件的name属性，基本上在Asp.net中就是这样处理。但是在MVC中，MS为了简化读取表单数据的代码，可以让我们直接在Controller的方法中直接以传入参数的形式指定，此时框架会自动根据方法的参数名查找对应的输入数据（当然也不止表单数据了）。下面举个简单的例子：</p>
+<a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">&lt;form action=<span class="string">"/Home/Submit"</span> method=<span class="string">"post"</span>&gt;</div><div class="line"></div><div class="line">    &lt;p&gt;客户名称: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"Name"</span> style=<span class="string">"width: 300px"</span> /&gt;&lt;/p&gt;</div><div class="line">    </div><div class="line">    &lt;p&gt;客户电话: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"Tel"</span> style=<span class="string">"width: 300px"</span> /&gt;&lt;/p&gt;</div><div class="line">    </div><div class="line">    &lt;p&gt;&lt;input <span class="built_in">type</span>=<span class="string">"submit"</span> value=<span class="string">"提交"</span> /&gt;&lt;/p&gt;</div><div class="line">    </div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
 <p>Conntroller中的方法的签名：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">public ActionResult Submit(Customer customer)</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public ActionResult Submit(string name, string tel)</div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>以上二种方法都是可以的，当然了，前者会比较好，但需要事先定义一个Customer类，代码如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">public class Customer</div><div class="line">&#123;</div><div class="line">    public string Name &#123; get; <span class="built_in">set</span>; &#125;</div><div class="line"></div><div class="line">    public string Tel &#123; get; <span class="built_in">set</span>; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>如果表单简单或者业务逻辑简单，我们或许一直也不会遇到什么麻烦，以上代码能很好的工作。但是，如果哪天我们有了新的业务需要求，需要在这个表单中同时加上一些其它的内容，例如，要把业务员的资料也一起录入进去。其中业务员的实体类定义如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">public class Salesman</div><div class="line">&#123;</div><div class="line">    public string Name &#123; get; <span class="built_in">set</span>; &#125;</div><div class="line"></div><div class="line">    public string Tel &#123; get; <span class="built_in">set</span>; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -299,18 +301,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2014/04/01/form-submit1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2014/04/01/form-submit2/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Form表单提交详解(1)
+          Form表单提交详解(2)
         
       </div>
     </a>
   
   
-    <a href="/2014/04/01/form-submit2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Form表单提交详解(2)</div>
+    <a href="/2014/04/01/form-submit4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Form表单提交详解(4)</div>
       <i class="icon-circle-right"></i>
     </a>
   

@@ -24,7 +24,7 @@
 <meta property="og:image" content="http://cz2013.github.io/img/react-native-android-6.jpg">
 <meta property="og:image" content="http://cz2013.github.io/img/react-native-android-7.jpg">
 <meta property="og:image" content="http://cz2013.github.io/img/react-native-android-8.jpg">
-<meta property="og:updated_time" content="2017-04-11T06:19:31.964Z">
+<meta property="og:updated_time" content="2017-05-03T07:14:48.635Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在win7上搭建react native android环境">
 <meta name="twitter:description" content="首先，我的搭建参考了http://reactnative.cn/docs/0.25/android-setup.html#content和其他一些网站在安装过程中，遇到一些坑，各种调研，解决了一些问题，最终选择了一个最适合我自己的环境搭建方式。下面给大家介绍我的搭建过程，希望能帮助到大家。
@@ -185,7 +185,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>首先，我的搭建参考了<a href="http://reactnative.cn/docs/0.25/android-setup.html#content和其他一些网站" target="_blank" rel="external">http://reactnative.cn/docs/0.25/android-setup.html#content和其他一些网站</a><br>在安装过程中，遇到一些坑，各种调研，解决了一些问题，最终选择了一个最适合我自己的环境搭建方式。下面给大家介绍我的搭建过程，希望能帮助到大家。</p>
-<h4 id="1、安装JDK"><a href="#1、安装JDK" class="headerlink" title="1、安装JDK"></a>1、安装JDK</h4><p>网上要求安装JDK1.8以上，这里需要说明：在开发项目中使用的是1.8版本以下的（例如1.7）旧版本时，只要在eclipse中进行需要版本的JDK配置，不会有影响。所以，我又安装了最新版本的JDK。<br><a id="more"></a></p>
+<h4 id="1、安装JDK"><a href="#1、安装JDK" class="headerlink" title="1、安装JDK"></a>1、安装JDK</h4><p>网上要求安装JDK1.8以上，这里需要说明：在开发项目中使用的是1.8版本以下的（例如1.7）旧版本时，只要在eclipse中进行需要版本的JDK配置，不会有影响。所以，我又安装了最新版本的JDK。</p>
+<a id="more"></a>
 <p>问题：查看版本号发现如下错误：<br><img src="/img/react-native-android-1.jpg" style="margin:10px auto;"></p>
 <p>这里是因为在Windows/System32文件夹里面当时复制了1.7的三个exe文件（java.exe, javaw.exe 和javaws.exe）进来。只需要将新的jdk路径/bin内的这三个exe复制替换到System32内就可以了。<br><img src="/img/react-native-android-2.jpg" style="margin:10px auto;"></p>
 <h4 id="2、安装Android-SDK"><a href="#2、安装Android-SDK" class="headerlink" title="2、安装Android SDK"></a>2、安装Android SDK</h4><p>没安装的用户可以从官网下载，这里国内用户推荐从AndroidDevTools下载。</p>

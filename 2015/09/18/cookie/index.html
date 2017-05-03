@@ -17,7 +17,7 @@
 <meta property="og:description" content="Cookie是什么？Cookie意为“甜饼”，是由W3C组织提出，最早由Netscape社区发展的一种机制，1994年作为 Mosaic Netscape 浏览器beta 0.9 版的一部分被引入。
 那Cookie到底是用来做什么的呢？我们知道，Web应用程序是使用HTTP协议传输数据的。但是，HTTP协议是无状态的协议。一旦数据交换完毕，客户端与服务器端的连接就会关闭，再次交换数据需要建立新的连">
 <meta property="og:image" content="http://cz2013.github.io/img/Cookie.jpg">
-<meta property="og:updated_time" content="2017-04-11T06:08:03.226Z">
+<meta property="og:updated_time" content="2017-05-03T07:13:05.457Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cookie">
 <meta name="twitter:description" content="Cookie是什么？Cookie意为“甜饼”，是由W3C组织提出，最早由Netscape社区发展的一种机制，1994年作为 Mosaic Netscape 浏览器beta 0.9 版的一部分被引入。
@@ -179,7 +179,8 @@
       
         <h4 id="Cookie是什么？"><a href="#Cookie是什么？" class="headerlink" title="Cookie是什么？"></a>Cookie是什么？</h4><p>Cookie意为“甜饼”，是由W3C组织提出，最早由Netscape社区发展的一种机制，1994年作为 Mosaic Netscape 浏览器beta 0.9 版的一部分被引入。</p>
 <p>那Cookie到底是用来做什么的呢？我们知道，Web应用程序是使用HTTP协议传输数据的。但是，HTTP协议是无状态的协议。一旦数据交换完毕，客户端与服务器端的连接就会关闭，再次交换数据需要建立新的连接，这就意味着服务器无法从连接上跟踪会话。服务器单从网络连接上无从知道客户身份。怎么办呢？就给客户端们颁发一个通行证吧，每人一个，无论谁访问都必须携带自己通行证。这样服务器就能从通行证上确认客户身份了。这就是Cookie的作用。</p>
-<p>目前Cookie已经成为标准，所有的主流浏览器如IE、Netscape、Firefox、Opera等都支持Cookie。如果浏览器不支持Cookie（如大部分手机中的浏览器）或者把Cookie禁用了，Cookie功能就会失效。不同的浏览器采用不同的方式保存Cookie。IE浏览器会在“C:\Documents and Settings\你的用户名\Cookies”文件夹下以文本文件形式保存，一个文本文件保存一个Cookie。<br><a id="more"></a></p>
+<p>目前Cookie已经成为标准，所有的主流浏览器如IE、Netscape、Firefox、Opera等都支持Cookie。如果浏览器不支持Cookie（如大部分手机中的浏览器）或者把Cookie禁用了，Cookie功能就会失效。不同的浏览器采用不同的方式保存Cookie。IE浏览器会在“C:\Documents and Settings\你的用户名\Cookies”文件夹下以文本文件形式保存，一个文本文件保存一个Cookie。</p>
+<a id="more"></a>
 <h4 id="Cookie的传递流程"><a href="#Cookie的传递流程" class="headerlink" title="Cookie的传递流程"></a>Cookie的传递流程</h4><p>当在浏览器地址栏中键入了一个Web站点的URL——假设是Amazon网址，浏览器会向该Web站点发送一个读取网页的请求，并将结果在显示器上显示。这时该网页在你的电脑上寻找 Amazon网站设置的Cookie文件，如果找到，浏览器会把Cookie文件中的数据连同前面输入的URL一同发送到Amazon服务器。服务器收到 Cookie数据，就会在他的数据库中检索你的ID，你的购物记录、个人喜好等信息，并记录下新的内容，增加到数据库和Cookie文件中去。如果没有检测到Cookie或者你的Cookie信息与数据库中的信息不符合，则说明你是第一次浏览该网站，服务器的CGI程序将为你创建新的ID信息，并保存到数据库中。</p>
 <p>Cookie是利用了网页代码中的HTTP头信息进行传递的，浏览器的每一次网页请求，都可以伴随Cookie传递，例如，浏览器的打开或刷新网页操作。服务器将Cookie添加到网页的HTTP头信息中，伴随网页数据传回到你的浏览器，浏览器会根据你电脑中的Cookie设置选择是否保存这些数据。如果浏览器不允许Cookie保存，则关掉浏览器后，这些数据就消失。Cookie在电脑上保存的时间是不一样的，这些都是由服务器的设置不同决定得。Cookie有一个Expires（有效期）属性，这个属性决定了Cookie的保存时间，服务器可以通过设定Expires字段的数值，来改变Cookie的保存时间。如果不设置该属性，那么Cookie只在浏览网页期间有效，关闭浏览器，这些Cookie自动消失，绝大多数网站属于这种情况。通常情况下，Cookie包含Server、Expires、Name、value这几个字段，其中对服务器有用的只是Name和value字段，Expires等字段的内容仅仅是为了告诉浏览器如何处理这些Cookies。</p>
 <p>如下图所示，是Cookie工作原理图。<br><img src="/img/Cookie.jpg" style="margin:10px auto;"></p>

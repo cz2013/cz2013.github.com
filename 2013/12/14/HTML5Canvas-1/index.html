@@ -25,7 +25,7 @@
 <meta property="og:image" content="http://cz2013.github.io/img/canvas7.jpg">
 <meta property="og:image" content="http://cz2013.github.io/img/canvas8.jpg">
 <meta property="og:image" content="http://cz2013.github.io/img/canvas9.jpg">
-<meta property="og:updated_time" content="2017-04-11T01:58:34.921Z">
+<meta property="og:updated_time" content="2017-05-03T07:14:08.990Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML5 Canvas浅析(1)">
 <meta name="twitter:description" content="HTML5引进了很多新特性，其中最受人关注的就有Canvas。Canvas元素以及JS引擎中新增的一些特性，让前端开发者不必借助第三方插件，即可开发出精细且具有交互性的2D网页。本文就向大家介绍一下Canvas元素。
@@ -186,7 +186,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>HTML5引进了很多新特性，其中最受人关注的就有Canvas。Canvas元素以及JS引擎中新增的一些特性，让前端开发者不必借助第三方插件，即可开发出精细且具有交互性的2D网页。本文就向大家介绍一下Canvas元素。</p>
-<h2 id="1-Canvas背景介绍"><a href="#1-Canvas背景介绍" class="headerlink" title="1. Canvas背景介绍"></a>1. Canvas背景介绍</h2><h3 id="1-1-Canvas由来"><a href="#1-1-Canvas由来" class="headerlink" title="1.1. Canvas由来"></a>1.1. Canvas由来</h3><p>Canvas的概念最初是由苹果公司提出的，用于在Mac OS X WebKit中创建控制板部件(dashboard widget)。在Canvas出现之前，开发人员若要在浏览器中使用绘图API，只能使用Adobe的Flash和SVG(Scalable Vector Graphics，可伸缩矢量图形)插件，或者只有IE才支持的VML(Vector Markup Language，矢量标记语言)，以及其他一些稀奇古怪的JS技巧。<br>Canvas提供的绘图功能，对浏览器端来说非常有用，因此被纳入了HTML5规范。苹果公司还曾暗示过，可能会为Canvas规范申请知识产权。不过，最终还是按照W3C的免版税专利权许可条款公开了其专利。<br><a id="more"></a></p>
+<h2 id="1-Canvas背景介绍"><a href="#1-Canvas背景介绍" class="headerlink" title="1. Canvas背景介绍"></a>1. Canvas背景介绍</h2><h3 id="1-1-Canvas由来"><a href="#1-1-Canvas由来" class="headerlink" title="1.1. Canvas由来"></a>1.1. Canvas由来</h3><p>Canvas的概念最初是由苹果公司提出的，用于在Mac OS X WebKit中创建控制板部件(dashboard widget)。在Canvas出现之前，开发人员若要在浏览器中使用绘图API，只能使用Adobe的Flash和SVG(Scalable Vector Graphics，可伸缩矢量图形)插件，或者只有IE才支持的VML(Vector Markup Language，矢量标记语言)，以及其他一些稀奇古怪的JS技巧。<br>Canvas提供的绘图功能，对浏览器端来说非常有用，因此被纳入了HTML5规范。苹果公司还曾暗示过，可能会为Canvas规范申请知识产权。不过，最终还是按照W3C的免版税专利权许可条款公开了其专利。</p>
+<a id="more"></a>
 <h3 id="1-2-Canvas是什么"><a href="#1-2-Canvas是什么" class="headerlink" title="1.2. Canvas是什么"></a>1.2. Canvas是什么</h3><p>Canvas元素只是一块无色透明的矩形区域。和img元素不同的是它不含src和alt属性。canvas只有两个属性：width 和 height。这两个属性可选，并且都可以用 DOM 属性或者 CSS 规则来设置。如果不指定width 和 height，默认的是宽300像素，高150像素。<br><img src="/img/canvas1.jpg" style="margin:10px auto;"><br><em>注：id属性不是canvas专享的，就像标准的HTML标签一样，任何一个HTML元素都可以指定其id值。</em><br>同大多数HTML元素一样，canvas元素可以通过应用CSS来设置样式，而且一些CSS属性还可以被canvas内的元素继承。比如字体样式，在canvas内添加的文字，其样式默认同canvas元素本身是一样的。此外，还可以为canvas内的元素设置CSS属性。跟在任何HTML和CSS文档中使用的语法一样。<br>在页面中加入canvas元素后，我们便可以通过JS来控制它。可以在其中添加图片、线条以及文字，也可以绘图，甚至还可以加入高级动画。Canvas API支持大多数主流操作系统和框架支持的二维绘制操作。并且是参照既有系统设计的。</p>
 <h3 id="1-3-Canvas坐标"><a href="#1-3-Canvas坐标" class="headerlink" title="1.3. Canvas坐标"></a>1.3. Canvas坐标</h3><p>在Canvas上作图，需要了解画布的坐标规则：canvas元素的左上角为原点(0,0)，向右为x轴正方向，向下为y轴正方向。<br><img src="/img/canvas2.jpg" style="margin:10px auto;"></p>
 <h3 id="1-4-Canvas支持浏览器"><a href="#1-4-Canvas支持浏览器" class="headerlink" title="1.4. Canvas支持浏览器"></a>1.4. Canvas支持浏览器</h3><p><a href="http://caniuse.com/#feat=canvas" target="_blank" rel="external"><img src="/img/canvas3.jpg" style="margin:10px auto;"></a><br>因为canvas相对较新，有些浏览器并没实现，所以我们需要为那些不支持canvas的浏览器提供替用显示内容。我们只需要直接在canvas元素内插入替用内容即可。不支持canvas的浏览器会忽略canvas元素而直接渲染替用内容，而支持的浏览器则会正常地渲染canvas。<br><img src="/img/canvas4.jpg" style="margin:10px auto;"></p>

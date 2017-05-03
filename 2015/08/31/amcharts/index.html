@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://cz2013.github.io/img/amcharts-10.png">
 <meta property="og:image" content="http://cz2013.github.io/img/amcharts-11.png">
 <meta property="og:image" content="http://cz2013.github.io/img/amcharts-12.png">
-<meta property="og:updated_time" content="2017-04-11T06:02:24.108Z">
+<meta property="og:updated_time" content="2017-05-03T07:12:56.914Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="amcharts v.3开发小结">
 <meta name="twitter:description" content="amcharts是什么？前端开发过程中经常会遇到图表展示的需求，这里我们往往会借用成熟的外部组件来尽快的投入到项目的开发中去。现有的主流的图表组件有很多，amcharts就是其中一个。amCharts 是一款高级图表库，致力于 Web 之上的数据可视化支持。它支持的图表包括柱状图、条状图、线图、蜡烛图、饼图、雷达、极坐标图、散点图，甚至连燃烧图、金字塔图，都有支持。amCharts 库是一款完全独">
@@ -186,7 +186,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="amcharts是什么？"><a href="#amcharts是什么？" class="headerlink" title="amcharts是什么？"></a>amcharts是什么？</h4><p>前端开发过程中经常会遇到图表展示的需求，这里我们往往会借用成熟的外部组件来尽快的投入到项目的开发中去。现有的主流的图表组件有很多，amcharts就是其中一个。<br><a href="http://www.amcharts.com/" target="_blank" rel="external">amCharts</a> 是一款高级图表库，致力于 Web 之上的数据可视化支持。它支持的图表包括柱状图、条状图、线图、蜡烛图、饼图、雷达、极坐标图、散点图，甚至连燃烧图、金字塔图，都有支持。amCharts 库是一款完全独立的类库，不依赖任何其他第三方类库，就可以在网站上运行。该类库支持两个版本，商业授权版本和免费版本（在图上显示 amCharts 的商标和链接）。</p>
-<p>总之，我们在经过调研后，结合项目需求等内因外因选择了amcharts这个组件。amcharts满足了产品大部分的需求。但是很多地方需要定制。那在解决这些特殊需求的过程中，这里我来总结一下amcharts在使用过程中需要注意的地方。希望能在大家开发学习过程中有所帮助。<br><a id="more"></a></p>
+<p>总之，我们在经过调研后，结合项目需求等内因外因选择了amcharts这个组件。amcharts满足了产品大部分的需求。但是很多地方需要定制。那在解决这些特殊需求的过程中，这里我来总结一下amcharts在使用过程中需要注意的地方。希望能在大家开发学习过程中有所帮助。</p>
+<a id="more"></a>
 <h4 id="免费-vs-样式需求"><a href="#免费-vs-样式需求" class="headerlink" title="免费 vs 样式需求"></a>免费 vs 样式需求</h4><p>前面提到，amcharts有免费版本和商业授权版本。在开发过程中我们选择的是免费版本。但是产品需求是要按照UED提供切图中图表样式进行展示。显然UED是不会在示意图中增加“JS chart by amCharts”这个链接的。我们又不能将其去掉（涉及版权问题），所以经过协商，需要调整这个链接的位置。</p>
 <p>打开amcharts.js，可以看到都是压缩过的代码。可以搜索“JS chart by amCharts”，只有一个结果，这个结果附近的代码设置了这个链接相关信息。amcharts中设置了可配参数定位这个链接，所以一般情况下可以在开发过程中直接配置。但是由于我们的需求要求定制位置，所以需要修改位置的值。右下角是通过“bottom-right”来确定位置。搜索它结果唯一。这里我们将“m=d-f-3”改成“m=d-f+37”。另外在引用amcharts时设置”creditsPosition”:”bottom-right”。</p>
 <h4 id="定制图表样式"><a href="#定制图表样式" class="headerlink" title="定制图表样式"></a>定制图表样式</h4><p>默认的amcharts显然不能满足需求，所以图表中坐标的粗细，颜色，透明度，包括里面线段，柱状图等等的样式都需要进行重新设置。如下图所示是最终效果。<br><img src="/img/amcharts-1.png" style="margin:10px auto;"></p>

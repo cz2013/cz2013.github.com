@@ -150,29 +150,30 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-MooTools-search-report2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-form-submit4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/01/27/MooTools-search-report2/">Mootools调研(2)</a>
+      <a class="article-title" href="/2014/04/01/form-submit4/">Form表单提交详解(4)</a>
     </h1>
   
 
         
-        <a href="/2014/01/27/MooTools-search-report2/" class="archive-article-date">
-  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
+        <a href="/2014/04/01/form-submit4/" class="archive-article-date">
+  	<time datetime="2014-03-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-04-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="2-规范"><a href="#2-规范" class="headerlink" title="2 规范"></a>2 规范</h2><h3 id="2-1-组件命名规范"><a href="#2-1-组件命名规范" class="headerlink" title="2.1 组件命名规范"></a>2.1 组件命名规范</h3><p>MooTools的方法命名属于传统对称命名的方式(prop为property属性缩写)，且语义明显，这种设计可以有效避免与原生dom方法的冲突。<br>在core中为全局window对象定义MooTools对象，并且全局定义了其他常用组件的集合。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    this.MooTools = &#123;</div><div class="line">        version: <span class="string">'1.4.5'</span>,</div><div class="line">        build: <span class="string">'74e34796f5f76640cdb98853004650aea1499d69'</span></div><div class="line">    &#125;;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+        <h4 id="以Ajax方式提交部分表单"><a href="#以Ajax方式提交部分表单" class="headerlink" title="以Ajax方式提交部分表单"></a>以Ajax方式提交部分表单</h4><p>在前面的示例中，我们看到以Ajax方式提交一个表单是非常容易的，它完全模拟了浏览器的行为。不过，有时我们可能需要只提交表单的一部分，为的是更好的局部更新，那么又该如何做呢？<br>假如我有以下表单的一部分，我只希望在用户某个按钮时将它提交到服务端：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">&lt;div id=<span class="string">"divCustomerInfo"</span>&gt;</div><div class="line"></div><div class="line">    &lt;p&gt;客户名称: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"CustomerName"</span> style=<span class="string">"width: 300px"</span> /&gt;&lt;/p&gt;</div><div class="line">    </div><div class="line">    &lt;p&gt;客户电话: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"CustomerTel"</span> style=<span class="string">"width: 300px"</span> /&gt;&lt;/p&gt;</div><div class="line">    </div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report2/#more">more >></a>
+          <a class="article-more-a" href="/2014/04/01/form-submit4/#more">more >></a>
         
       
 
@@ -196,7 +197,201 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report2/">展开全文 >></a>
+          <a class="article-more-a" href="/2014/04/01/form-submit4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-MooTools-search-report1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/01/27/MooTools-search-report1/">Mootools调研(1)</a>
+    </h1>
+  
+
+        
+        <a href="/2014/01/27/MooTools-search-report1/" class="archive-article-date">
+  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h2><h3 id="1-1-框架名称"><a href="#1-1-框架名称" class="headerlink" title="1.1 框架名称"></a>1.1 框架名称</h3><p>MooTools是个精简、模块化同时也对象导向的JavaScript框架，设计给中等与进阶的JavaScript开发员使用。透过其优美、详细而条理分明的API，可以让您写出强大、富有弹性且跨浏览器的程序。——MooTools官网</p>
+<h3 id="1-2-背景"><a href="#1-2-背景" class="headerlink" title="1.2 背景"></a>1.2 背景</h3><p>MooTools是Valerio Proietti首先提出，他以Prototype和Dean Edward的BASE2为灵感，并在2006年9月发布。MooTools起源于Moo.fx —— 一个流行的插件，由Proietti在2005年10月为Prototype开发，现在仍在维护和使用中。<br>针对原型扩展——提供了许多JavaScript的原生字符串，数组，和拥有附加方法的函数对象，当时的Proietti想要一个框架，从而进一步扩展原生Element对象，以提供更强的文档对象模型（DOM）控制。</p>
+        
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report1/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-MooTools-search-report3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/01/27/MooTools-search-report3/">Mootools调研(3)</a>
+    </h1>
+  
+
+        
+        <a href="/2014/01/27/MooTools-search-report3/" class="archive-article-date">
+  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="3-功能"><a href="#3-功能" class="headerlink" title="3 功能"></a>3 功能</h2><h3 id="3-1-OOP继承"><a href="#3-1-OOP继承" class="headerlink" title="3.1 OOP继承"></a>3.1 OOP继承</h3><h4 id="类的实现和扩展"><a href="#类的实现和扩展" class="headerlink" title="类的实现和扩展"></a>类的实现和扩展</h4><p>MooTools框架的core中定义了class方法：</p>
+        
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report3/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-MooTools-search-report6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/01/27/MooTools-search-report6/">Mootools调研(6)</a>
+    </h1>
+  
+
+        
+        <a href="/2014/01/27/MooTools-search-report6/" class="archive-article-date">
+  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="3-5-组件的组织结构"><a href="#3-5-组件的组织结构" class="headerlink" title="3.5 组件的组织结构"></a>3.5 组件的组织结构</h3><p>MooTools框架主要有mootools-core以及mootools-more这两大部分组成。mootools-core是MooTools框架的核心模块，mootools-more是针对mootools-core的功能扩展部分，可根据需求动态引入。<br>无论是mootools-core还是mootools-more都可针对具体需求，选择需要的模块，根据模块以来关系组装出最小的js包使得尽量小的框架代码实现所需功能。</p></p>
+<p><p>如下图所示，是详细的MooTools框架体系结构：<br><img src="/img/mootools1.jpg" style="margin:10px auto;"/></p>
+        
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report6/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report6/">展开全文 >></a>
         </p>
       
 
@@ -278,71 +473,6 @@
 
 
   
-    <article id="post-MooTools-search-report6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/01/27/MooTools-search-report6/">Mootools调研(6)</a>
-    </h1>
-  
-
-        
-        <a href="/2014/01/27/MooTools-search-report6/" class="archive-article-date">
-  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="3-5-组件的组织结构"><a href="#3-5-组件的组织结构" class="headerlink" title="3.5 组件的组织结构"></a>3.5 组件的组织结构</h3><p>MooTools框架主要有mootools-core以及mootools-more这两大部分组成。mootools-core是MooTools框架的核心模块，mootools-more是针对mootools-core的功能扩展部分，可根据需求动态引入。<br>无论是mootools-core还是mootools-more都可针对具体需求，选择需要的模块，根据模块以来关系组装出最小的js包使得尽量小的框架代码实现所需功能。</p></p>
-<p><p>如下图所示，是详细的MooTools框架体系结构：<br><img src="/img/mootools1.jpg" style="margin:10px auto;"/><br>
-        
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report6/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
     <article id="post-MooTools-search-report4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -363,7 +493,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="3-2-事件管理"><a href="#3-2-事件管理" class="headerlink" title="3.2 事件管理"></a>3.2 事件管理</h3><p>Element.Event，提供事件的包装，元素绑定事件机制；Element.Delegation，提供事件委托机制, 即把一个(动态)子元素上的事件处理绑定委托到父容器上。都可在core文件中查看源码。<br>下面介绍几个常用的事件管理方法：<br>MooTools已经提供了window对象的自定义事件: ‘domready’。 MooTools就是用window.addEvent(‘domready’, function() {})方式来代替传统JavaScript的window.onload 方法的。<br>
+        <h3 id="3-2-事件管理"><a href="#3-2-事件管理" class="headerlink" title="3.2 事件管理"></a>3.2 事件管理</h3><p>Element.Event，提供事件的包装，元素绑定事件机制；Element.Delegation，提供事件委托机制, 即把一个(动态)子元素上的事件处理绑定委托到父容器上。都可在core文件中查看源码。<br>下面介绍几个常用的事件管理方法：<br>MooTools已经提供了window对象的自定义事件: ‘domready’。 MooTools就是用window.addEvent(‘domready’, function() {})方式来代替传统JavaScript的window.onload 方法的。</p>
         
           <a class="article-more-a" href="/2014/01/27/MooTools-search-report4/#more">more >></a>
         
@@ -407,19 +537,19 @@
 
 
   
-    <article id="post-MooTools-search-report3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-MooTools-search-report2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/01/27/MooTools-search-report3/">Mootools调研(3)</a>
+      <a class="article-title" href="/2014/01/27/MooTools-search-report2/">Mootools调研(2)</a>
     </h1>
   
 
         
-        <a href="/2014/01/27/MooTools-search-report3/" class="archive-article-date">
+        <a href="/2014/01/27/MooTools-search-report2/" class="archive-article-date">
   	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
 </a>
         
@@ -427,9 +557,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="3-功能"><a href="#3-功能" class="headerlink" title="3 功能"></a>3 功能</h2><h3 id="3-1-OOP继承"><a href="#3-1-OOP继承" class="headerlink" title="3.1 OOP继承"></a>3.1 OOP继承</h3><h4 id="类的实现和扩展"><a href="#类的实现和扩展" class="headerlink" title="类的实现和扩展"></a>类的实现和扩展</h4><p>MooTools框架的core中定义了class方法：<br>
+        <h2 id="2-规范"><a href="#2-规范" class="headerlink" title="2 规范"></a>2 规范</h2><h3 id="2-1-组件命名规范"><a href="#2-1-组件命名规范" class="headerlink" title="2.1 组件命名规范"></a>2.1 组件命名规范</h3><p>MooTools的方法命名属于传统对称命名的方式(prop为property属性缩写)，且语义明显，这种设计可以有效避免与原生dom方法的冲突。<br>在core中为全局window对象定义MooTools对象，并且全局定义了其他常用组件的集合。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    this.MooTools = &#123;</div><div class="line">        version: <span class="string">'1.4.5'</span>,</div><div class="line">        build: <span class="string">'74e34796f5f76640cdb98853004650aea1499d69'</span></div><div class="line">    &#125;;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
         
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report3/#more">more >></a>
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report2/#more">more >></a>
         
       
 
@@ -453,72 +583,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-MooTools-search-report1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/01/27/MooTools-search-report1/">Mootools调研(1)</a>
-    </h1>
-  
-
-        
-        <a href="/2014/01/27/MooTools-search-report1/" class="archive-article-date">
-  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h2><h3 id="1-1-框架名称"><a href="#1-1-框架名称" class="headerlink" title="1.1 框架名称"></a>1.1 框架名称</h3><p>MooTools是个精简、模块化同时也对象导向的JavaScript框架，设计给中等与进阶的JavaScript开发员使用。透过其优美、详细而条理分明的API，可以让您写出强大、富有弹性且跨浏览器的程序。——MooTools官网</p>
-<h3 id="1-2-背景"><a href="#1-2-背景" class="headerlink" title="1.2 背景"></a>1.2 背景</h3><p>MooTools是Valerio Proietti首先提出，他以Prototype和Dean Edward的BASE2为灵感，并在2006年9月发布。MooTools起源于Moo.fx —— 一个流行的插件，由Proietti在2005年10月为Prototype开发，现在仍在维护和使用中。<br>针对原型扩展——提供了许多JavaScript的原生字符串，数组，和拥有附加方法的函数对象，当时的Proietti想要一个框架，从而进一步扩展原生Element对象，以提供更强的文档对象模型（DOM）控制。<br>
-        
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report1/">展开全文 >></a>
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report2/">展开全文 >></a>
         </p>
       
 
@@ -557,7 +622,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="2-Canvas开发浅尝"><a href="#2-Canvas开发浅尝" class="headerlink" title="2. Canvas开发浅尝"></a>2. Canvas开发浅尝</h2><h3 id="2-1-渲染上下文"><a href="#2-1-渲染上下文" class="headerlink" title="2.1. 渲染上下文"></a>2.1. 渲染上下文</h3><p>canvas 初始化是空白的，要在上面用脚本画图首先需要其渲染上下文（rendering context），它可以通过 canvas 元素对象的getContext方法来获取，同时得到的还有一些画图用的函数。getContext()接受一个用于描述其类型的值作为参数。现在“2d”是唯一支持的值。</p>
-<h3 id="2-2-API"><a href="#2-2-API" class="headerlink" title="2.2. API"></a>2.2. API</h3><p>canvas元素本身并没有绘制能力（它仅仅是图形的容器），您必须使用脚本来完成实际的绘图任务。getContext() 方法可返回一个对象，该对象提供了用于在画布上绘图的方法和属性。<br>
+<h3 id="2-2-API"><a href="#2-2-API" class="headerlink" title="2.2. API"></a>2.2. API</h3><p>canvas元素本身并没有绘制能力（它仅仅是图形的容器），您必须使用脚本来完成实际的绘图任务。getContext() 方法可返回一个对象，该对象提供了用于在画布上绘图的方法和属性。</p>
         
           <a class="article-more-a" href="/2014/01/26/HTML5Canvas-2/#more">more >></a>
         
@@ -693,7 +758,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>HTML5引进了很多新特性，其中最受人关注的就有Canvas。Canvas元素以及JS引擎中新增的一些特性，让前端开发者不必借助第三方插件，即可开发出精细且具有交互性的2D网页。本文就向大家介绍一下Canvas元素。</p>
-<h2 id="1-Canvas背景介绍"><a href="#1-Canvas背景介绍" class="headerlink" title="1. Canvas背景介绍"></a>1. Canvas背景介绍</h2><h3 id="1-1-Canvas由来"><a href="#1-1-Canvas由来" class="headerlink" title="1.1. Canvas由来"></a>1.1. Canvas由来</h3><p>Canvas的概念最初是由苹果公司提出的，用于在Mac OS X WebKit中创建控制板部件(dashboard widget)。在Canvas出现之前，开发人员若要在浏览器中使用绘图API，只能使用Adobe的Flash和SVG(Scalable Vector Graphics，可伸缩矢量图形)插件，或者只有IE才支持的VML(Vector Markup Language，矢量标记语言)，以及其他一些稀奇古怪的JS技巧。<br>Canvas提供的绘图功能，对浏览器端来说非常有用，因此被纳入了HTML5规范。苹果公司还曾暗示过，可能会为Canvas规范申请知识产权。不过，最终还是按照W3C的免版税专利权许可条款公开了其专利。<br>
+<h2 id="1-Canvas背景介绍"><a href="#1-Canvas背景介绍" class="headerlink" title="1. Canvas背景介绍"></a>1. Canvas背景介绍</h2><h3 id="1-1-Canvas由来"><a href="#1-1-Canvas由来" class="headerlink" title="1.1. Canvas由来"></a>1.1. Canvas由来</h3><p>Canvas的概念最初是由苹果公司提出的，用于在Mac OS X WebKit中创建控制板部件(dashboard widget)。在Canvas出现之前，开发人员若要在浏览器中使用绘图API，只能使用Adobe的Flash和SVG(Scalable Vector Graphics，可伸缩矢量图形)插件，或者只有IE才支持的VML(Vector Markup Language，矢量标记语言)，以及其他一些稀奇古怪的JS技巧。<br>Canvas提供的绘图功能，对浏览器端来说非常有用，因此被纳入了HTML5规范。苹果公司还曾暗示过，可能会为Canvas规范申请知识产权。不过，最终还是按照W3C的免版税专利权许可条款公开了其专利。</p>
         
           <a class="article-more-a" href="/2013/12/14/HTML5Canvas-1/#more">more >></a>
         
@@ -737,79 +802,9 @@
 
 
   
-    <article id="post-sublimeText2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/12/13/sublimeText2/">sublime text2 快捷键</a>
-    </h1>
-  
-
-        
-        <a href="/2013/12/13/sublimeText2/" class="archive-article-date">
-  	<time datetime="2013-12-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-12-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="总结操作快捷键："><a href="#总结操作快捷键：" class="headerlink" title="总结操作快捷键："></a>总结操作快捷键：</h3><blockquote>
-<ol>
-<li>自动完成的快捷键是Tab， 加上zencoding插件后，更是如虎添翼</li>
-<li>按住ctrl点击鼠标，会出现多个闪烁的光标，这时可同时修改多处==== 或者按住鼠标中键拖拽</li>
-<li>ctrl+/、ctrl+shift+/分别未行注释和块注释，再按一下就能去掉注释，ST2能够自动识别是html、css还是js文件，给出不同类型的注释。</li>
-<li>右键功能： show unsaved changes，显示未保存的修改，红色减号表示删去的内容，绿色加号表示新增的内容</li>
-<li>折叠功能， mouseover到侧边栏就会显示折叠三角号
-        
-          <a class="article-more-a" href="/2013/12/13/sublimeText2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2013/12/13/sublimeText2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 

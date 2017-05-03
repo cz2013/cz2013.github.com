@@ -16,7 +16,7 @@
 <meta property="og:description" content="多提交按钮的表单用过Asp.net WebForms框架的人可能都写过这样的页面：一个页面中包含多个服务端按钮。处理方式嘛，也很简单：在每个按钮的事件处理器写上相应的代码就完事了，根本不用我们想太多。不过，对于不理解这背后处理过程的开发人员来说，当他们转到MVC框架下，可能会被卡住：MVC框架中可没有按钮事件！即使用不用MVC框架，用ashx通用处理器的方式，也会遇到这种问题，怎么办？">
 <meta property="og:image" content="http://cz2013.github.io/img/form-submit4.png">
 <meta property="og:image" content="http://cz2013.github.io/img/form-submit5.png">
-<meta property="og:updated_time" content="2017-04-11T02:13:38.380Z">
+<meta property="og:updated_time" content="2017-05-03T07:13:40.601Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Form表单提交详解(2)">
 <meta name="twitter:description" content="多提交按钮的表单用过Asp.net WebForms框架的人可能都写过这样的页面：一个页面中包含多个服务端按钮。处理方式嘛，也很简单：在每个按钮的事件处理器写上相应的代码就完事了，根本不用我们想太多。不过，对于不理解这背后处理过程的开发人员来说，当他们转到MVC框架下，可能会被卡住：MVC框架中可没有按钮事件！即使用不用MVC框架，用ashx通用处理器的方式，也会遇到这种问题，怎么办？">
@@ -175,7 +175,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="多提交按钮的表单"><a href="#多提交按钮的表单" class="headerlink" title="多提交按钮的表单"></a>多提交按钮的表单</h4><p>用过Asp.net WebForms框架的人可能都写过这样的页面：一个页面中包含多个服务端按钮。处理方式嘛，也很简单：在每个按钮的事件处理器写上相应的代码就完事了，根本不用我们想太多。<br>不过，对于不理解这背后处理过程的开发人员来说，当他们转到MVC框架下，可能会被卡住：MVC框架中可没有按钮事件！即使用不用MVC框架，用ashx通用处理器的方式，也会遇到这种问题，怎么办？<br><a id="more"></a></p>
+        <h4 id="多提交按钮的表单"><a href="#多提交按钮的表单" class="headerlink" title="多提交按钮的表单"></a>多提交按钮的表单</h4><p>用过Asp.net WebForms框架的人可能都写过这样的页面：一个页面中包含多个服务端按钮。处理方式嘛，也很简单：在每个按钮的事件处理器写上相应的代码就完事了，根本不用我们想太多。<br>不过，对于不理解这背后处理过程的开发人员来说，当他们转到MVC框架下，可能会被卡住：MVC框架中可没有按钮事件！即使用不用MVC框架，用ashx通用处理器的方式，也会遇到这种问题，怎么办？</p>
+<a id="more"></a>
 <p>对于这个问题，本文将站在HTML角度给出二个最根本的解决办法。<br>方法1：根据【成功控件】定义，我们设置按钮的name，在服务端用name来区分哪个按钮的提交：<br>HTML代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">&lt;form action=<span class="string">"Handler1.ashx"</span> method=<span class="string">"post"</span>&gt;</div><div class="line">    &lt;p&gt;客户名称: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"CustomerName"</span> style=<span class="string">"width: 300px"</span> /&gt;&lt;/p&gt;</div><div class="line">    &lt;p&gt;客户电话: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"CustomerTel"</span> style=<span class="string">"width: 300px"</span> /&gt;&lt;/p&gt;</div><div class="line">    &lt;p&gt;&lt;input <span class="built_in">type</span>=<span class="string">"submit"</span> name=<span class="string">"btnSave"</span> value=<span class="string">"保存"</span> /&gt;</div><div class="line">        &lt;input <span class="built_in">type</span>=<span class="string">"submit"</span> name=<span class="string">"btnQuery"</span> value=<span class="string">"查询"</span> /&gt;</div><div class="line">    &lt;/p&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure></p>
 <p>服务端处理代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">// 注意：我们只要判断指定的name是否存在就可以了。</div><div class="line"><span class="keyword">if</span>( string.IsNullOrEmpty(context.Request.Form[<span class="string">"btnSave"</span>]) == <span class="literal">false</span> ) &#123;</div><div class="line"></div><div class="line">    // 保存的处理逻辑</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">if</span>( string.IsNullOrEmpty(context.Request.Form[<span class="string">"btnQuery"</span>]) == <span class="literal">false</span> ) &#123;</div><div class="line"></div><div class="line">    // 查询的处理逻辑</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>方法2：我将二个按钮的name设置为相同的值（根据前面的成功控件规则，只有被点击的按钮才会提交），在服务端判断value，示例代码如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">&lt;form action=<span class="string">"Handler1.ashx"</span> method=<span class="string">"post"</span>&gt;</div><div class="line">&lt;p&gt;客户名称: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"CustomerName"</span> style=<span class="string">"width: 300px"</span> /&gt;&lt;/p&gt;</div><div class="line">&lt;p&gt;客户电话: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"CustomerTel"</span> style=<span class="string">"width: 300px"</span> /&gt;&lt;/p&gt;</div><div class="line">&lt;p&gt;&lt;input <span class="built_in">type</span>=<span class="string">"submit"</span> name=<span class="string">"submit"</span> value=<span class="string">"保存"</span> /&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"submit"</span> name=<span class="string">"submit"</span> value=<span class="string">"查询"</span> /&gt;</div><div class="line">&lt;/p&gt;</div><div class="line">&lt;/form&gt;</div><div class="line"></div><div class="line"></div><div class="line">string action = context.Request.Form[<span class="string">"submit"</span>];</div><div class="line"></div><div class="line"><span class="keyword">if</span>( action == <span class="string">"保存"</span> ) &#123;</div><div class="line"></div><div class="line">    // 保存的处理逻辑</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">if</span>( action == <span class="string">"查询"</span> ) &#123;</div><div class="line"></div><div class="line">    // 查询的处理逻辑</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -296,18 +297,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2014/04/01/form-submit3/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2014/04/01/form-submit1/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Form表单提交详解(3)
+          Form表单提交详解(1)
         
       </div>
     </a>
   
   
-    <a href="/2014/04/01/form-submit4/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Form表单提交详解(4)</div>
+    <a href="/2014/04/01/form-submit3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Form表单提交详解(3)</div>
       <i class="icon-circle-right"></i>
     </a>
   
