@@ -150,6 +150,75 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-wp-themes" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/10/wp-themes/">wordpress本地替换themes主题</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/10/wp-themes/" class="archive-article-date">
+  	<time datetime="2017-05-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>因为虚机不联网，所以搭建完wordpress后在仪表盘无法下载主题。<br>选择下载主题zip文件后，可以上传主题<br><img src="/img/wp-themes-1.png" style="margin:10px auto;"></p>
+<p>出现提示：无法建立目录wp-content/uploads/2017/05。有没有上级目录的写权限？</p>
+<p>解决方法：<br>1、查看/opt/lampp/htdocs/wp-content文件夹下有无uploads和upgrade文件夹，没有，新建，设置权限为 777或755；<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chmod 777 uploads/</div></pre></td></tr></table></figure></p>
+<p>2、查看发现wp_options表中upload键值为空。此时需要修改wp_options表中upload键    值如下图。<br><img src="/img/wp-themes-2.png" style="margin:10px auto;"></p>
+<p>3、重启服务，重新操作上传主题<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo /opt/lampp/lampp stop</div><div class="line">/opt/lampp/lampp start</div></pre></td></tr></table></figure></p>
+<p>这个问题就解决了。<br>但是在安装成功后有报错</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Fatal error: Allowed memory size of 134217728 bytes exhausted (tried to allocate 64 bytes) <span class="keyword">in</span> /opt/lampp/htdocs/wp-includes/class-wp-hook.php on line 298</div></pre></td></tr></table></figure>
+<p>解决方案：<br>在/opt/lampp/etc内的php.ini修改memory_limit=4096M，然后重启</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/10/wp-themes/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-xampp-wp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -703,72 +772,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2015/09/23/cache/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-cookie" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/18/cookie/">Cookie</a>
-    </h1>
-  
-
-        
-        <a href="/2015/09/18/cookie/" class="archive-article-date">
-  	<time datetime="2015-09-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="Cookie是什么？"><a href="#Cookie是什么？" class="headerlink" title="Cookie是什么？"></a>Cookie是什么？</h4><p>Cookie意为“甜饼”，是由W3C组织提出，最早由Netscape社区发展的一种机制，1994年作为 Mosaic Netscape 浏览器beta 0.9 版的一部分被引入。</p>
-<p>那Cookie到底是用来做什么的呢？我们知道，Web应用程序是使用HTTP协议传输数据的。但是，HTTP协议是无状态的协议。一旦数据交换完毕，客户端与服务器端的连接就会关闭，再次交换数据需要建立新的连接，这就意味着服务器无法从连接上跟踪会话。服务器单从网络连接上无从知道客户身份。怎么办呢？就给客户端们颁发一个通行证吧，每人一个，无论谁访问都必须携带自己通行证。这样服务器就能从通行证上确认客户身份了。这就是Cookie的作用。</p>
-<p>目前Cookie已经成为标准，所有的主流浏览器如IE、Netscape、Firefox、Opera等都支持Cookie。如果浏览器不支持Cookie（如大部分手机中的浏览器）或者把Cookie禁用了，Cookie功能就会失效。不同的浏览器采用不同的方式保存Cookie。IE浏览器会在“C:\Documents and Settings\你的用户名\Cookies”文件夹下以文本文件形式保存，一个文本文件保存一个Cookie。</p>
-        
-          <a class="article-more-a" href="/2015/09/18/cookie/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/09/18/cookie/">展开全文 >></a>
         </p>
       
 
