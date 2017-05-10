@@ -9,23 +9,20 @@
   <title>wordpress本地替换themes主题 | cz2013</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="因为虚机不联网，所以搭建完wordpress后在仪表盘无法下载主题。选择下载主题zip文件后，可以上传主题
-出现提示：无法建立目录wp-content/uploads/2017/05。有没有上级目录的写权限？
-解决方法：1、查看/opt/lampp/htdocs/wp-content文件夹下有无uploads和upgrade文件夹，没有，新建，设置权限为 777或755；1sudo chmod 7">
+出现提示：无法建立目录wp-content/uploads/2017/05。有没有上级目录的写权限？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="wordpress本地替换themes主题">
 <meta property="og:url" content="http://cz2013.github.io/2017/05/10/wp-themes/index.html">
 <meta property="og:site_name" content="cz2013">
 <meta property="og:description" content="因为虚机不联网，所以搭建完wordpress后在仪表盘无法下载主题。选择下载主题zip文件后，可以上传主题
-出现提示：无法建立目录wp-content/uploads/2017/05。有没有上级目录的写权限？
-解决方法：1、查看/opt/lampp/htdocs/wp-content文件夹下有无uploads和upgrade文件夹，没有，新建，设置权限为 777或755；1sudo chmod 7">
+出现提示：无法建立目录wp-content/uploads/2017/05。有没有上级目录的写权限？">
 <meta property="og:image" content="http://cz2013.github.io/img/wp-themes-1.png">
 <meta property="og:image" content="http://cz2013.github.io/img/wp-themes-2.png">
-<meta property="og:updated_time" content="2017-05-10T07:30:26.560Z">
+<meta property="og:updated_time" content="2017-05-10T07:32:09.542Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wordpress本地替换themes主题">
 <meta name="twitter:description" content="因为虚机不联网，所以搭建完wordpress后在仪表盘无法下载主题。选择下载主题zip文件后，可以上传主题
-出现提示：无法建立目录wp-content/uploads/2017/05。有没有上级目录的写权限？
-解决方法：1、查看/opt/lampp/htdocs/wp-content文件夹下有无uploads和upgrade文件夹，没有，新建，设置权限为 777或755；1sudo chmod 7">
+出现提示：无法建立目录wp-content/uploads/2017/05。有没有上级目录的写权限？">
 <meta name="twitter:image" content="http://cz2013.github.io/img/wp-themes-1.png">
   
     <link rel="alternative" href="/atom.xml" title="cz2013" type="application/atom+xml">
@@ -183,6 +180,7 @@
       
         <p>因为虚机不联网，所以搭建完wordpress后在仪表盘无法下载主题。<br>选择下载主题zip文件后，可以上传主题<br><img src="/img/wp-themes-1.png" style="margin:10px auto;"></p>
 <p>出现提示：无法建立目录wp-content/uploads/2017/05。有没有上级目录的写权限？</p>
+<a id="more"></a>
 <p>解决方法：<br>1、查看/opt/lampp/htdocs/wp-content文件夹下有无uploads和upgrade文件夹，没有，新建，设置权限为 777或755；<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chmod 777 uploads/</div></pre></td></tr></table></figure></p>
 <p>2、查看发现wp_options表中upload键值为空。此时需要修改wp_options表中upload键    值如下图。<br><img src="/img/wp-themes-2.png" style="margin:10px auto;"></p>
 <p>3、重启服务，重新操作上传主题<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo /opt/lampp/lampp stop</div><div class="line">/opt/lampp/lampp start</div></pre></td></tr></table></figure></p>

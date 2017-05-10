@@ -746,19 +746,19 @@
 
 
   
-    <article id="post-form-submit1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-form-submit4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/04/01/form-submit1/">Form表单提交详解(1)</a>
+      <a class="article-title" href="/2014/04/01/form-submit4/">Form表单提交详解(4)</a>
     </h1>
   
 
         
-        <a href="/2014/04/01/form-submit1/" class="archive-article-date">
+        <a href="/2014/04/01/form-submit4/" class="archive-article-date">
   	<time datetime="2014-03-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-04-01</time>
 </a>
         
@@ -766,9 +766,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>愚人节快乐！作为一个接触前端时间不长的人来说，jQuery等框架已经封装好了很多dom操作、ajax方法，大大简化了初学者的学习和开发成本。所以在接触一些旧的开发代码时，往往会觉得十分不明觉厉。例如，Form表单提交。<br>Form表单提交，在jQuey中完全可以被模仿和取代，利用ajax方法传参给后端，简洁大方，清晰易懂（此处省略一万字）。但是，尤其是在面对旧系统，或者后端开发为主的系统（内部系统，无专业前端开发）时，你会发现Form表单方式来提交信息时非常普遍的。这个时候，我们要了解它的运行过程。下面，是我调研的Form表单内容，看完对这个知识点有了新的认识。希望能对大家有用。</p>
+        <h4 id="以Ajax方式提交部分表单"><a href="#以Ajax方式提交部分表单" class="headerlink" title="以Ajax方式提交部分表单"></a>以Ajax方式提交部分表单</h4><p>在前面的示例中，我们看到以Ajax方式提交一个表单是非常容易的，它完全模拟了浏览器的行为。不过，有时我们可能需要只提交表单的一部分，为的是更好的局部更新，那么又该如何做呢？<br>假如我有以下表单的一部分，我只希望在用户某个按钮时将它提交到服务端：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">&lt;div id=<span class="string">"divCustomerInfo"</span>&gt;</div><div class="line"></div><div class="line">    &lt;p&gt;客户名称: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"CustomerName"</span> style=<span class="string">"width: 300px"</span> /&gt;&lt;/p&gt;</div><div class="line">    </div><div class="line">    &lt;p&gt;客户电话: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"CustomerTel"</span> style=<span class="string">"width: 300px"</span> /&gt;&lt;/p&gt;</div><div class="line">    </div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2014/04/01/form-submit1/#more">more >></a>
+          <a class="article-more-a" href="/2014/04/01/form-submit4/#more">more >></a>
         
       
 
@@ -792,7 +793,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2014/04/01/form-submit1/">展开全文 >></a>
+          <a class="article-more-a" href="/2014/04/01/form-submit4/">展开全文 >></a>
         </p>
       
 
