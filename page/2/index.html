@@ -150,6 +150,71 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-cache" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/23/cache/">Cache</a>
+    </h1>
+  
+
+        
+        <a href="/2015/09/23/cache/" class="archive-article-date">
+  	<time datetime="2015-09-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上一章我们讨论了Cookie的概念和js使用方法。这一章我们来讨论Cache：一个同样在开发过程中经常听到的名词——缓存。</p>
+<h4 id="Cache是什么？"><a href="#Cache是什么？" class="headerlink" title="Cache是什么？"></a>Cache是什么？</h4><p>缓存就是用来避免频繁的到主存储器（一般来说可能是数据库，结构化的磁盘文件，远程网络接口，程序接口等等提供数据返回的）获取数据而建立的一个存取更快的临时存储器（缓存）。一般来说，缓存比主存储器更小（不一定，也可能是存储的数据结构不一样，但是存取速度非常快），存储的容量也比较小，但是存取速度非常快。</p>
+        
+          <a class="article-more-a" href="/2015/09/23/cache/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/09/23/cache/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-cookie" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -746,19 +811,19 @@
 
 
   
-    <article id="post-form-submit4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-form-submit3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/04/01/form-submit4/">Form表单提交详解(4)</a>
+      <a class="article-title" href="/2014/04/01/form-submit3/">Form表单提交详解(3)</a>
     </h1>
   
 
         
-        <a href="/2014/04/01/form-submit4/" class="archive-article-date">
+        <a href="/2014/04/01/form-submit3/" class="archive-article-date">
   	<time datetime="2014-03-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-04-01</time>
 </a>
         
@@ -766,10 +831,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="以Ajax方式提交部分表单"><a href="#以Ajax方式提交部分表单" class="headerlink" title="以Ajax方式提交部分表单"></a>以Ajax方式提交部分表单</h4><p>在前面的示例中，我们看到以Ajax方式提交一个表单是非常容易的，它完全模拟了浏览器的行为。不过，有时我们可能需要只提交表单的一部分，为的是更好的局部更新，那么又该如何做呢？<br>假如我有以下表单的一部分，我只希望在用户某个按钮时将它提交到服务端：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">&lt;div id=<span class="string">"divCustomerInfo"</span>&gt;</div><div class="line"></div><div class="line">    &lt;p&gt;客户名称: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"CustomerName"</span> style=<span class="string">"width: 300px"</span> /&gt;&lt;/p&gt;</div><div class="line">    </div><div class="line">    &lt;p&gt;客户电话: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"CustomerTel"</span> style=<span class="string">"width: 300px"</span> /&gt;&lt;/p&gt;</div><div class="line">    </div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+        <h4 id="MVC-Controller中多个自定义类型的传入参数"><a href="#MVC-Controller中多个自定义类型的传入参数" class="headerlink" title="MVC Controller中多个自定义类型的传入参数"></a>MVC Controller中多个自定义类型的传入参数</h4><p>前面的所有示例代码中都有一个规律：在服务端读取浏览器提交的数据时，都会使用控件的name属性，基本上在Asp.net中就是这样处理。但是在MVC中，MS为了简化读取表单数据的代码，可以让我们直接在Controller的方法中直接以传入参数的形式指定，此时框架会自动根据方法的参数名查找对应的输入数据（当然也不止表单数据了）。下面举个简单的例子：</p>
         
-          <a class="article-more-a" href="/2014/04/01/form-submit4/#more">more >></a>
+          <a class="article-more-a" href="/2014/04/01/form-submit3/#more">more >></a>
         
       
 
@@ -793,71 +857,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2014/04/01/form-submit4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-form-submit2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/04/01/form-submit2/">Form表单提交详解(2)</a>
-    </h1>
-  
-
-        
-        <a href="/2014/04/01/form-submit2/" class="archive-article-date">
-  	<time datetime="2014-03-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-04-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="多提交按钮的表单"><a href="#多提交按钮的表单" class="headerlink" title="多提交按钮的表单"></a>多提交按钮的表单</h4><p>用过Asp.net WebForms框架的人可能都写过这样的页面：一个页面中包含多个服务端按钮。处理方式嘛，也很简单：在每个按钮的事件处理器写上相应的代码就完事了，根本不用我们想太多。<br>不过，对于不理解这背后处理过程的开发人员来说，当他们转到MVC框架下，可能会被卡住：MVC框架中可没有按钮事件！即使用不用MVC框架，用ashx通用处理器的方式，也会遇到这种问题，怎么办？</p>
-        
-          <a class="article-more-a" href="/2014/04/01/form-submit2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/04/01/form-submit2/">展开全文 >></a>
+          <a class="article-more-a" href="/2014/04/01/form-submit3/">展开全文 >></a>
         </p>
       
 

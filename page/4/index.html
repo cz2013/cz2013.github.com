@@ -150,6 +150,77 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-javascript-state-machine" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/12/20/javascript-state-machine/">js有限状态机（Finite State Machine）浅析</a>
+    </h1>
+  
+
+        
+        <a href="/2013/12/20/javascript-state-machine/" class="archive-article-date">
+  	<time datetime="2013-12-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-12-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>项目中正好要用到有限状态机js微框架（<a href="https://github.com/jakesgordon/javascript-state-machine" target="_blank" rel="external">javascript-state-machine</a>）。所以，下面对有限状态机的概念和这个框架做一些调研和分析。</p>
+<h3 id="有限状态机（FSM）"><a href="#有限状态机（FSM）" class="headerlink" title="有限状态机（FSM）"></a>有限状态机（FSM）</h3><p>有限状态机（finite-state machine, FSM），又称有限状态自动机，状态机。是表示有限个状态以及在这些状态之间的转移和动作等行为的数学模型。可参考<a href="http://zh.wikipedia.org/wiki/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA" target="_blank" rel="external">wiki-有限状态机</a><br><img src="/img/fsm1.jpg" style="margin:10px auto;"></p>
+<p>状态机有三个特征：</p>
+<blockquote>
+<p>状态总数（state）是有限的。<br>任一时刻，只处在一种状态之中。<br>某种条件下，会从一种状态转变（transition）到另一种状态。</p>
+</blockquote>
+<p>状态机有几个重要的概念：状态、条件和动作。</p>
+<blockquote>
+<p>状态存储关于过去的信息，就是说：它反映从系统开始到现在时刻的输入变化。状态可以无限细分，也可以大致归类，需要根据实际应用进行划分。例如下拉菜单，可以分为两个状态：隐藏列表和显示列表。<br>条件触发状态变化。满足了特定的条件，动作才会发生。例如，鼠标mouseover菜单和mouseout菜单，是触发状态切换的条件。<br>动作是在给定时刻要进行的活动的描述。在上面的例子里，动作是指将隐藏列表显示，或者将显示列表隐藏的行为。这个和状态不同，状态其实是我们自己的定义，为了方便理解，赋予他一定的意义。</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2013/12/20/javascript-state-machine/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-HTML5Canvas-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

@@ -150,6 +150,70 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-form-submit2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/04/01/form-submit2/">Form表单提交详解(2)</a>
+    </h1>
+  
+
+        
+        <a href="/2014/04/01/form-submit2/" class="archive-article-date">
+  	<time datetime="2014-03-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-04-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="多提交按钮的表单"><a href="#多提交按钮的表单" class="headerlink" title="多提交按钮的表单"></a>多提交按钮的表单</h4><p>用过Asp.net WebForms框架的人可能都写过这样的页面：一个页面中包含多个服务端按钮。处理方式嘛，也很简单：在每个按钮的事件处理器写上相应的代码就完事了，根本不用我们想太多。<br>不过，对于不理解这背后处理过程的开发人员来说，当他们转到MVC框架下，可能会被卡住：MVC框架中可没有按钮事件！即使用不用MVC框架，用ashx通用处理器的方式，也会遇到这种问题，怎么办？</p>
+        
+          <a class="article-more-a" href="/2014/04/01/form-submit2/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2014/04/01/form-submit2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-form-submit1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -214,19 +278,19 @@
 
 
   
-    <article id="post-form-submit3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-form-submit4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/04/01/form-submit3/">Form表单提交详解(3)</a>
+      <a class="article-title" href="/2014/04/01/form-submit4/">Form表单提交详解(4)</a>
     </h1>
   
 
         
-        <a href="/2014/04/01/form-submit3/" class="archive-article-date">
+        <a href="/2014/04/01/form-submit4/" class="archive-article-date">
   	<time datetime="2014-03-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-04-01</time>
 </a>
         
@@ -234,9 +298,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="MVC-Controller中多个自定义类型的传入参数"><a href="#MVC-Controller中多个自定义类型的传入参数" class="headerlink" title="MVC Controller中多个自定义类型的传入参数"></a>MVC Controller中多个自定义类型的传入参数</h4><p>前面的所有示例代码中都有一个规律：在服务端读取浏览器提交的数据时，都会使用控件的name属性，基本上在Asp.net中就是这样处理。但是在MVC中，MS为了简化读取表单数据的代码，可以让我们直接在Controller的方法中直接以传入参数的形式指定，此时框架会自动根据方法的参数名查找对应的输入数据（当然也不止表单数据了）。下面举个简单的例子：</p>
+        <h4 id="以Ajax方式提交部分表单"><a href="#以Ajax方式提交部分表单" class="headerlink" title="以Ajax方式提交部分表单"></a>以Ajax方式提交部分表单</h4><p>在前面的示例中，我们看到以Ajax方式提交一个表单是非常容易的，它完全模拟了浏览器的行为。不过，有时我们可能需要只提交表单的一部分，为的是更好的局部更新，那么又该如何做呢？<br>假如我有以下表单的一部分，我只希望在用户某个按钮时将它提交到服务端：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">&lt;div id=<span class="string">"divCustomerInfo"</span>&gt;</div><div class="line"></div><div class="line">    &lt;p&gt;客户名称: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"CustomerName"</span> style=<span class="string">"width: 300px"</span> /&gt;&lt;/p&gt;</div><div class="line">    </div><div class="line">    &lt;p&gt;客户电话: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"CustomerTel"</span> style=<span class="string">"width: 300px"</span> /&gt;&lt;/p&gt;</div><div class="line">    </div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2014/04/01/form-submit3/#more">more >></a>
+          <a class="article-more-a" href="/2014/04/01/form-submit4/#more">more >></a>
         
       
 
@@ -260,7 +325,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2014/04/01/form-submit3/">展开全文 >></a>
+          <a class="article-more-a" href="/2014/04/01/form-submit4/">展开全文 >></a>
         </p>
       
 
@@ -326,6 +391,135 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2014/01/27/MooTools-search-report1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-MooTools-search-report6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/01/27/MooTools-search-report6/">Mootools调研(6)</a>
+    </h1>
+  
+
+        
+        <a href="/2014/01/27/MooTools-search-report6/" class="archive-article-date">
+  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="3-5-组件的组织结构"><a href="#3-5-组件的组织结构" class="headerlink" title="3.5 组件的组织结构"></a>3.5 组件的组织结构</h3><p>MooTools框架主要有mootools-core以及mootools-more这两大部分组成。mootools-core是MooTools框架的核心模块，mootools-more是针对mootools-core的功能扩展部分，可根据需求动态引入。<br>无论是mootools-core还是mootools-more都可针对具体需求，选择需要的模块，根据模块以来关系组装出最小的js包使得尽量小的框架代码实现所需功能。</p></p>
+<p><p>如下图所示，是详细的MooTools框架体系结构：<br><img src="/img/mootools1.jpg" style="margin:10px auto;"/></p>
+        
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report6/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-MooTools-search-report2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/01/27/MooTools-search-report2/">Mootools调研(2)</a>
+    </h1>
+  
+
+        
+        <a href="/2014/01/27/MooTools-search-report2/" class="archive-article-date">
+  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="2-规范"><a href="#2-规范" class="headerlink" title="2 规范"></a>2 规范</h2><h3 id="2-1-组件命名规范"><a href="#2-1-组件命名规范" class="headerlink" title="2.1 组件命名规范"></a>2.1 组件命名规范</h3><p>MooTools的方法命名属于传统对称命名的方式(prop为property属性缩写)，且语义明显，这种设计可以有效避免与原生dom方法的冲突。<br>在core中为全局window对象定义MooTools对象，并且全局定义了其他常用组件的集合。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    this.MooTools = &#123;</div><div class="line">        version: <span class="string">'1.4.5'</span>,</div><div class="line">        build: <span class="string">'74e34796f5f76640cdb98853004650aea1499d69'</span></div><div class="line">    &#125;;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report2/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report2/">展开全文 >></a>
         </p>
       
 
@@ -535,135 +729,6 @@
 
 
   
-    <article id="post-MooTools-search-report6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/01/27/MooTools-search-report6/">Mootools调研(6)</a>
-    </h1>
-  
-
-        
-        <a href="/2014/01/27/MooTools-search-report6/" class="archive-article-date">
-  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="3-5-组件的组织结构"><a href="#3-5-组件的组织结构" class="headerlink" title="3.5 组件的组织结构"></a>3.5 组件的组织结构</h3><p>MooTools框架主要有mootools-core以及mootools-more这两大部分组成。mootools-core是MooTools框架的核心模块，mootools-more是针对mootools-core的功能扩展部分，可根据需求动态引入。<br>无论是mootools-core还是mootools-more都可针对具体需求，选择需要的模块，根据模块以来关系组装出最小的js包使得尽量小的框架代码实现所需功能。</p></p>
-<p><p>如下图所示，是详细的MooTools框架体系结构：<br><img src="/img/mootools1.jpg" style="margin:10px auto;"/></p>
-        
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report6/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-MooTools-search-report2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/01/27/MooTools-search-report2/">Mootools调研(2)</a>
-    </h1>
-  
-
-        
-        <a href="/2014/01/27/MooTools-search-report2/" class="archive-article-date">
-  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="2-规范"><a href="#2-规范" class="headerlink" title="2 规范"></a>2 规范</h2><h3 id="2-1-组件命名规范"><a href="#2-1-组件命名规范" class="headerlink" title="2.1 组件命名规范"></a>2.1 组件命名规范</h3><p>MooTools的方法命名属于传统对称命名的方式(prop为property属性缩写)，且语义明显，这种设计可以有效避免与原生dom方法的冲突。<br>在core中为全局window对象定义MooTools对象，并且全局定义了其他常用组件的集合。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    this.MooTools = &#123;</div><div class="line">        version: <span class="string">'1.4.5'</span>,</div><div class="line">        build: <span class="string">'74e34796f5f76640cdb98853004650aea1499d69'</span></div><div class="line">    &#125;;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
     <article id="post-HTML5Canvas-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -712,77 +777,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2014/01/26/HTML5Canvas-2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-javascript-state-machine" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/12/20/javascript-state-machine/">js有限状态机（Finite State Machine）浅析</a>
-    </h1>
-  
-
-        
-        <a href="/2013/12/20/javascript-state-machine/" class="archive-article-date">
-  	<time datetime="2013-12-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-12-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>项目中正好要用到有限状态机js微框架（<a href="https://github.com/jakesgordon/javascript-state-machine" target="_blank" rel="external">javascript-state-machine</a>）。所以，下面对有限状态机的概念和这个框架做一些调研和分析。</p>
-<h3 id="有限状态机（FSM）"><a href="#有限状态机（FSM）" class="headerlink" title="有限状态机（FSM）"></a>有限状态机（FSM）</h3><p>有限状态机（finite-state machine, FSM），又称有限状态自动机，状态机。是表示有限个状态以及在这些状态之间的转移和动作等行为的数学模型。可参考<a href="http://zh.wikipedia.org/wiki/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA" target="_blank" rel="external">wiki-有限状态机</a><br><img src="/img/fsm1.jpg" style="margin:10px auto;"></p>
-<p>状态机有三个特征：</p>
-<blockquote>
-<p>状态总数（state）是有限的。<br>任一时刻，只处在一种状态之中。<br>某种条件下，会从一种状态转变（transition）到另一种状态。</p>
-</blockquote>
-<p>状态机有几个重要的概念：状态、条件和动作。</p>
-<blockquote>
-<p>状态存储关于过去的信息，就是说：它反映从系统开始到现在时刻的输入变化。状态可以无限细分，也可以大致归类，需要根据实际应用进行划分。例如下拉菜单，可以分为两个状态：隐藏列表和显示列表。<br>条件触发状态变化。满足了特定的条件，动作才会发生。例如，鼠标mouseover菜单和mouseout菜单，是触发状态切换的条件。<br>动作是在给定时刻要进行的活动的描述。在上面的例子里，动作是指将隐藏列表显示，或者将显示列表隐藏的行为。这个和状态不同，状态其实是我们自己的定义，为了方便理解，赋予他一定的意义。</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2013/12/20/javascript-state-machine/">展开全文 >></a>
         </p>
       
 

@@ -8,12 +8,37 @@
   <link rel="dns-prefetch" href="http://cz2013.github.io">
   <title>cz2013</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="问题：
+为什么使用JSX声明组件时，最外层的组件根元素只允许使用单一根元素。？
+className而不是class，htmlFor而不是for？
+自定义的组件都必须要用大写字母开头，普通的 HTML 标签都用小写字母开头？
+为什么注释是{/……../}而不是或者/……../？
+
+JSX是什么It is called JSX, and it is a syntax extension to Java">
+<meta property="og:type" content="article">
 <meta property="og:title" content="cz2013">
-<meta property="og:url" content="http://cz2013.github.io/index.html">
+<meta property="og:url" content="http://cz2013.github.io/2017/08/14/JSX/index.html">
 <meta property="og:site_name" content="cz2013">
+<meta property="og:description" content="问题：
+为什么使用JSX声明组件时，最外层的组件根元素只允许使用单一根元素。？
+className而不是class，htmlFor而不是for？
+自定义的组件都必须要用大写字母开头，普通的 HTML 标签都用小写字母开头？
+为什么注释是{/……../}而不是或者/……../？
+
+JSX是什么It is called JSX, and it is a syntax extension to Java">
+<meta property="og:image" content="http://fe.sogou/wp-content/uploads/2017/08/jsx-render流程图.png">
+<meta property="og:image" content="http://fe.sogou/wp-content/uploads/2017/08/setstate-jsx流程图.png">
+<meta property="og:updated_time" content="2017-08-03T02:49:27.491Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cz2013">
+<meta name="twitter:description" content="问题：
+为什么使用JSX声明组件时，最外层的组件根元素只允许使用单一根元素。？
+className而不是class，htmlFor而不是for？
+自定义的组件都必须要用大写字母开头，普通的 HTML 标签都用小写字母开头？
+为什么注释是{/……../}而不是或者/……../？
+
+JSX是什么It is called JSX, and it is a syntax extension to Java">
+<meta name="twitter:image" content="http://fe.sogou/wp-content/uploads/2017/08/jsx-render流程图.png">
   
     <link rel="alternative" href="/atom.xml" title="cz2013" type="application/atom+xml">
   
@@ -148,9 +173,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-JSX" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-JSX" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
@@ -205,386 +228,31 @@
       
 
       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/14/JSX/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-wp-themes" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/10/wp-themes/">wordpress本地替换themes主题</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/10/wp-themes/" class="archive-article-date">
-  	<time datetime="2017-05-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>因为虚机不联网，所以搭建完wordpress后在仪表盘无法下载主题。<br>选择下载主题zip文件后，可以上传主题<br><img src="/img/wp-themes-1.png" style="margin:10px auto;"/></p>
-<p>出现提示：无法建立目录wp-content/uploads/2017/05。有没有上级目录的写权限？</p>
-        
-          <a class="article-more-a" href="/2017/05/10/wp-themes/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/10/wp-themes/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-xampp-wp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/03/xampp-wp/">在XAMPP环境搭建WordPress网站</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/03/xampp-wp/" class="archive-article-date">
-  	<time datetime="2017-05-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>前面介绍了XAMPP的环境安装，这里介绍在XAMPP环境搭建WordPress网站。</p>
-<h3 id="WordPress放入XMAPP"><a href="#WordPress放入XMAPP" class="headerlink" title="WordPress放入XMAPP"></a>WordPress放入XMAPP</h3><p>XAMPP安装后的默认地址是：/opt/lampp。进入/opt/lampp/htdocs内，删除所有文件，把WordPress下载解压后的文件放入其中。</p>
-        
-          <a class="article-more-a" href="/2017/05/03/xampp-wp/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/03/xampp-wp/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-hexo-deploy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/02/hexo-deploy/">hexo deploy无法生成贡献值的解决方案</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/02/hexo-deploy/" class="archive-article-date">
-  	<time datetime="2017-05-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>博客改成用hexo后写了一段时间，发现github上contributions竟然没有生成。小绿点去哪里了呢？经过我反复调研最后终于解决了问题，并且原来没生成的部分也恢复到正确的贡献值了。</p>
-<h3 id="官方解释"><a href="#官方解释" class="headerlink" title="官方解释"></a>官方解释</h3><p>从<a href="https://help.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile/">官网</a>上可以得知，翻译如下：</p>
-        
-          <a class="article-more-a" href="/2017/05/02/hexo-deploy/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/02/hexo-deploy/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-LAMP1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/27/LAMP1/">LAMP环境搭建</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/27/LAMP1/" class="archive-article-date">
-  	<time datetime="2017-04-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>要搭建一个前端技术博客，经过调研决定使用 Wordpress + LAMP 的web框架。这里先介绍下LAMP环境搭建。</p>
-<p><em>LAMP（Linux + Apache + Mysql/MariaDB + Perl/PHP/Python），一组常用来搭建动态网站或者服务器的开源软件，本身都是各自独立的程序，但是因为常被放在一起使用，拥有了越来越高的兼容度，共同组成了一个强大的Web应用程序平台。从网站的流量上来说，70%以上的访问流量是LAMP来提供的，LAMP是最强大的网站解决方案。（——摘自百度百科）</em></p>
-<p>这里我们使用的是 Linux + Apache + Mysql + PHP 方案。经过调研，分别安装很麻烦，只需要装一个XAMPP即可。</p>
-<p><em>XAMPP（Apache+MySQL+PHP+PERL）是一个功能强大的建站集成软件包。这个软件包原来的名字是 LAMPP，但是为了避免误解，最新的几个版本就改名为 XAMPP 了。它可以在Windows、Linux、Solaris、Mac OS X 等多种操作系统下安装使用，支持多语言：英文、简体中文、繁体中文、韩文、俄文、日文等。XAMPP 是一个易于安装且包含 MySQL、PHP 和 Perl 的 Apache 发行版。XAMPP 的确非常容易安装和使用：只需下载，解压缩，启动即可。（——摘自百度百科）</em></p>
-        
-          <a class="article-more-a" href="/2017/04/27/LAMP1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/27/LAMP1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-webVr-best-try" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/20/webVr-best-try/">WebVR最佳实践探索</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/20/webVr-best-try/" class="archive-article-date">
-  	<time datetime="2017-04-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>前段时间研究了一下webVR，对使用a-frame开发webVR做了一个简要介绍和入门级的实例分享（《WebVR之A-Frame开发分享》）。这个分享是针对现有的a-frame API和对外的示例Demo开发的，但是在实际的开发过程中，遇到了很多新的需求和API Demo上都介绍不明确的地方。加上a-frame中文文档的缺失，现有相关中文分享也比较匮乏，在后面对外系统的webVR页面开发时遇到了很多问题，这里想和大家一起分享。也为a-frame和webVr的开发做点自己的微末贡献。</p>
-<p>题目叫webVr最佳实践探索，不见得是最佳实践，所以加上探索二字。如果有更好的方法欢迎大家给予建议。</p>
-        
-          <a class="article-more-a" href="/2017/04/20/webVr-best-try/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/20/webVr-best-try/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-hexoBlog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/11/hexoBlog/">hexo搭建博客</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/11/hexoBlog/" class="archive-article-date">
-  	<time datetime="2017-04-11T08:46:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>13年想搭建一个个人博客，考虑到博客的内容简单，加上没钱没技术，调研过wordpress，嫌弃臃肿，还需要管理数据库，最后还是决定使用jekyll+github方式搭建个人博客。不过在使用jekyll的过程中也有一些问题和不爽的地方，尤其markdown方式写博客内容，没有GUI界面等，都是体验不好的地方。</p>
-<p>所以当发现hexo时，我眼前一亮。nodeJs静态博客不就是目前最适合我的一款嘛！作为一个常用nodeJs+webpack+es6+react……开发项目的前端程序员来说，这个好像还蛮符合我的style的~So，我开始了hexo+git的个人博客改造。</p>
-        
-          <a class="article-more-a" href="/2017/04/11/hexoBlog/#more">more >></a>
-        
-      
-
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢打赏<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -593,18 +261,74 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/11/hexoBlog/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://cz2013.github.io/2017/08/14/JSX/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/05/10/wp-themes/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">wordpress本地替换themes主题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 
@@ -612,200 +336,10 @@
 
 
   
-    <article id="post-webvr" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/25/webvr/">WebVR之A-Frame开发分享</a>
-    </h1>
+    <div class="duoshuo"></div>
   
 
-        
-        <a href="/2016/11/25/webvr/" class="archive-article-date">
-  	<time datetime="2016-11-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="/app/webvr.pdf" target="_blank">WebVR之A-Frame开发分享</a></p>
 
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/25/webvr/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-react-native-android" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/12/react-native-android/">在win7上搭建react native android环境</a>
-    </h1>
-  
-
-        
-        <a href="/2016/05/12/react-native-android/" class="archive-article-date">
-  	<time datetime="2016-05-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>首先，我的搭建参考了<a href="http://reactnative.cn/docs/0.25/android-setup.html#content和其他一些网站">http://reactnative.cn/docs/0.25/android-setup.html#content和其他一些网站</a><br>在安装过程中，遇到一些坑，各种调研，解决了一些问题，最终选择了一个最适合我自己的环境搭建方式。下面给大家介绍我的搭建过程，希望能帮助到大家。</p>
-<h4 id="1、安装JDK"><a href="#1、安装JDK" class="headerlink" title="1、安装JDK"></a>1、安装JDK</h4><p>网上要求安装JDK1.8以上，这里需要说明：在开发项目中使用的是1.8版本以下的（例如1.7）旧版本时，只要在eclipse中进行需要版本的JDK配置，不会有影响。所以，我又安装了最新版本的JDK。</p>
-        
-          <a class="article-more-a" href="/2016/05/12/react-native-android/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/05/12/react-native-android/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-webpack" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/07/webpack/">webpack分享</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/07/webpack/" class="archive-article-date">
-  	<time datetime="2016-03-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="/app/webpack.pdf" target="_blank">webpack分享</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/07/webpack/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -827,8 +361,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
