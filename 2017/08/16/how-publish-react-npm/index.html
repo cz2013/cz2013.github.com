@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cz2013.github.io">
-  <title>cz2013</title>
+  <title>如何发布一个react组件包到NPM上 | cz2013</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="cz2013">
-<meta property="og:url" content="http://cz2013.github.io/page/4/index.html">
+  <meta name="description" content="近期由于项目需要，开发了一个react版本的Panel抽屉组件。该组件使用react和es6实现，引入了外部的react组件、css文件和png图片。在本地项目中开发调试通过后，面临将该组件构建发布的问题。我们知道使用npm publish命令可实现发布，但在发布前我们还有一些步骤需要完成。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何发布一个react组件包到NPM上">
+<meta property="og:url" content="http://cz2013.github.io/2017/08/16/how-publish-react-npm/index.html">
 <meta property="og:site_name" content="cz2013">
+<meta property="og:description" content="近期由于项目需要，开发了一个react版本的Panel抽屉组件。该组件使用react和es6实现，引入了外部的react组件、css文件和png图片。在本地项目中开发调试通过后，面临将该组件构建发布的问题。我们知道使用npm publish命令可实现发布，但在发布前我们还有一些步骤需要完成。">
+<meta property="og:updated_time" content="2017-08-16T09:28:12.417Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cz2013">
+<meta name="twitter:title" content="如何发布一个react组件包到NPM上">
+<meta name="twitter:description" content="近期由于项目需要，开发了一个react版本的Panel抽屉组件。该组件使用react和es6实现，引入了外部的react组件、css文件和png图片。在本地项目中开发调试通过后，面临将该组件构建发布的问题。我们知道使用npm publish命令可实现发布，但在发布前我们还有一些步骤需要完成。">
   
     <link rel="alternative" href="/atom.xml" title="cz2013" type="application/atom+xml">
   
@@ -148,35 +152,67 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-HTML5Canvas-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-how-publish-react-npm" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/01/26/HTML5Canvas-2/">HTML5 Canvas浅析(2)</a>
+    <h1 class="article-title" itemprop="name">
+      如何发布一个react组件包到NPM上
     </h1>
   
 
         
-        <a href="/2014/01/26/HTML5Canvas-2/" class="archive-article-date">
-  	<time datetime="2014-01-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-26</time>
+        <a href="/2017/08/16/how-publish-react-npm/" class="archive-article-date">
+  	<time datetime="2017-08-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="2-Canvas开发浅尝"><a href="#2-Canvas开发浅尝" class="headerlink" title="2. Canvas开发浅尝"></a>2. Canvas开发浅尝</h2><h3 id="2-1-渲染上下文"><a href="#2-1-渲染上下文" class="headerlink" title="2.1. 渲染上下文"></a>2.1. 渲染上下文</h3><p>canvas 初始化是空白的，要在上面用脚本画图首先需要其渲染上下文（rendering context），它可以通过 canvas 元素对象的getContext方法来获取，同时得到的还有一些画图用的函数。getContext()接受一个用于描述其类型的值作为参数。现在“2d”是唯一支持的值。</p>
-<h3 id="2-2-API"><a href="#2-2-API" class="headerlink" title="2.2. API"></a>2.2. API</h3><p>canvas元素本身并没有绘制能力（它仅仅是图形的容器），您必须使用脚本来完成实际的绘图任务。getContext() 方法可返回一个对象，该对象提供了用于在画布上绘图的方法和属性。</p>
-        
-          <a class="article-more-a" href="/2014/01/26/HTML5Canvas-2/#more">more >></a>
-        
+        <p>近期由于项目需要，开发了一个react版本的Panel抽屉组件。该组件使用react和es6实现，引入了外部的react组件、css文件和png图片。在本地项目中开发调试通过后，面临将该组件构建发布的问题。我们知道使用npm publish命令可实现发布，但在发布前我们还有一些步骤需要完成。<br><a id="more"></a></p>
+<h3 id="1、文件结构"><a href="#1、文件结构" class="headerlink" title="1、文件结构"></a>1、文件结构</h3><p>|-assets<br>    |-index.css<br>    |-panel-close.png<br>|-lib<br>    |-index.js<br>|-src<br>    |-index.jsx<br>|-node_modules<br>|-.babelrc<br>|-.gitignore<br>|-.npmignore<br>|-index.js<br>|-README.md<br>|-package.json<br>|-webpack.config.js</p>
+<h3 id="2、src-index-jsx"><a href="#2、src-index-jsx" class="headerlink" title="2、src - index.jsx"></a>2、src - index.jsx</h3><p>核心代码在src的index.jsx中，assets中是引入的css和图片。index.jsx部分代码如下，使用es6，引入了react、react-dom、react-addons-css-transition-group和一个css文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line"> * ......</div><div class="line"> */</div><div class="line">import React, &#123;Component&#125; from &apos;react&apos;;</div><div class="line">import ReactDom from &apos;react-dom&apos;;</div><div class="line">import ReactCSSTransitionGroup from &apos;react-addons-css-transition-group&apos;;</div><div class="line">import &apos;../assets/index.css&apos;;</div><div class="line"></div><div class="line">//......</div><div class="line">class Panel extends Component &#123;</div><div class="line">//......</div><div class="line">&#125;</div><div class="line">module.exports = Panel;</div></pre></td></tr></table></figure></p>
+<h3 id="3、lib-index-js"><a href="#3、lib-index-js" class="headerlink" title="3、lib - index.js"></a>3、lib - index.js</h3><p>为了能被其他人使用，需要对index.jsx进行es5处理，react处理，css和图片的处理。构建过后生成的js文件存放在lib文件夹中，即index.js。这个是实际被项目使用的文件。</p>
+<h3 id="4、index-js"><a href="#4、index-js" class="headerlink" title="4、index.js"></a>4、index.js</h3><p>根目录下的index.js是什么呢？在这里引入lib内的index.js，在package.json中设置main的值就是这个index.js。内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">module.exports = require(&apos;./lib/index.js&apos;);</div></pre></td></tr></table></figure></p>
+<h3 id="5、package-json"><a href="#5、package-json" class="headerlink" title="5、package.json"></a>5、package.json</h3><p>内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;name&quot;: &quot;@bizfe/biz-rc-panel&quot;,</div><div class="line">  &quot;description&quot;: &quot;React UI Plugin&quot;,</div><div class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</div><div class="line">  &quot;scripts&quot;: &#123;</div><div class="line">    &quot;start&quot;: &quot;webpack-dev-server&quot;,</div><div class="line">    &quot;dev&quot;: &quot;rimraf lib &amp;&amp; babel src --watch --copy-files --source-maps --extensions .es6,.es,.jsx --out-dir lib&quot;,</div><div class="line">    &quot;compile&quot;: &quot;rimraf lib &amp;&amp; babel src --copy-files --source-maps --extensions .es6,.es,.jsx --out-dir lib&quot;,</div><div class="line">    &quot;build&quot;: &quot;webpack&quot;</div><div class="line">  &#125;,</div><div class="line">  &quot;main&quot;: &quot;index.js&quot;,</div><div class="line">  &quot;style&quot;: &quot;assets/index.css&quot;,</div><div class="line">  &quot;keywords&quot;: [</div><div class="line">    &quot;react&quot;,</div><div class="line">    &quot;react-component&quot;,</div><div class="line">    &quot;react-panel&quot;,</div><div class="line">    &quot;panel&quot;</div><div class="line">  ],</div><div class="line">  &quot;maintainers&quot;: [</div><div class="line">    &#123;</div><div class="line">      &quot;name&quot;: &quot;chenzhen&quot;,</div><div class="line">      &quot;email&quot;: &quot;chenzhen202130@sogou-inc.com&quot;</div><div class="line">    &#125;</div><div class="line">  ],</div><div class="line">  &quot;repository&quot;: &#123;</div><div class="line">    &quot;type&quot;: &quot;git&quot;,</div><div class="line">    &quot;url&quot;: &quot;&quot;</div><div class="line">  &#125;,</div><div class="line">  &quot;license&quot;: &quot;MIT&quot;,</div><div class="line">  &quot;dependencies&quot;: &#123;</div><div class="line">    &quot;react&quot;: &quot;^15.0.0&quot;,</div><div class="line">    &quot;react-dom&quot;: &quot;^15.0.0&quot;,</div><div class="line">    &quot;react-addons-css-transition-group&quot;: &quot;15.6.0&quot;</div><div class="line">  &#125;,</div><div class="line">  &quot;devDependencies&quot;: &#123;</div><div class="line">    &quot;babel-cli&quot;: &quot;^6.4.5&quot;,</div><div class="line">    &quot;babel-loader&quot;: &quot;^6.2.1&quot;,</div><div class="line">    &quot;babel-preset-es2015&quot;: &quot;^6.3.13&quot;,</div><div class="line">    &quot;babel-preset-react&quot;: &quot;^6.3.13&quot;,</div><div class="line">    &quot;babel-preset-stage-0&quot;: &quot;^6.3.13&quot;,</div><div class="line">    &quot;css-loader&quot;: &quot;^0.23.1&quot;,</div><div class="line">    &quot;rimraf&quot;: &quot;^2.5.0&quot;,</div><div class="line">    &quot;style-loader&quot;: &quot;^0.13.0&quot;,</div><div class="line">    &quot;file-loader&quot;: &quot;0.9.0&quot;,</div><div class="line">    &quot;url-loader&quot;: &quot;0.5.7&quot;,</div><div class="line">    &quot;webpack&quot;: &quot;1.12.9&quot;,</div><div class="line">    &quot;webpack-dev-server&quot;: &quot;1.14.0&quot;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>dependencies内是组件本身需要引入的插件，在index.jsx中有引用。<br>devDependencies里的则是构建需要引入的插件。babel相关的几个是用来处理es6和react的，css-loader是处理css文件中的url()，style-loader 引入css文件的插件，file-loader主要用来处理图片，url-loader是对file-loader的上层封装，比如webpack中对图片的加载器配置，然后加webpack……<br>main是入口文件，这里引入的是根目录下的index.js<br>style是css的入口文件，引入的是assets/index.css<br>scripts中写入 “build”: “webpack”方法，用于后面构建组件命令</p>
+<h3 id="6、webpack-config-js"><a href="#6、webpack-config-js" class="headerlink" title="6、webpack.config.js"></a>6、webpack.config.js</h3><p>内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">var path = require(&apos;path&apos;);</div><div class="line"></div><div class="line">module.exports = &#123;</div><div class="line">    entry: path.resolve(__dirname, &apos;./src/index.jsx&apos;),</div><div class="line">    output: &#123;</div><div class="line">        path: path.resolve(__dirname, &apos;./lib&apos;),</div><div class="line">        library: &apos;Panel&apos;,</div><div class="line">        libraryTarget: &apos;umd&apos;,</div><div class="line">        filename: &apos;index.js&apos;</div><div class="line">    &#125;,</div><div class="line">    externals: &#123;</div><div class="line">        &apos;react&apos;       : &apos;umd react&apos;,</div><div class="line">        &apos;react-dom&apos;   : &apos;umd react-dom&apos;</div><div class="line">    &#125;,</div><div class="line">    module: &#123;</div><div class="line">        loaders: [&#123;</div><div class="line">            test:/\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)([\?]?.*)$/,</div><div class="line">            loader: &apos;url?limit=10000&amp;name=image/[name].[md5:hash:hex:7].[ext]&apos;</div><div class="line">        &#125;, &#123;</div><div class="line">            test: /\.css$/, // Only .css files</div><div class="line">            loader: &apos;style!css&apos; // Run both loaders</div><div class="line">        &#125;,&#123;</div><div class="line">            test: /\.jsx$/,</div><div class="line">            loader: &apos;babel&apos;</div><div class="line">        &#125;]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>由上面代码可知，构建的是src/index.jsx，输入到lib文件夹下index.js文件。需要增加library，内容是组件的类名，这里是Panel。libraryTarget写 ‘umd’。这种配置方法，告诉webpack，输出的时候会采用umd模块化方案。配合externals的内容，能将外部依赖的内容（react和react-dom）不打包编译进lib内的index.js中。这种配置在插件的构建中是十分常见的。在我的这个组件构建中，使用后代码行数是原来的十分之一。module中则对图片、css和jsx做了相关的构建。</p>
+<h3 id="7、其他相关"><a href="#7、其他相关" class="headerlink" title="7、其他相关"></a>7、其他相关</h3><p>除了上面的文件，还有一些文件需要我们填写。<br>README.md：需要我们编辑好，引导使用者更好的使用。<br>.babelrc：用来设置babel转码的规则和插件的基本的格式，内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;presets&quot;: [&quot;react&quot;, &quot;es2015&quot;, &quot;stage-0&quot;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>.gitignore:用于配置git不需要加入版本管理的文件<br>.npmignore:.用于配置npm不需要加入版本管理的文件，这里我们需要增加不需要提交到npm上的文件。<br>node_modules：这个是编译自动下载的插件存放处，该文件夹应该写入.gitignore和.npmignore中</p>
+<h3 id="8、构建"><a href="#8、构建" class="headerlink" title="8、构建"></a>8、构建</h3><p>写完所有内容，使用npm install命令下载引用。然后使用npm run build调用webpack打包编译组件生成lib文件夹和里面的内容。该命令写在了package.json里。如果都木有问题了，使用npm publish命令发布私有包。完成。</p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢打赏<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -196,18 +232,74 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/01/26/HTML5Canvas-2/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://cz2013.github.io/2017/08/16/how-publish-react-npm/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/03/JSX/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JSX引起的一些思考</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 
@@ -215,219 +307,10 @@
 
 
   
-    <article id="post-javascript-state-machine" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/12/20/javascript-state-machine/">js有限状态机（Finite State Machine）浅析</a>
-    </h1>
+    <div class="duoshuo"></div>
   
 
-        
-        <a href="/2013/12/20/javascript-state-machine/" class="archive-article-date">
-  	<time datetime="2013-12-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-12-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>项目中正好要用到有限状态机js微框架（<a href="https://github.com/jakesgordon/javascript-state-machine" target="_blank" rel="external">javascript-state-machine</a>）。所以，下面对有限状态机的概念和这个框架做一些调研和分析。</p>
-<h3 id="有限状态机（FSM）"><a href="#有限状态机（FSM）" class="headerlink" title="有限状态机（FSM）"></a>有限状态机（FSM）</h3><p>有限状态机（finite-state machine, FSM），又称有限状态自动机，状态机。是表示有限个状态以及在这些状态之间的转移和动作等行为的数学模型。可参考<a href="http://zh.wikipedia.org/wiki/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA" target="_blank" rel="external">wiki-有限状态机</a><br><img src="/img/fsm1.jpg" style="margin:10px auto;"></p>
-<p>状态机有三个特征：</p>
-<blockquote>
-<p>状态总数（state）是有限的。<br>任一时刻，只处在一种状态之中。<br>某种条件下，会从一种状态转变（transition）到另一种状态。</p>
-</blockquote>
-<p>状态机有几个重要的概念：状态、条件和动作。</p>
-<blockquote>
-<p>状态存储关于过去的信息，就是说：它反映从系统开始到现在时刻的输入变化。状态可以无限细分，也可以大致归类，需要根据实际应用进行划分。例如下拉菜单，可以分为两个状态：隐藏列表和显示列表。<br>条件触发状态变化。满足了特定的条件，动作才会发生。例如，鼠标mouseover菜单和mouseout菜单，是触发状态切换的条件。<br>动作是在给定时刻要进行的活动的描述。在上面的例子里，动作是指将隐藏列表显示，或者将显示列表隐藏的行为。这个和状态不同，状态其实是我们自己的定义，为了方便理解，赋予他一定的意义。</p>
-</blockquote>
 
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2013/12/20/javascript-state-machine/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-HTML5Canvas-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/12/14/HTML5Canvas-1/">HTML5 Canvas浅析(1)</a>
-    </h1>
-  
-
-        
-        <a href="/2013/12/14/HTML5Canvas-1/" class="archive-article-date">
-  	<time datetime="2013-12-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-12-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>HTML5引进了很多新特性，其中最受人关注的就有Canvas。Canvas元素以及JS引擎中新增的一些特性，让前端开发者不必借助第三方插件，即可开发出精细且具有交互性的2D网页。本文就向大家介绍一下Canvas元素。</p>
-<h2 id="1-Canvas背景介绍"><a href="#1-Canvas背景介绍" class="headerlink" title="1. Canvas背景介绍"></a>1. Canvas背景介绍</h2><h3 id="1-1-Canvas由来"><a href="#1-1-Canvas由来" class="headerlink" title="1.1. Canvas由来"></a>1.1. Canvas由来</h3><p>Canvas的概念最初是由苹果公司提出的，用于在Mac OS X WebKit中创建控制板部件(dashboard widget)。在Canvas出现之前，开发人员若要在浏览器中使用绘图API，只能使用Adobe的Flash和SVG(Scalable Vector Graphics，可伸缩矢量图形)插件，或者只有IE才支持的VML(Vector Markup Language，矢量标记语言)，以及其他一些稀奇古怪的JS技巧。<br>Canvas提供的绘图功能，对浏览器端来说非常有用，因此被纳入了HTML5规范。苹果公司还曾暗示过，可能会为Canvas规范申请知识产权。不过，最终还是按照W3C的免版税专利权许可条款公开了其专利。</p>
-        
-          <a class="article-more-a" href="/2013/12/14/HTML5Canvas-1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2013/12/14/HTML5Canvas-1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-sublimeText2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/12/13/sublimeText2/">sublime text2 快捷键</a>
-    </h1>
-  
-
-        
-        <a href="/2013/12/13/sublimeText2/" class="archive-article-date">
-  	<time datetime="2013-12-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-12-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="总结操作快捷键："><a href="#总结操作快捷键：" class="headerlink" title="总结操作快捷键："></a>总结操作快捷键：</h3><blockquote>
-<ol>
-<li>自动完成的快捷键是Tab， 加上zencoding插件后，更是如虎添翼</li>
-<li>按住ctrl点击鼠标，会出现多个闪烁的光标，这时可同时修改多处==== 或者按住鼠标中键拖拽</li>
-<li>ctrl+/、ctrl+shift+/分别未行注释和块注释，再按一下就能去掉注释，ST2能够自动识别是html、css还是js文件，给出不同类型的注释。</li>
-<li>右键功能： show unsaved changes，显示未保存的修改，红色减号表示删去的内容，绿色加号表示新增的内容</li>
-<li>折叠功能， mouseover到侧边栏就会显示折叠三角号</li>
-</ol>
-</blockquote>
-        
-          <a class="article-more-a" href="/2013/12/13/sublimeText2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2013/12/13/sublimeText2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
-    </nav>
-  
 
 
           </div>
@@ -449,8 +332,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
