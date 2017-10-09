@@ -6,14 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cz2013.github.io">
-  <title>Archives: 2014/1 | cz2013</title>
+  <title>react 受控组件和非受控组件 | cz2013</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="cz2013">
-<meta property="og:url" content="http://cz2013.github.io/archives/2014/01/index.html">
+  <meta name="description" content="什么是受控组件和非受控组件首先举个栗子：1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162import React, &amp;#123; Component, PropTypes &amp;#125; from &amp;apos;reac">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react 受控组件和非受控组件">
+<meta property="og:url" content="http://cz2013.github.io/2017/09/28/react-control-uncontrol/index.html">
 <meta property="og:site_name" content="cz2013">
+<meta property="og:description" content="什么是受控组件和非受控组件首先举个栗子：1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162import React, &amp;#123; Component, PropTypes &amp;#125; from &amp;apos;reac">
+<meta property="og:image" content="http://fe.sogou/wp-content/uploads/2017/09/controlComponent-2.png">
+<meta property="og:image" content="http://fe.sogou/wp-content/uploads/2017/09/controlComponent-0.png">
+<meta property="og:image" content="http://fe.sogou/wp-content/uploads/2017/09/controlComponent-1.png">
+<meta property="og:updated_time" content="2017-10-09T04:29:46.022Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cz2013">
+<meta name="twitter:title" content="react 受控组件和非受控组件">
+<meta name="twitter:description" content="什么是受控组件和非受控组件首先举个栗子：1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162import React, &amp;#123; Component, PropTypes &amp;#125; from &amp;apos;reac">
+<meta name="twitter:image" content="http://fe.sogou/wp-content/uploads/2017/09/controlComponent-2.png">
   
     <link rel="alternative" href="/atom.xml" title="cz2013" type="application/atom+xml">
   
@@ -148,37 +156,121 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-react-control-uncontrol" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      react 受控组件和非受控组件
+    </h1>
+  
+
+        
+        <a href="/2017/09/28/react-control-uncontrol/" class="archive-article-date">
+  	<time datetime="2017-09-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://fe.sogou/wp-content/uploads/2017/09/controlComponent-2.png"></p>
+<h2 id="什么是受控组件和非受控组件"><a href="#什么是受控组件和非受控组件" class="headerlink" title="什么是受控组件和非受控组件"></a>什么是受控组件和非受控组件</h2><p>首先举个栗子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line">import React, &#123; Component, PropTypes &#125; from &apos;react&apos;;</div><div class="line">import ReactDOM from &apos;react-dom&apos;;</div><div class="line"></div><div class="line">//受控组件</div><div class="line">class ControlInput extends Component &#123;</div><div class="line">    constructor(props) &#123;</div><div class="line">        super(props);</div><div class="line">        this.state = &#123;</div><div class="line">            value: &apos;&apos;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">    changeHandler(e)&#123;</div><div class="line">        this.setState(&#123;value: e.target.value&#125;);</div><div class="line">    &#125;</div><div class="line">    submit()&#123;</div><div class="line">        alert(this.state.value);</div><div class="line">    &#125;</div><div class="line">    render() &#123;</div><div class="line">        return (&lt;div&gt;</div><div class="line">            &lt;h3&gt;受控组件：&lt;/h3&gt;</div><div class="line">            &lt;input type=&quot;text&quot; value=&#123;this.state.value&#125; onChange=&#123;(e)=&gt;this.changeHandler(e)&#125;/&gt;</div><div class="line">            &lt;button onClick=&#123;()=&gt;this.submit()&#125; &gt;提交&lt;/button&gt;</div><div class="line">        &lt;/div&gt;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//非受控组件</div><div class="line">class UnControlInput extends Component &#123;</div><div class="line">    constructor(props) &#123;</div><div class="line">        super(props);</div><div class="line">        this.state = &#123;&#125;;</div><div class="line">    &#125;</div><div class="line">    submit()&#123;</div><div class="line">        alert(this.myInput.value);</div><div class="line">    &#125;</div><div class="line">    render() &#123;</div><div class="line">        return (&lt;div&gt;</div><div class="line">            &lt;h3&gt;非受控组件：&lt;/h3&gt;</div><div class="line">            &lt;input type=&quot;text&quot; ref=&#123;input =&gt; this.myInput = input&#125; /&gt;</div><div class="line">            &lt;button onClick=&#123;()=&gt;this.submit()&#125; &gt;提交&lt;/button&gt;</div><div class="line">        &lt;/div&gt;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Index extends Component &#123;</div><div class="line">    constructor(props) &#123;</div><div class="line">        super(props);</div><div class="line">        this.state = &#123;&#125;;</div><div class="line">    &#125;</div><div class="line">    render() &#123;</div><div class="line">        return (&lt;div&gt;</div><div class="line">            &lt;ControlInput /&gt;</div><div class="line">            &lt;UnControlInput /&gt;</div><div class="line">        &lt;/div&gt;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">    &lt;Index /&gt;,</div><div class="line">    document.getElementById(&apos;app&apos;)</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p>这两个组件的功能和表现是一模一样的，但是根据其对表单值的控制行为，我们将其区分为受控组件和非受控组件两种。下面是官网对受控组件和非受控组件的介绍和定义：<br><em>We can combine the two by making the React state be the “single source of truth”. Then the React component that renders a form also controls what happens in that form on subsequent user input. An input form element whose value is controlled by React in this way is called a <b>“controlled component”</b>.</em></p>
+<p><em>In most cases, we recommend using controlled components to implement forms. In a controlled component, form data is handled by a React component. The alternative is <b>uncontrolled components</b>, where form data is handled by the DOM itself.</em></p>
+<blockquote>
+<p><a href="https://facebook.github.io/react/docs/forms.html" target="_blank" rel="external">受控组件</a>：也被称做“受限组件”或“受约束组件”。其所有状态属性的更改都由React 来控制，即它根据组件的props和state来改变组件的UI表现形式。<br><a href="https://facebook.github.io/react/docs/uncontrolled-components.html" target="_blank" rel="external">非受控组件</a>：不受React 的状态控制（state或props）。（非受控组件是在底层实现时内部维护了自己的状态state，这样表现出用户输入任何值都能反应到元素上。）<br>交互流程图如下：<br><img src="http://fe.sogou/wp-content/uploads/2017/09/controlComponent-0.png"></p>
+</blockquote>
+<h3 id="两种组件比较"><a href="#两种组件比较" class="headerlink" title="两种组件比较"></a>两种组件比较</h3><p>React 认为：组件应当只受状态的改变而改变，虽然使用受控组件在代码量上有所增加，但推荐使用受控组件。受控组件的组件状态由React 控制，可以更好的控制数据流，在用户输入时能够更新组件状态。</p>
+<p>受控组件的优势：<br>1、更符合React组件状态控制UI的思想。<br>2、外部props可以<b>实时</b>控制组件state，进而同步UI数据。<br>3、可以非常容易实现对用户输入的验证，或者对用户交互做额外的处理。<br>    <em>通过onChange方法来实现监控控制。当然，非受控组件也可以使用onChange，但是如果使用的话就不如直接做成受控组件了，代码量的优势也没有了</em>    </p>
+<p>那非受控组件真的就没有什么意义了吗？当然不是。对无需外部控制且无复杂交互的表单往往可以使用非受控组件。例如antd的<a href="https://ant.design/components/tree/" target="_blank" rel="external">Tree组件</a>，当有非常多的节点时,对TreeNode进行控制就不是很明智。Tree组件本身可以实现结果的保存获取，而再使用受控的方式则必须在每次变化时转换为输出格式，在控制变量变化时再转换为内部计算格式。如果转换过程比较耗时就会感到卡顿。（非受控组件内部可能由很多受控组件组成，受控组件和非受控组件组合实现React界面，两者缺一不可）</p>
+<p>受控组件和非受控组件的属性对比如下：</p>
+<table>
+<thead>
+<tr>
+<th>对比内容</th>
+<th>受控组件</th>
+<th>非受控组件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value/checked</td>
+<td>设置</td>
+<td>不设置</td>
+</tr>
+<tr>
+<td>onChange</td>
+<td>可使用</td>
+<td>可使用</td>
+</tr>
+<tr>
+<td>defaultValue/defaultChecked</td>
+<td>不起作用</td>
+<td>可使用</td>
+</tr>
+<tr>
+<td>ref</td>
+<td>没有必要</td>
+<td>可使用</td>
+</tr>
+<tr>
+<td>其他</td>
+<td>可使用</td>
+<td>可使用</td>
+</tr>
+</tbody>
+</table>
+<h3 id="受控组件用法整理"><a href="#受控组件用法整理" class="headerlink" title="受控组件用法整理"></a>受控组件用法整理</h3><p>1、根据上面思路，整理受控组件数据流控制流程图如下：<br><img src="http://fe.sogou/wp-content/uploads/2017/09/controlComponent-1.png"></p>
+<p>2、多表单元素可共享事件处理器<br>在创建表单组件时，有时多个组件的事件处理器功能相同或相似，这时我们可以在多个组件间共享一个事件处理器，而不用分别编写事件处理器。共享事件处理器时，需要解决参数传递的问题。</p>
+<blockquote>
+<p>a. 传参：事件监控函数传参区别组件，这里注意需要绑定this。（常用）<br>b. 通过底层DOMname属性区分：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">handleChange: function(event) &#123;</div><div class="line">    var newState = &#123;&#125;;</div><div class="line">    newState[event.target.name] = event.target.value;</div><div class="line">    this.setState(newState);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>c. 通过React <a href="http://www.css88.com/react/docs/addons.html" target="_blank" rel="external">addon</a>的<a href="http://www.css88.com/react/docs/two-way-binding-helpers.html" target="_blank" rel="external">LinkedStateMixin方法</a>实现共享(已经被React v15.5.抛弃，请转上面)</p>
+</blockquote>
+<h3 id="ANTD-Form组件"><a href="#ANTD-Form组件" class="headerlink" title="ANTD Form组件"></a><a href="https://ant.design/components/form-cn/" target="_blank" rel="external">ANTD Form组件</a></h3><p>项目中常会用到ANTD的FORM组件来实现复杂表单。Input等Data Entry表单元素组合出现在FormItem中，共同组成了Form表单。然而我们发现，我们往往并没有使用state或者props控制单个表单元素的value，而是使用了ANTD Form组件提供的getFieldDecorator方法注册监听各个表单元素。ANTD提供了一套API来控制表单元素，使用的是非受控的组件方法。</p>
+<p>从<a href="https://ant.design/components/form-cn/" target="_blank" rel="external">ANTD Form组件</a>官方示例和API介绍可以知道，ANTD Form组件实现了对表单元素的实时校验、获取设置值、UI扩展等功能。下面一段话摘自官网：</p>
+<p><em>经过 getFieldDecorator 包装的控件，表单控件会自动添加 value（或 valuePropName 指定的其他属性） onChange（或 trigger 指定的其他属性），数据同步将被 Form 接管，这会导致以下结果：<br>1、你不再需要也不应该用 onChange 来做同步，但还是可以继续监听 onChange 等事件。<br>2、你不能用控件的 value defaultValue 等属性来设置表单域的值，默认值可以用 getFieldDecorator 里的 initialValue。<br>3、你不应该用 setState，可以使用 this.props.form.setFieldsValue 来动态改变表单值。</em></p>
+<p>举个简单的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//此处省略......</div><div class="line">&lt;Form&gt;</div><div class="line">    &lt;FormItem</div><div class="line">        &#123;...formItemLayout&#125;</div><div class="line">        label=&apos;标识字体&apos;</div><div class="line">    &gt;&#123;getFieldDecorator(&apos;prmtff&apos;, &#123;</div><div class="line">        rules: [&#123;required: true, pattern:/^[A-Za-z \-,]*$/, message: &apos;请填写标识字体&apos;&#125;],</div><div class="line">        initialValue: value</div><div class="line">    &#125;)(</div><div class="line">        &lt;Input /&gt;</div><div class="line">    )&#125;</div><div class="line">    &lt;/FormItem&gt;</div><div class="line">&lt;/Form&gt;</div><div class="line">//此处省略......</div></pre></td></tr></table></figure></p>
+<p>看下源码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">//name即上面的prmtff，唯一标示，fieldOption即一系列配置项</div><div class="line">getFieldDecorator: function getFieldDecorator(name, fieldOption) &#123;</div><div class="line">  var _this2 = this;</div><div class="line"></div><div class="line">  //getFieldProps内实现了一系列配置绑定，根据传参生成返回一个inputProps对象</div><div class="line">  var props = this.getFieldProps(name, fieldOption);</div><div class="line">  //返回的方法传参fieldElem即示例中的&lt;Input /&gt;</div><div class="line">  return function (fieldElem) &#123;</div><div class="line">    /*getFieldMeta(name)方法在createFieldsStore.js中</div><div class="line">     *&#123;</div><div class="line">     * key: &apos;getFieldMeta&apos;,</div><div class="line">     * value: function getFieldMeta(name) &#123;</div><div class="line">     *   if (!this.fieldsMeta[name]) &#123;</div><div class="line">     *     this.fieldsMeta[name] = &#123;&#125;;</div><div class="line">     *   &#125;</div><div class="line">     *   return this.fieldsMeta[name];</div><div class="line">     * &#125;</div><div class="line">     *&#125;</div><div class="line">     *保证一个name只存储一个field</div><div class="line">     */</div><div class="line">    var fieldMeta = _this2.fieldsStore.getFieldMeta(name);</div><div class="line">    var originalProps = fieldElem.props;</div><div class="line">    //此处省略非production代码</div><div class="line">    //......</div><div class="line"></div><div class="line">    fieldMeta.originalProps = originalProps;</div><div class="line">    //内部实现了ref来控制表单元素，非受控组件用法</div><div class="line">    fieldMeta.ref = fieldElem.ref;</div><div class="line">    /* React.cloneElement</div><div class="line">     * 参数：TYPE（ReactElement），[PROPS（object）]，[CHILDREN（ReactElement）]</div><div class="line">     * 克隆并返回一个新的 ReactElement （内部子元素也会跟着克隆），新返回的元素会保留有旧元素的 props、ref、key，也会集成新的 props（只要在第二个参数中有定义）。</div><div class="line">     */</div><div class="line"></div><div class="line">    return _react2[&apos;default&apos;].cloneElement(fieldElem, (0, _extends3[&apos;default&apos;])(&#123;&#125;, props, _this2.fieldsStore.getFieldValuePropValue(fieldMeta)));</div><div class="line">  &#125;;</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
+<p>由源码可以看出，ANTD Form表单的确是用的非受控方式实现了对表单元素的控制，当然由于函数方法封装覆盖了表单元素的属性，所以ANTD官方也不建议在使用Form组件时使用value和defaultValue来直接控制表单元素（你可能会发现即使设置了也会失效，因为从源码可以看出，对表单元素属性进行了覆盖合并）。</p>
+<p>受控组件和非受控组件在react的使用中非常普遍，互相嵌套。Form表单如何更高效的使用，欢迎后续继续研究讨论。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢打赏<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2014" class="archive-year">2014</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/01/27/MooTools-search-report3/" class="archive-article-date">
-  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/01/27/MooTools-search-report3/">Mootools调研(3)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -191,245 +283,86 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://cz2013.github.io/2017/09/28/react-control-uncontrol/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/01/27/MooTools-search-report4/" class="archive-article-date">
-  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/01/27/MooTools-search-report4/">Mootools调研(4)</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/16/how-publish-react-npm/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何发布一个react组件包到NPM上</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/01/27/MooTools-search-report1/" class="archive-article-date">
-  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/01/27/MooTools-search-report1/">Mootools调研(1)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/01/27/MooTools-search-report5/" class="archive-article-date">
-  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/01/27/MooTools-search-report5/">Mootools调研(5)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/01/27/MooTools-search-report6/" class="archive-article-date">
-  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/01/27/MooTools-search-report6/">Mootools调研(6)</a>
-    </h1>
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/01/27/MooTools-search-report2/" class="archive-article-date">
-  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/01/27/MooTools-search-report2/">Mootools调研(2)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/01/26/HTML5Canvas-2/" class="archive-article-date">
-  	<time datetime="2014-01-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/01/26/HTML5Canvas-2/">HTML5 Canvas浅析(2)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -452,8 +385,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
