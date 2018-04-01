@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cz2013.github.io">
-  <title>Archives: 2015/8 | cz2013</title>
+  <title>postcss简介 | cz2013</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="cz2013">
-<meta property="og:url" content="http://cz2013.github.io/archives/2015/08/index.html">
+  <meta name="description" content="postcss官网定义，postcss是一个将css转化成js的工具。A tool for transforming CSS with JavaScriptpostcss是一个css构建工具。它负责把 CSS 代码解析成抽象语法树结构（Abstract Syntax Tree，AST），再交由插件来进行处理。我们常常在webpack中使用它，但是它可以在例如gulp的其他地方使用，感兴趣的同学可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="postcss简介">
+<meta property="og:url" content="http://cz2013.github.io/2018/04/01/postcss-study/index.html">
 <meta property="og:site_name" content="cz2013">
+<meta property="og:description" content="postcss官网定义，postcss是一个将css转化成js的工具。A tool for transforming CSS with JavaScriptpostcss是一个css构建工具。它负责把 CSS 代码解析成抽象语法树结构（Abstract Syntax Tree，AST），再交由插件来进行处理。我们常常在webpack中使用它，但是它可以在例如gulp的其他地方使用，感兴趣的同学可以">
+<meta property="og:updated_time" content="2018-04-01T10:38:49.364Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cz2013">
+<meta name="twitter:title" content="postcss简介">
+<meta name="twitter:description" content="postcss官网定义，postcss是一个将css转化成js的工具。A tool for transforming CSS with JavaScriptpostcss是一个css构建工具。它负责把 CSS 代码解析成抽象语法树结构（Abstract Syntax Tree，AST），再交由插件来进行处理。我们常常在webpack中使用它，但是它可以在例如gulp的其他地方使用，感兴趣的同学可以">
   
     <link rel="alternative" href="/atom.xml" title="cz2013" type="application/atom+xml">
   
@@ -148,136 +152,191 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-postcss-study" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      postcss简介
+    </h1>
+  
+
+        
+        <a href="/2018/04/01/postcss-study/" class="archive-article-date">
+  	<time datetime="2018-03-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-01</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://postcss.org/" target="_blank" rel="external">postcss</a>官网定义，postcss是一个将css转化成js的工具。<br><em>A tool for transforming CSS with JavaScript</em><br>postcss是一个css构建工具。它负责把 CSS 代码解析成抽象语法树结构（Abstract Syntax Tree，AST），再交由插件来进行处理。我们常常在webpack中使用它，但是它可以在例如gulp的其他地方使用，感兴趣的同学可以自己研究。在<a href="https://github.com/postcss/postcss#articles" target="_blank" rel="external">github</a>上有详细的介绍。这里我结合我们的mk系统架构简单介绍下常用的postcss api。<br><a id="more"></a></p>
+<h2 id="常用API介绍"><a href="#常用API介绍" class="headerlink" title="常用API介绍"></a>常用API介绍</h2><h3 id="autoprefixer"><a href="#autoprefixer" class="headerlink" title="autoprefixer"></a>autoprefixer</h3><p>虽然在simple-momo项目中木有使用这个api，我还是忍不住要介绍它，因为太常用了。</p>
+<p><a href="https://github.com/postcss/autoprefixer" target="_blank" rel="external">autoprefixer</a>的作用是识别css中的新属性，并为其自动生成添加浏览器兼容前缀的代码，从而保证尽量少的codding就可以实现兼容性。例如，代码中这么写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">::placeholder &#123;</div><div class="line">  color: gray;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用autoprefixer构建后就变成这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">::-webkit-input-placeholder &#123;</div><div class="line">  color: gray;</div><div class="line">&#125;</div><div class="line">:-ms-input-placeholder &#123;</div><div class="line">  color: gray;</div><div class="line">&#125;</div><div class="line">::-ms-input-placeholder &#123;</div><div class="line">  color: gray;</div><div class="line">&#125;</div><div class="line">::placeholder &#123;</div><div class="line">  color: gray;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="postcss-smart-import"><a href="#postcss-smart-import" class="headerlink" title="postcss-smart-import"></a>postcss-smart-import</h3><p>可以看到第一个引入的api插件就是它。<a href="https://github.com/sebastian-software/postcss-smart-import" target="_blank" rel="external">postcss-smart-import</a>在github上star数并不高，why？因为：</p>
+<p><em>This project is not maintained anymore. Please use postcss-import instead</em></p>
+<p>好吧，可以考虑更新包了～～</p>
+<p>不过不影响我们了解它。</p>
+<p><em>PostCSS plugin for loading/including other files (transform @import rules by inlining content) and quering/referring assets (referred in url() functions).</em></p>
+<p>翻译过来就是：postcss是一个加载引入其他文件（将@import方法引入的css转成内联）和查询静态资源（css中url（）方法中指定的静态资源）的插件。</p>
+<p>顾名思义，它主要解决的css的引入问题。独特的@import规则，css内静态资源的引入问题……</p>
+<p>ps：该插件的作者推荐它作为postcss众多插件中首先引入的：</p>
+<p><em>This plugin should probably be used as the first plugin of your list. This way, other plugins will work on the AST as if there were only a single file to process, and will probably work as you can expect.</em></p>
+<h3 id="postcss-cssnext"><a href="#postcss-cssnext" class="headerlink" title="postcss-cssnext"></a>postcss-cssnext</h3><p><a href="https://github.com/MoOx/postcss-cssnext" target="_blank" rel="external">postcss-cssnext</a>插件帮助我们能使用css最新特性，和js的polifill一样一样的。同理，它也帮助我们解决这些新特性的浏览器兼容性问题了。上官网描述：</p>
+<p>-PostCSS-cssnext is a PostCSS plugin that helps you to use the latest CSS syntax today. It transforms CSS specs into more compatible CSS so you don’t need to wait for browser support.-</p>
+<p>还可以看<a href="http://cssnext.io/" target="_blank" rel="external">cssnext官网</a>。下面再介绍下配置项。</p>
+<ul>
+<li>browsers：允许开发者定义需要兼容的浏览器范围。默认值： browserslist default &gt; 1%, last 2 versions, Firefox ESR, Opera 12.1</li>
+<li>features：顾名思义，定义属性。官方推荐使用browsers代替这个属性。</li>
+<li>warnForDuplicates：重复引入报警，默认true。官方认为除非确认要关闭该功能，否则不要更改。举个例子，引入autoprefixer + cssnext，引入autoprefixer里已经引入了cssnext，所以就可以起作用了。</li>
+<li>warnForDeprecations：冲突时报警。官方声明这里不要改，除非你做好承担后果的准备（赤果果的威胁～）</li>
+</ul>
+<h3 id="precss"><a href="#precss" class="headerlink" title="precss"></a>precss</h3><p><a href="https://github.com/jonathantneal/precss" target="_blank" rel="external">precss</a>提供了一个插件包,提供类似sass的语法特性。功能包括变量、条件语句和迭代器等等，感兴趣等同学继续挖吧～</p>
+<h3 id="postcss-px-to-viewport"><a href="#postcss-px-to-viewport" class="headerlink" title="postcss-px-to-viewport"></a>postcss-px-to-viewport</h3><p><a href="https://github.com/evrone/postcss-px-to-viewport" target="_blank" rel="external">postcss-px-to-viewport</a>字面意思就是将px转成viewport等单位（vw, vh, vmin, vmax）。手机端开发经常需要用到这个。</p>
+<p>同样可以在代码中看到这个是有配置项的。我们再一起了解下这些配置项的作用。首先看默认属性值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  viewportWidth: 320,</div><div class="line">  viewportHeight: 568,</div><div class="line">  unitPrecision: 5,</div><div class="line">  viewportUnit: &apos;vw&apos;,</div><div class="line">  selectorBlackList: [],</div><div class="line">  minPixelValue: 1,</div><div class="line">  mediaQuery: false</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>viewportWidth：(Number类型) viewport的宽度</li>
+<li>viewportHeight：(Number类型) viewport的高度</li>
+<li>unitPrecision：(Number类型) 我理解是允许的小数点最大位数.</li>
+<li>viewportUnit：(String类型) 设置要转成的单位</li>
+<li>selectorBlackList：(Array类型) 设置忽略转换单位的选择器。Array的值可以是字符串、正则等。</li>
+</ul>
+<h2 id="webpack引入方式"><a href="#webpack引入方式" class="headerlink" title="webpack引入方式"></a>webpack引入方式</h2><p>以webpack3语法为例，一般引入方式如下：<br>首先在moudle模块引入postcss加载器，放在style-loader和css-loader后面：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//这些选项确定如何处理项目中不同类型的模块。</div><div class="line">  module: &#123;</div><div class="line">    rules: [</div><div class="line">      // CSS 和 POSTCSS 加载器，使用嵌入 CSS.</div><div class="line">      &#123;</div><div class="line">        //设置对应的资源后缀.</div><div class="line">        test: /\.(css|scss)$/,</div><div class="line">        //设置后缀对应的加载器.</div><div class="line">        use: [</div><div class="line">          &#123; loader: &apos;style-loader&apos; &#125;,</div><div class="line">          &#123; loader: &apos;css-loader?modules&apos; &#125;,</div><div class="line">          &#123; loader: &apos;postcss-loader&apos; &#125;,</div><div class="line">        ]</div><div class="line">      &#125;</div><div class="line">    ]</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<p>然后，我们上面介绍的各种api配置放在哪里呢？答案是根目录下的postcss.config.js文件里，配置格式如下（非源码）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line">  plugins: [</div><div class="line">    require(&apos;postcss-conditionals&apos;)(),</div><div class="line">    require(&apos;postcss-simple-vars&apos;)(),  </div><div class="line">    require(&apos;postcss-each&apos;)(),</div><div class="line">    require(&apos;postcss-for&apos;)(),</div><div class="line">    require(&apos;postcss-mixins&apos;)(),</div><div class="line">    require(&apos;postcss-import&apos;)(),</div><div class="line">    require(&apos;postcss-nested&apos;)(),</div><div class="line">    require(&apos;postcss-atroot&apos;)(),</div><div class="line">    require(&apos;cssnext&apos;)(&#123;</div><div class="line">      features: &#123;rem: false&#125;</div><div class="line">    &#125;),</div><div class="line">    require(&apos;postcss-extend&apos;)()</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>postcss-loader的配置文件就是postcss.config.js。它有个很有意思的规则，就是对于postcss-loader来说，他优先取同目录下的postcss.config.js的配置属性。也就是我们可以根据业务情况在多个含有css文件的目录内配置不同的postcss.config.js，解析css时优先读取离他最近的postcss.config.js。为复杂场景的css构建方案提供了更加灵活的方式。</p>
+<h2 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h2><p>看到vue-cli已经引入了postcss-loader，查看package.json，果然没有引入。不过第三方开发的postcss插件还是需要引入的～</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢打赏<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/31/amcharts/" class="archive-article-date">
-  	<time datetime="2015-08-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/31/amcharts/">amcharts v.3开发小结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端技术</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://cz2013.github.io/2018/04/01/postcss-study/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/27/promise/" class="archive-article-date">
-  	<time datetime="2015-08-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/27/promise/">Javascript Promise技术</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/09/28/react-control-uncontrol/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">react 受控组件和非受控组件</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/04/3dCanvas/" class="archive-article-date">
-  	<time datetime="2015-08-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/04/3dCanvas/">3D Canvas技术</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
+
   
-  
-    </div></section>
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -300,8 +359,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

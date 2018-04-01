@@ -16,7 +16,7 @@
 <meta property="og:description" content="多提交按钮的表单用过Asp.net WebForms框架的人可能都写过这样的页面：一个页面中包含多个服务端按钮。处理方式嘛，也很简单：在每个按钮的事件处理器写上相应的代码就完事了，根本不用我们想太多。不过，对于不理解这背后处理过程的开发人员来说，当他们转到MVC框架下，可能会被卡住：MVC框架中可没有按钮事件！即使用不用MVC框架，用ashx通用处理器的方式，也会遇到这种问题，怎么办？">
 <meta property="og:image" content="http://cz2013.github.io/img/form-submit4.png">
 <meta property="og:image" content="http://cz2013.github.io/img/form-submit5.png">
-<meta property="og:updated_time" content="2017-05-03T07:13:40.601Z">
+<meta property="og:updated_time" content="2018-04-01T09:51:30.145Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Form表单提交详解(2)">
 <meta name="twitter:description" content="多提交按钮的表单用过Asp.net WebForms框架的人可能都写过这样的页面：一个页面中包含多个服务端按钮。处理方式嘛，也很简单：在每个按钮的事件处理器写上相应的代码就完事了，根本不用我们想太多。不过，对于不理解这背后处理过程的开发人员来说，当他们转到MVC框架下，可能会被卡住：MVC框架中可没有按钮事件！即使用不用MVC框架，用ashx通用处理器的方式，也会遇到这种问题，怎么办？">
@@ -307,8 +307,8 @@
     </a>
   
   
-    <a href="/2014/04/01/form-submit1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Form表单提交详解(1)</div>
+    <a href="/2014/01/27/MooTools-search-report6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mootools调研(6)</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -333,7 +333,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 cz2013
+    		&copy; 2018 cz2013
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -410,6 +410,10 @@
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">前端技术</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
