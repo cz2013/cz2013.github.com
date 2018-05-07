@@ -150,6 +150,98 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-weexToIOS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/07/weexToIOS/">Weex iOS 模块开发&amp;环境搭建</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/07/weexToIOS/" class="archive-article-date">
+  	<time datetime="2018-05-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>学习weex的ios开发，虽然weex官方有一些文档，但是变化很大维护的不是很及时，而且不算很细致，对于一个iOS还没探索过的前端同学，多走了很多坑。所以，我把走过的路总结下，希望对后面的同学能起到帮助。</p>
+<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>目的是能快速开发调试ios端weexmodule的和component。所以没有现有的App，一切从零开始，一切减法为上。</p>
+<h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><h4 id="iOS开发环境-和-CocoaPods"><a href="#iOS开发环境-和-CocoaPods" class="headerlink" title="iOS开发环境 和 CocoaPods"></a>iOS开发环境 和 CocoaPods</h4><p>搭建iOS开发环境，<a href="https://developer.apple.com/download/" target="_blank" rel="external">下载Xcode</a>。这里会要求注册开发者，只要普通免费的苹果账号（无需付费成为开发者）就可以申请iOS证书打包安装到自己手机测试。</p>
+<p>此处有坑就是新的Xcode要求mac升级到10.13.4版本。</p>
+<p>CocoaPods是用gem命令安装，需要设置ruby软件源。参考<a href="https://www.jianshu.com/p/f43b5964f582" target="_blank" rel="external">CocoaPods安装方法-2018.03.27</a></p>
+<h4 id="新建App"><a href="#新建App" class="headerlink" title="新建App"></a>新建App</h4><p>打开Xcode，新建Single View App，输入相关信息，create。</p>
+<p>第一次开发的同学可能需要在signing中配置下team信息为自己。这个时候的App就可以运行试试了。</p>
+<p>点击运行（三角形图标），发现只是build success的提示，模拟器呢？此一坑，设置下即可解决。</p>
+<p>选择Product - Scheme - Edit Scheme：</p>
+<p><img src="/img/ios-1.jpg"></p>
+<p>在Run中配置如下图。<br><img src="/img/ios-2.jpg"></p>
+<p>再运行Xcode，模拟器就打开了。</p>
+<p>注意，这里可以选择运行的模拟器，如果连上自己的苹果手机，还能在模拟器选择中选择识别的手机型号，从而构建匹配自己手机的APP。</p>
+<h4 id="集成Weex"><a href="#集成Weex" class="headerlink" title="集成Weex"></a>集成Weex</h4><p>首先要在App中引入Weex SDK，进入App的代码根目录。运行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//初始化生成Podfile</div><div class="line">pod init</div></pre></td></tr></table></figure>
+<p>查询WeexSDK，会出现很多条信息，找到WeexSDK的，复制下面的<code>pod &#39;WeexSDK&#39;, &#39;~&gt; 0.18.0&#39;</code>修改Podfile。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod search WeexSDK</div></pre></td></tr></table></figure></p>
+<p>修改Podfile：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim Podfile</div></pre></td></tr></table></figure></p>
+<p>在<code># use_frameworks!</code>后添加查询的值<code>pod &#39;WeexSDK&#39;, &#39;~&gt; 0.18.0&#39;</code>，保存退出。</p>
+<p>下载WeexSDK依赖：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod install --no-repo-update</div></pre></td></tr></table></figure></p>
+<p>现在Weex已经集成到我们的App中了。再用Xcode打开App，可以在Linked Frameworks and Libraries中发现添加了libPods。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">open iosTest.xcworkspace</div></pre></td></tr></table></figure>
+<h4 id="开发Module"><a href="#开发Module" class="headerlink" title="开发Module"></a>开发Module</h4><p>以前面的App为例，用Xcode打开的工程里找到iosTest文件夹，可以在其中新建我们自定义的module的h和m文件。</p>
+<p>iosTest文件夹上右键 - New File，新建h（Header File），取名MyMd5Module - create</p>
+<p>修改内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">#import &lt;WeexSDK/WeexSDK.h&gt;</div><div class="line"></div><div class="line">@interface MyMd5Module : NSObject&lt;WXModuleProtocol&gt;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p>新建同名的.m文件。内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">#import &quot;MyMd5Module.h&quot;</div><div class="line">#import &lt;CommonCrypto/CommonDigest.h&gt;</div><div class="line"></div><div class="line"></div><div class="line">static NSString *encryptionKey = @&quot;momo(Nd′568GGS%d~~9naei&apos;;45vhhafdjkv]32rpks;lg,];:vjo(&amp;**&amp;^)&quot;;</div><div class="line"></div><div class="line">@implementation MyMd5Module</div><div class="line"></div><div class="line">WX_EXPORT_METHOD(@selector(toMd5:callback:))</div><div class="line"></div><div class="line"></div><div class="line">- (NSString *)toMd5:(NSString *)string callback:(WXModuleKeepAliveCallback)callback&#123;</div><div class="line">    if (!string) &#123;</div><div class="line">        if (callback) &#123;</div><div class="line">            callback(@&quot;Error: message should be passed correctly.&quot;,NO);</div><div class="line">        &#125;</div><div class="line">        return nil;</div><div class="line">    &#125;</div><div class="line">    const char *cStr = [string UTF8String];</div><div class="line">    unsigned char digest[CC_MD5_DIGEST_LENGTH];</div><div class="line">    </div><div class="line">    CC_MD5(cStr, (CC_LONG)strlen(cStr), digest);</div><div class="line">    </div><div class="line">    NSMutableString *result = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];</div><div class="line">    for (int i = 0; i &lt; CC_MD5_DIGEST_LENGTH; i++) &#123;</div><div class="line">        [result appendFormat:@&quot;%02X&quot;, digest[i]];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    NSLog(@&quot;%@&quot;, result);</div><div class="line">    if (callback) &#123;</div><div class="line">        callback(@&#123;@&quot;result&quot;:@&quot;success&quot;,@&quot;data&quot;:result&#125;, NO);</div><div class="line">    &#125;</div><div class="line">    return nil;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p>踩坑如下：<br>1、所以Weex注册方法应该设置为<code>-</code>开头，表示是实例方法。<code>+</code>表示是类方法。weex中注册方法都会实例化方法，所以之前用了<code>+</code>，总是在模拟器端看不到效果。<br>2、weexpack工具官方的一些说明和weex官方页面的说明有区别，暴露module对外方法是在.m文件内定义的。但是module的注册方法是在App的AppDelegate.m中定义的。按照官方说明的代码可以实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#import &quot;AppDelegate.h&quot;</div><div class="line">#import &quot;WXAppConfiguration.h&quot;</div><div class="line">#import &quot;WXSDKEngine.h&quot;</div><div class="line">#import &quot;WXLog.h&quot;</div><div class="line">#import &quot;MyMd5Module.h&quot;</div><div class="line"></div><div class="line">@interface AppDelegate ()</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation AppDelegate</div><div class="line"></div><div class="line"></div><div class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions &#123;</div><div class="line">    // Override point for customization after application launch.</div><div class="line">    </div><div class="line">    //business configuration</div><div class="line">    [WXAppConfiguration setAppGroup:@&quot;myApp&quot;];</div><div class="line">    [WXAppConfiguration setAppName:@&quot;WeexDemo&quot;];</div><div class="line">    [WXAppConfiguration setAppVersion:@&quot;1.0.0&quot;];</div><div class="line">    </div><div class="line">    //init sdk environment</div><div class="line">    [WXSDKEngine initSDKEnvironment];</div><div class="line">    </div><div class="line">    //register custom module and component，optional</div><div class="line">    //[WXSDKEngine registerComponent:@&quot;MyView&quot; withClass:[MyViewComponent class]];</div><div class="line">    [WXSDKEngine registerModule:@&quot;mwsMd5&quot; withClass:[MyMd5Module class]];</div><div class="line">    </div><div class="line"></div><div class="line">    //[WXSDKEngine registerHandler:[WXNavigationDefaultImpl new] withProtocol:@protocol(WXNavigationProtocol)];</div><div class="line">    </div><div class="line">    //set the log level</div><div class="line">    [WXLog setLogLevel: WXLogLevelAll];</div><div class="line">    </div><div class="line">    return YES;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">- (void)applicationWillResignActive:(UIApplication *)application &#123;</div><div class="line">    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.</div><div class="line">    // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">- (void)applicationDidEnterBackground:(UIApplication *)application &#123;</div><div class="line">    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.</div><div class="line">    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">- (void)applicationWillEnterForeground:(UIApplication *)application &#123;</div><div class="line">    // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">- (void)applicationDidBecomeActive:(UIApplication *)application &#123;</div><div class="line">    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">- (void)applicationWillTerminate:(UIApplication *)application &#123;</div><div class="line">    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<h4 id="模拟器调试"><a href="#模拟器调试" class="headerlink" title="模拟器调试"></a>模拟器调试</h4><p>我们知道App运行Weex页面其实是打开了一个url。所以我们还需要在App中开发默认打开页面进入我们的bundle.js页面。</p>
+<p>App的界面代码在ViewController.m中，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#import &quot;ViewController.h&quot;</div><div class="line">#import &lt;WeexSDK/WXSDKInstance.h&gt;</div><div class="line"></div><div class="line">@interface ViewController ()</div><div class="line">//WXSDKInstance属性</div><div class="line">@property (nonatomic, strong) WXSDKInstance *instance;</div><div class="line">//URL属性(用于指定加载js的URL,一般声明在接口中,我们为了测试方法写在了类扩展中.)</div><div class="line">@property (nonatomic, strong) NSURL *url;</div><div class="line">//Weex视图</div><div class="line">@property (weak, nonatomic) UIView *weexView;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation ViewController</div><div class="line"></div><div class="line">//重写viewDidLoad</div><div class="line">- (void)viewDidLoad</div><div class="line">&#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    // 创建WXSDKInstance对象</div><div class="line">    _instance = [[WXSDKInstance alloc] init];</div><div class="line">    // 设置weexInstance所在的控制器</div><div class="line">    _instance.viewController = self;</div><div class="line">    //设置weexInstance的frame</div><div class="line">    _instance.frame = self.view.frame;</div><div class="line">    //设置weexInstance用于渲染的`js`的URL路径(后面说明)</div><div class="line">    [_instance renderWithURL:self.url options:@&#123;@&quot;bundleUrl&quot;:[self.url absoluteString]&#125; data:nil];</div><div class="line">    //为了避免循环引用声明一个弱指针的`self`</div><div class="line">    __weak typeof(self) weakSelf = self;</div><div class="line">    //设置weexInstance创建完毕回调</div><div class="line">    _instance.onCreate = ^(UIView *view) &#123;</div><div class="line">        weakSelf.weexView = view;</div><div class="line">        [weakSelf.weexView removeFromSuperview];</div><div class="line">        [weakSelf.view addSubview:weakSelf.weexView];</div><div class="line">    &#125;;</div><div class="line">    // 设置`weexInstance`出错的回调</div><div class="line">    _instance.onFailed = ^(NSError *error) &#123;</div><div class="line">        //process failure</div><div class="line">        NSLog(@&quot;处理失败:%@&quot;,error);</div><div class="line">    &#125;;</div><div class="line">    //设置渲染完成的回调</div><div class="line">    _instance.renderFinish = ^ (UIView *view) &#123;</div><div class="line">        //process renderFinish</div><div class="line">        NSLog(@&quot;渲染完成&quot;);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line">- (NSURL *)url &#123;</div><div class="line">    if (!_url) &#123;</div><div class="line">        _url =  [[NSBundle mainBundle] URLForResource:@&quot;examples/native/index&quot;   withExtension:@&quot;js&quot;];</div><div class="line">    &#125;</div><div class="line">    return _url;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">- (void)didReceiveMemoryWarning &#123;</div><div class="line">    [super didReceiveMemoryWarning];</div><div class="line">    // Dispose of any resources that can be recreated.</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)dealloc</div><div class="line">&#123;</div><div class="line">    //  销毁WXSDKInstance实例</div><div class="line">    [self.instance destroyInstance];</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p>代码里可以看到，URLForResource我设置为examples/native/index.js。你也可以设置为其他值。vue的工程一般在其他文件夹，也有热更新。所以只要在Xcode中更目录下右键 - Add Files to “xxx”中选择vue的工程目录即可。或者直接把热更新编译后的js引入也行。记得修改这里的路径。</p>
+<p>最后点击运行，看到结果了~<br><img src="/img/ios-3.jpg"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/07/weexToIOS/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-vue2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -727,73 +819,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/05/02/hexo-deploy/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-LAMP1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/27/LAMP1/">LAMP环境搭建</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/27/LAMP1/" class="archive-article-date">
-  	<time datetime="2017-04-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>要搭建一个前端技术博客，经过调研决定使用 Wordpress + LAMP 的web框架。这里先介绍下LAMP环境搭建。</p>
-<p><em>LAMP（Linux + Apache + Mysql/MariaDB + Perl/PHP/Python），一组常用来搭建动态网站或者服务器的开源软件，本身都是各自独立的程序，但是因为常被放在一起使用，拥有了越来越高的兼容度，共同组成了一个强大的Web应用程序平台。从网站的流量上来说，70%以上的访问流量是LAMP来提供的，LAMP是最强大的网站解决方案。（——摘自百度百科）</em></p>
-<p>这里我们使用的是 Linux + Apache + Mysql + PHP 方案。经过调研，分别安装很麻烦，只需要装一个XAMPP即可。</p>
-<p><em>XAMPP（Apache+MySQL+PHP+PERL）是一个功能强大的建站集成软件包。这个软件包原来的名字是 LAMPP，但是为了避免误解，最新的几个版本就改名为 XAMPP 了。它可以在Windows、Linux、Solaris、Mac OS X 等多种操作系统下安装使用，支持多语言：英文、简体中文、繁体中文、韩文、俄文、日文等。XAMPP 是一个易于安装且包含 MySQL、PHP 和 Perl 的 Apache 发行版。XAMPP 的确非常容易安装和使用：只需下载，解压缩，启动即可。（——摘自百度百科）</em></p>
-        
-          <a class="article-more-a" href="/2017/04/27/LAMP1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/27/LAMP1/">展开全文 >></a>
         </p>
       
 
