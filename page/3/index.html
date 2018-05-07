@@ -550,19 +550,19 @@
 
 
   
-    <article id="post-form-submit4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-form-submit3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/04/01/form-submit4/">Form表单提交详解(4)</a>
+      <a class="article-title" href="/2014/04/01/form-submit3/">Form表单提交详解(3)</a>
     </h1>
   
 
         
-        <a href="/2014/04/01/form-submit4/" class="archive-article-date">
+        <a href="/2014/04/01/form-submit3/" class="archive-article-date">
   	<time datetime="2014-03-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-04-01</time>
 </a>
         
@@ -570,10 +570,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="以Ajax方式提交部分表单"><a href="#以Ajax方式提交部分表单" class="headerlink" title="以Ajax方式提交部分表单"></a>以Ajax方式提交部分表单</h4><p>在前面的示例中，我们看到以Ajax方式提交一个表单是非常容易的，它完全模拟了浏览器的行为。不过，有时我们可能需要只提交表单的一部分，为的是更好的局部更新，那么又该如何做呢？<br>假如我有以下表单的一部分，我只希望在用户某个按钮时将它提交到服务端：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">&lt;div id=<span class="string">"divCustomerInfo"</span>&gt;</div><div class="line"></div><div class="line">    &lt;p&gt;客户名称: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"CustomerName"</span> style=<span class="string">"width: 300px"</span> /&gt;&lt;/p&gt;</div><div class="line">    </div><div class="line">    &lt;p&gt;客户电话: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"CustomerTel"</span> style=<span class="string">"width: 300px"</span> /&gt;&lt;/p&gt;</div><div class="line">    </div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+        <h4 id="MVC-Controller中多个自定义类型的传入参数"><a href="#MVC-Controller中多个自定义类型的传入参数" class="headerlink" title="MVC Controller中多个自定义类型的传入参数"></a>MVC Controller中多个自定义类型的传入参数</h4><p>前面的所有示例代码中都有一个规律：在服务端读取浏览器提交的数据时，都会使用控件的name属性，基本上在Asp.net中就是这样处理。但是在MVC中，MS为了简化读取表单数据的代码，可以让我们直接在Controller的方法中直接以传入参数的形式指定，此时框架会自动根据方法的参数名查找对应的输入数据（当然也不止表单数据了）。下面举个简单的例子：</p>
         
-          <a class="article-more-a" href="/2014/04/01/form-submit4/#more">more >></a>
+          <a class="article-more-a" href="/2014/04/01/form-submit3/#more">more >></a>
         
       
 
@@ -597,71 +596,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2014/04/01/form-submit4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-form-submit1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/04/01/form-submit1/">Form表单提交详解(1)</a>
-    </h1>
-  
-
-        
-        <a href="/2014/04/01/form-submit1/" class="archive-article-date">
-  	<time datetime="2014-03-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-04-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>愚人节快乐！作为一个接触前端时间不长的人来说，jQuery等框架已经封装好了很多dom操作、ajax方法，大大简化了初学者的学习和开发成本。所以在接触一些旧的开发代码时，往往会觉得十分不明觉厉。例如，Form表单提交。<br>Form表单提交，在jQuey中完全可以被模仿和取代，利用ajax方法传参给后端，简洁大方，清晰易懂（此处省略一万字）。但是，尤其是在面对旧系统，或者后端开发为主的系统（内部系统，无专业前端开发）时，你会发现Form表单方式来提交信息时非常普遍的。这个时候，我们要了解它的运行过程。下面，是我调研的Form表单内容，看完对这个知识点有了新的认识。希望能对大家有用。</p>
-        
-          <a class="article-more-a" href="/2014/04/01/form-submit1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/04/01/form-submit1/">展开全文 >></a>
+          <a class="article-more-a" href="/2014/04/01/form-submit3/">展开全文 >></a>
         </p>
       
 
@@ -743,19 +678,19 @@
 
 
   
-    <article id="post-form-submit3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-form-submit1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/04/01/form-submit3/">Form表单提交详解(3)</a>
+      <a class="article-title" href="/2014/04/01/form-submit1/">Form表单提交详解(1)</a>
     </h1>
   
 
         
-        <a href="/2014/04/01/form-submit3/" class="archive-article-date">
+        <a href="/2014/04/01/form-submit1/" class="archive-article-date">
   	<time datetime="2014-03-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-04-01</time>
 </a>
         
@@ -763,9 +698,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="MVC-Controller中多个自定义类型的传入参数"><a href="#MVC-Controller中多个自定义类型的传入参数" class="headerlink" title="MVC Controller中多个自定义类型的传入参数"></a>MVC Controller中多个自定义类型的传入参数</h4><p>前面的所有示例代码中都有一个规律：在服务端读取浏览器提交的数据时，都会使用控件的name属性，基本上在Asp.net中就是这样处理。但是在MVC中，MS为了简化读取表单数据的代码，可以让我们直接在Controller的方法中直接以传入参数的形式指定，此时框架会自动根据方法的参数名查找对应的输入数据（当然也不止表单数据了）。下面举个简单的例子：</p>
+        <p>愚人节快乐！作为一个接触前端时间不长的人来说，jQuery等框架已经封装好了很多dom操作、ajax方法，大大简化了初学者的学习和开发成本。所以在接触一些旧的开发代码时，往往会觉得十分不明觉厉。例如，Form表单提交。<br>Form表单提交，在jQuey中完全可以被模仿和取代，利用ajax方法传参给后端，简洁大方，清晰易懂（此处省略一万字）。但是，尤其是在面对旧系统，或者后端开发为主的系统（内部系统，无专业前端开发）时，你会发现Form表单方式来提交信息时非常普遍的。这个时候，我们要了解它的运行过程。下面，是我调研的Form表单内容，看完对这个知识点有了新的认识。希望能对大家有用。</p>
         
-          <a class="article-more-a" href="/2014/04/01/form-submit3/#more">more >></a>
+          <a class="article-more-a" href="/2014/04/01/form-submit1/#more">more >></a>
         
       
 
@@ -789,7 +724,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2014/04/01/form-submit3/">展开全文 >></a>
+          <a class="article-more-a" href="/2014/04/01/form-submit1/">展开全文 >></a>
         </p>
       
 
@@ -807,29 +742,30 @@
 
 
   
-    <article id="post-MooTools-search-report3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-form-submit4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/01/27/MooTools-search-report3/">Mootools调研(3)</a>
+      <a class="article-title" href="/2014/04/01/form-submit4/">Form表单提交详解(4)</a>
     </h1>
   
 
         
-        <a href="/2014/01/27/MooTools-search-report3/" class="archive-article-date">
-  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
+        <a href="/2014/04/01/form-submit4/" class="archive-article-date">
+  	<time datetime="2014-03-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-04-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="3-功能"><a href="#3-功能" class="headerlink" title="3 功能"></a>3 功能</h2><h3 id="3-1-OOP继承"><a href="#3-1-OOP继承" class="headerlink" title="3.1 OOP继承"></a>3.1 OOP继承</h3><h4 id="类的实现和扩展"><a href="#类的实现和扩展" class="headerlink" title="类的实现和扩展"></a>类的实现和扩展</h4><p>MooTools框架的core中定义了class方法：</p>
+        <h4 id="以Ajax方式提交部分表单"><a href="#以Ajax方式提交部分表单" class="headerlink" title="以Ajax方式提交部分表单"></a>以Ajax方式提交部分表单</h4><p>在前面的示例中，我们看到以Ajax方式提交一个表单是非常容易的，它完全模拟了浏览器的行为。不过，有时我们可能需要只提交表单的一部分，为的是更好的局部更新，那么又该如何做呢？<br>假如我有以下表单的一部分，我只希望在用户某个按钮时将它提交到服务端：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">&lt;div id=<span class="string">"divCustomerInfo"</span>&gt;</div><div class="line"></div><div class="line">    &lt;p&gt;客户名称: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"CustomerName"</span> style=<span class="string">"width: 300px"</span> /&gt;&lt;/p&gt;</div><div class="line">    </div><div class="line">    &lt;p&gt;客户电话: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"CustomerTel"</span> style=<span class="string">"width: 300px"</span> /&gt;&lt;/p&gt;</div><div class="line">    </div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report3/#more">more >></a>
+          <a class="article-more-a" href="/2014/04/01/form-submit4/#more">more >></a>
         
       
 
@@ -853,7 +789,71 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2014/01/27/MooTools-search-report3/">展开全文 >></a>
+          <a class="article-more-a" href="/2014/04/01/form-submit4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-MooTools-search-report4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/01/27/MooTools-search-report4/">Mootools调研(4)</a>
+    </h1>
+  
+
+        
+        <a href="/2014/01/27/MooTools-search-report4/" class="archive-article-date">
+  	<time datetime="2014-01-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="3-2-事件管理"><a href="#3-2-事件管理" class="headerlink" title="3.2 事件管理"></a>3.2 事件管理</h3><p>Element.Event，提供事件的包装，元素绑定事件机制；Element.Delegation，提供事件委托机制, 即把一个(动态)子元素上的事件处理绑定委托到父容器上。都可在core文件中查看源码。<br>下面介绍几个常用的事件管理方法：<br>MooTools已经提供了window对象的自定义事件: ‘domready’。 MooTools就是用window.addEvent(‘domready’, function() {})方式来代替传统JavaScript的window.onload 方法的。</p>
+        
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report4/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/前端技术/" class="article-tag-list-link color5">前端技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2014/01/27/MooTools-search-report4/">展开全文 >></a>
         </p>
       
 
